@@ -1,6 +1,6 @@
-## Laravel 5-5 example ##
+## WebUnion##
 
-**Laravel 5-5 example** is a tutorial application.
+**WebUnion - Laravel 5.5**
 
 ### Installation ###
 
@@ -46,7 +46,7 @@
 * Contact us page
 * Admin dashboard with users, posts, articles, medias, settings, notifications and comments
 * Multi users medias gestion
-* Localization (English, French and Chinese)
+* Localization (Spanish, English, French and Chinese)
 * Application tests
 * Thumbs creation for images
 * Notifications to send emails and notify redactors for new comments
@@ -69,7 +69,3 @@ When you want to launch the tests refresh and populate the database :
 You must have default settings and **en** language. You must also add provider in **config/app.php**.
 
 You can then use Dusk.
-
-### License ###
-
-This example for Laravel is open-sourced software licensed under the MIT license
