@@ -22,6 +22,8 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('front/layout',MenuComposer::class);
 
+        view()->composer('front/layout_OLD',MenuComposer::class);
+
         view()->composer('back/layout',HeaderComposer::class);
 
         Blade::if('admin', function () {

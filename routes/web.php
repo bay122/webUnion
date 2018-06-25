@@ -18,7 +18,8 @@
 */
 
 // Home
-Route::name('home')->get('/', 'Front\PostController@index');
+Route::name('home')->get('/', 'Front\UCController@index');
+Route::name('home')->get('/home', 'Front\PostController@index');
 
 // Contact
 Route::resource('contacts', 'Front\ContactController', ['only' => ['create', 'store']]);

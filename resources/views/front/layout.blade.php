@@ -6,7 +6,8 @@
 
 	<!--- basic page needs
 	================================================== -->
-	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta charset="UTF-8">
 	<title>{{ isset($post) && $post->seo_title ? $post->seo_title :  __(lcfirst('Title')) }}</title>
 	<meta name="description" content="{{ isset($post) && $post->meta_description ? $post->meta_description : __('description') }}">
 	<meta name="author" content="@lang(lcfirst ('Author'))">
@@ -15,15 +16,33 @@
 	@endif
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Comunion es una web que publica mensualmente boletines con informacion de interes respecto al trabajo interno que se realiza en la Iglesia Union Cristiana.">
+    <meta name="keywords" content="blog, news, boletines, misiones, iglesia, Union Cristiana, cristiano, social, instagram, audio, video, twitter, Viña del mar, chile, valparaiso">
+
 	<!-- mobile specific metas
 	================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
 	<!-- CSS
 	================================================== -->
-	<link rel="stylesheet" href="{{ asset('css/base.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/base.css') }}"><!-- ARCHIVO CSS CUSTOM PAGINA EJEMPLO -->
 	<link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/main.css') }}"><!-- ARCHIVO PRINCIPAL PAGINA EJEMPLO -->
+
+	<!-- ================================================== -->
+	<!-- CUSTOMS UC CSS -->
+	<!-- Font Awesome -->
+	<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"->
+	<!-- Bootstrap -->
+    <!--link rel="stylesheet" type="text/css" href="{{asset('plugins/bootstrap/css/bootstrap.css')}}"-->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{asset('css/uc.css')}}" media="all" /><!-- ARCHIVO CSS CUSTOM PAGINA COMUNION -->
+    <!-- Base CSS -->
+	<link rel="stylesheet" type="text/css" href="{{asset('css/general.css')}}" media="all" /><!-- ARCHIVO PRINCIPAL PAGINA COMUNION -->
+    <!-- ================================================== -->
+
 	@yield('css')
 
 	<style>
@@ -38,6 +57,16 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
 
+	<script>
+        (function(html) {
+            html.className = html.className.replace(/\bno-js\b/, 'js')
+        })(document.documentElement);
+    </script>
+
+    <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/jquery-1.12.4.js') }}"></script>
+		
+
 	<!-- favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -48,169 +77,28 @@
 <body id="top">
 
 	<!-- header
-   ================================================== -->
+   ================================================== - ->
    <header class="short-header">
-
-   	<div class="gradient-block"></div>
-
-   	<div class="row header-content">
-
-   		<div class="logo">
-	    	<a href="{{ url('') }}">Author</a>
-	    </div>
-
-	   	<nav id="main-nav-wrap">
-			<ul class="main-navigation sf-menu">
-				<li {{ currentRoute('home') }}>
-					<a href="{{ route('home') }}">@lang('Home')</a>
-				</li>
-				<li class="has-children">
-					<a href="#">@lang('Categories')</a>
-					<ul class="sub-menu">
-						@foreach ($categories as $category)
-							<li><a href="{{ route('category', [$category->slug ]) }}">{{ $category->title }}</a></li>
-						@endforeach
-					</ul>
-				</li>
-				@guest
-					<li {{ currentRoute('contacts.create') }}>
-						<a href="{{ route('contacts.create') }}">@lang('Contact')</a>
-					</li>
-				@endguest
-				@request('register')
-					<li class="current">
-						<a href="{{ request()->url() }}">@lang('Register')</a>
-					</li>
-				@endrequest
-				@request('password/email')
-					<li class="current">
-						<a href="{{ request()->url() }}">@lang('Forgotten password')</a>
-					</li>
-				@else
-					@guest
-						<li {{ currentRoute('login') }}>
-							<a href="{{ route('login') }}">@lang('Login')</a>
-						</li>
-						@request('password/reset')
-							<li class="current">
-								<a href="{{ request()->url() }}">@lang('Password')</a>
-							</li>
-						@endrequest
-						@request('password/reset/*')
-							<li class="current">
-								<a href="{{ request()->url() }}">@lang('Password')</a>
-							</li>
-						@endrequest
-					@else
-						@admin
-							<li>
-								<a href="{{ url('admin') }}">@lang('Administration')</a>
-							</li>
-						@endadmin
-						@redac
-							<li>
-								<a href="{{ url('admin/posts') }}">@lang('Administration')</a>
-							</li>
-						@endredac
-						<li>
-							<a id="logout" href="{{ route('logout') }}">@lang('Logout')</a>
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">
-								{{ csrf_field() }}
-							</form>
-						</li>
-					@endguest
-				@endrequest
-			</ul>
-		</nav> <!-- end main-nav-wrap -->
-
-		<div class="search-wrap">
-			<form role="search" method="get" class="search-form" action="{{ route('posts.search') }}">
-				<label>
-					<input type="search" class="search-field" placeholder="@lang('Type Your Keywords')"  name="search" autocomplete="off" required>
-				</label>
-				<input type="submit" class="search-submit" value="">
-			</form>
-
-			<a href="#" id="close-search" class="close-btn">Close</a>
-
-		</div> <!-- end search wrap -->
-
-		<div class="triggers">
-			<a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
-			<a class="menu-toggle" href="#"><span>Menu</span></a>
-		</div> <!-- end triggers -->
-
-   	</div>
-
+		@ include('partials.header')
    </header> <!-- end header -->
 
-   @yield('main')
+    <header id="masthead" class="bg-white header-style-2 navbar-fixed-top header-img navbar-top shadow-header" 
+    		itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+			@include('uc.templates.partials.header')
+			@include('uc.templates.partials.nav')
+	</header><!-- end header -->
+	<div class="below-navigation clear-both"></div>
+
+    <!-- INICIO CONTENT -->
+		@yield('main')
+	<!-- FIN CONTENT -->
 
    <!-- footer
    ================================================== -->
    <footer>
-
-   	<div class="footer-main">
-
-   		<div class="row">
-
-	      	<div class="col-six tab-full mob-full footer-info">
-
-	            <h4>@lang('About Our Site')</h4>
-
-	               <p>@lang('Lorem ipsum Ut velit dolor Ut labore id fugiat in ut fugiat nostrud qui in dolore commodo eu magna Duis cillum dolor officia esse mollit proident Excepteur exercitation nulla. Lorem ipsum In reprehenderit commodo aliqua irure labore.')</p>
-
-		      </div> <!-- end footer-info -->
-
-	      	<div class="col-three tab-1-2 mob-1-2 site-links">
-
-	      		<h4>@lang('Site Links')</h4>
-
-	      		<ul>
-				  	<li><a href="#">@lang('About us')</a></li>
-					<li><a href="{{ url('') }}">@lang('Blog')</a></li>
-					<li><a href="{{ route('contacts.create') }}">@lang('Contact')</a></li>
-					<li><a href="#">@lang('Privacy Policy')</a></li>
-				</ul>
-
-	      	</div> <!-- end site-links -->
-
-	      	<div class="col-three tab-1-2 mob-1-2 social-links">
-
-	      		<h4>@lang('Social')</h4>
-
-	      		<ul>
-	      			<li><a href="#">Twitter</a></li>
-					<li><a href="#">Facebook</a></li>
-					<li><a href="#">Dribbble</a></li>
-					<li><a href="#">Google+</a></li>
-					<li><a href="#">Instagram</a></li>
-				</ul>
-
-	      	</div> <!-- end social links -->
-
-	      </div> <!-- end row -->
-
-   	</div> <!-- end footer-main -->
-
-      <div class="footer-bottom">
-      	<div class="row">
-
-      		<div class="col-twelve">
-	      		<div class="copyright">
-		         	<span>© Copyright Abstract 2016</span>
-		         	<span>Design by <a href="http://www.styleshout.com/">styleshout</a></span>
-		         </div>
-
-		         <div id="go-top">
-		            <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon icon-arrow-up"></i></a>
-		         </div>
-	      	</div>
-
-      	</div>
-      </div> <!-- end footer-bottom -->
-
-   </footer>
+   		<!-- @ include('partials.footer') -->
+		@include('uc.templates.partials.footer')
+	</footer><!-- end footer -->
 
    <div id="preloader">
     	<div id="loader"></div>
@@ -218,7 +106,7 @@
 
    <!-- Java Script
    ================================================== -->
-   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+   <!--script src="https://code.jquery.com/jquery-3.2.0.min.js"></script-->
    <script src="{{ asset('js/plugins.js') }}"></script>
    <script src="{{ asset('js/main.js') }}"></script>
    <script>
@@ -229,8 +117,65 @@
 		   })
 	   })
    </script>
-
+	
    @yield('scripts')
+
+   <!-- CUSTOM Java Script
+   ================================================== -->
+   <!-- Scripts -->
+	<script src="{{ asset('js/app.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('plugins/otros/js/utils.js') }}"></script><!--  CARRUSEL Y MENU LATERAL -->
+	<script type="text/javascript" src="{{ asset('plugins/otros/js/infinite_scroll.js') }}"></script><!--  INFINITE SCROLL -->
+	<script type="text/javascript" src="{{ asset('plugins/otros/js/animated_head.js') }}"></script><!--  ANIMATED HEADER -->
+	<script type="text/javascript" src="{{ asset('plugins/otros/js/galery.js') }}"></script><!--  galery -->
+    <!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- ===========================
+    <script type='text/javascript'>
+        var mc4wp_forms_config = [];
+    </script>
+    =========================== -->
+    <!--script defer type="text/javascript" src="{{ asset('plugins/otros/js/sourceMappingURL.js') }}"></script-->
+
+
+    <!--[if lte IE 9]>
+		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/placeholders/4.0.1/placeholders.min.js'></script>
+	<![endif]-->
+
+	<!-- BOTONES LATERALES
+   ================================================== -->
+    <script type="text/javascript">
+        /*
+		<![CDATA[*/
+        jQuery(document).ready(function($) {
+            var $lateralSocualMenuDiv = '<div class="web-theme alt-font xs-display-none"><a href="http://www.unioncristiana.cl" target="_blank"><span> Web Union Crisiana</span></a></div><div class="quick-question alt-font xs-display-none"><a href="https://www.youtube.com/channel/UC-wwU93xQVE175shmbhU6Zg" target="_blank"><span>Canal YouTube</span></a></div>';
+            $('body').append($lateralSocualMenuDiv);
+        }); /*]]>*/
+    </script><!-- end botones laterales -->
+
+	<!-- CARRUSEL
+   ================================================== -->
+    <script type="text/javascript">
+        /*
+        <![CDATA[*/
+        jQuery(document).ready(function() {
+            jQuery(".paperio-feature-style2").owlCarousel({
+                navigation: true,
+                navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+                pagination: true,
+                autoPlay: 3000,
+                stopOnHover: true,
+                items: 1,
+                itemsDesktop: [1199, 1],
+                itemsDesktopSmall: [979, 1],
+                itemsTablet: [768, 1],
+                itemsMobile: [767, 1]
+            });
+        }); /*]]>*/
+    </script><!-- end carrusel -->
 
 </body>
 

@@ -78,7 +78,7 @@ body {
 /* ------------------------------------------------------------------- 
  * links - (_document-setup.scss)  
  * ------------------------------------------------------------------- */
-a,
+/*a,
 a:visited {
 	color: #1237B1;
 	border-bottom: 1px solid transparent;
@@ -93,7 +93,7 @@ a:hover,
 a:focus {
 	color: #000000;
 	border-color: rgba(21, 21, 21, 0.2);
-}
+}*/
 
 /* ===================================================================
  *  03. typography & general theme styles - (_document-setup.scss) 
@@ -543,6 +543,7 @@ td:last-child {
  *  05. forms - (_forms.scss)
  *
  * ------------------------------------------------------------------- */
+ /*
 fieldset {
 	border: none;
 }
@@ -620,7 +621,7 @@ select {
 	color: #252525;
 }
 
-/* IE9 and below */
+/* IE9 and below * /
 .oldie .ss-custom-select::after {
 	display: none;
 }
@@ -669,7 +670,7 @@ label > input[type="radio"] {
 	position: relative;
 	top: .15rem;
 }
-
+*/
 /**
  * Style Placeholder Text  
  */
@@ -698,6 +699,7 @@ label > input[type="radio"] {
  *  06. buttons - (_button-essentials.scss)
  *
  * ------------------------------------------------------------------- */
+ /*
 .button,
 a.button,
 button,
@@ -815,7 +817,7 @@ input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
-
+*/
 
 /* ===================================================================
  *  07. other components - (_others.scss)
@@ -1552,6 +1554,7 @@ input::-moz-focus-inner {
  *  09. header styles - (_layout.scss)
  *
  * ------------------------------------------------------------------- */
+/*
 header {
 	width: 100%;
 	background: #DBDBDB url(../images/escheresque_@2X.png) repeat;
@@ -1578,10 +1581,12 @@ header a {
 	}
 
 }
+*/
 
 /* ------------------------------------------------------------------- 
  * header logo - (_layout.css) 
  * ------------------------------------------------------------------- */
+ /*
 header .logo {
 	position: absolute;
 	left: 35px;
@@ -1608,10 +1613,12 @@ header .logo a {
 	-ms-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 }
+*/
 
 /* responsive:
  * header logo
  * ------------------------------------------------------------------- */
+ /*
 @media only screen and (max-width:768px) {
 	header .logo {
 		left: 45px;
@@ -1638,7 +1645,7 @@ header .logo a {
 	}
 
 }
-
+*/
 /* ------------------------------------------------------------------- 
  * navigation - (_layout.css) 
  * ------------------------------------------------------------------- */
@@ -2038,7 +2045,7 @@ header .logo a {
 	background: white;
 	opacity: 0;
 	visibility: hidden;
-	z-index: 900;
+	z-index: 1900;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -2107,7 +2114,7 @@ header .logo a {
 	height: auto;
 	width: 100%;
 	font-family: "montserrat-bold", sans-serif;
-	font-size: 6.3rem;
+	font-size: 4.3rem;
 	line-height: 1.523;
 	letter-spacing: 0.02rem;
 	border-bottom: 1px solid #dedede;
@@ -2336,11 +2343,13 @@ header .logo a {
  *
  * ------------------------------------------------------------------- */
 #bricks {
-	padding-top: 4.2rem;
+	padding-top: 2.2rem;
 }
 
 #bricks .masonry {
 	max-width: 1440px;
+	margin-left: 15px;
+	margin-right: auto;
 }
 
 #bricks .pagination {
@@ -2457,6 +2466,7 @@ header .logo a {
  *  13. footer - (_layout.scss)
  *
  * ------------------------------------------------------------------- */
+ /*
 footer {
 	padding-top: 9rem;
 	padding-bottom: 3rem;
@@ -2556,10 +2566,11 @@ footer ul li {
 .footer-bottom .copyright span:last-child::after {
 	display: none;
 }
-
+*/
 /* responsive:
  * footer
  * ------------------------------------------------------------------- */
+/*
 @media only screen and (max-width:768px) {
 	.footer-main .footer-info {
 		text-align: center;
@@ -2625,10 +2636,11 @@ footer ul li {
 	}
 
 }
-
+*/
 /* -------------------------------------------------------------------
  * go to top
  * ------------------------------------------------------------------- */
+/*
 #go-top {
 	position: fixed;
 	bottom: 24px;
@@ -2671,10 +2683,12 @@ footer ul li {
 	background: #000000;
 	color: #FFFFFF;
 }
-
+*/
 /* responsive:
  * go top
  * ------------------------------------------------------------------- */
+/*
+
 @media only screen and (max-width:600px) {
 	#go-top {
 		bottom: 0;
@@ -2682,7 +2696,7 @@ footer ul li {
 	}
 
 }
-
+*/
 
 /* ===================================================================
  *  14. blog styles

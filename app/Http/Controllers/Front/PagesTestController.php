@@ -15,43 +15,81 @@ class PagesTestController extends Controller
 {
     public function home()
     {
-        $categories = Category::all();
+        /*$categories = Category::all();
         foreach ($categories as $category) {
             $category->route = $this->_getRoute($category->name);
         }
+        */
+        $category1 = (object)array(
+            "image" => (object)array("route" => "images/categories/EDITORIAL.jpg"),
+            "route" => "route",
+            "name" => "COLUMNA EDITORIAL",
+            "description" => (object)array("label" => "VER NOTICIAS")
+        );
+        $category2 = (object)array(
+            "image" => (object)array("route" => "images/categories/NOTAS.jpg"),
+            "route" => "route",
+            "name" => "NOTAS",
+            "description" => (object)array("label" => "VER NOTICIAS")
+        );
+        $category3 = (object)array(
+            "image" => (object)array("route" => "images/categories/MINISTERIOS.jpg"),
+            "route" => "route",
+            "name" => "MINISTERIOS",
+            "description" => (object)array("label" => "VER NOTICIAS")
+        );
+        $category4 = (object)array(
+            "image" => (object)array("route" => "images/categories/MISIONES.jpg"),
+            "route" => "route",
+            "name" => "MISIONES",
+            "description" => (object)array("label" => "VER NOTICIAS")
+        );
+        $category5 = (object)array(
+            "image" => (object)array("route" => "images/categories/AGENDA.jpg"),
+            "route" => "route",
+            "name" => "AGENDA",
+            "description" => (object)array("label" => "PROXIMOS EVENTOS")
+        );
+        $category6 = (object)array(
+            "image" => (object)array("route" => "images/categories/GALERIA.jpg"),
+            "route" => "route",
+            "name" => "GALERIA",
+            "description" => (object)array("label" => "VER FOTOS")
+        );
 
+        $categories = array($category1,$category2,$category3,$category4,$category5,$category6);
         //$lastArticleNotas = User::orderby('created_at', 'desc')->first();
-    	return view('front.uc.welcome', ['categories' => $categories]);
+    	return view('uc.welcome', ['categories' => $categories]);
     }
 
     public function editorial()
     {
         $category = Category::find(1);
-        return view('front.uc.articulos.editorial', ['category' => $category]);
+        return view('uc.articulos.editorial', ['category' => $category]);
     }
 
     public function notas()
     {
         $category = Category::find(2);
-        return view('front.uc.articulos.notas', ['category' => $category]);
+        return view('uc.articulos.notas', ['category' => $category]);
     }
 
     public function ministerios()
     {
         $category = Category::find(3);
-        return view('front.uc.articulos.ministerios', ['category' => $category]);
+        return view('uc.articulos.ministerios', ['category' => $category]);
     }
 
     public function misiones()
     {
        $category = Category::find(4);
-        return view('front.uc.articulos.misiones', ['category' => $category]);
+        return view('uc.articulos.misiones', ['category' => $category]);
     }
 
     public function agenda()
     {
         $category = Category::find(5);
-        return view('front.uc.articleView',front.uc. ['category' => $category]);
+        return view('uc.articleView', ['category' => $category]);
     }
 
     public function galery()
@@ -59,7 +97,7 @@ class PagesTestController extends Controller
         $category = Category::find(6);
         $newName = "Sociales - ".$category->name;
         $category->name = $newName;
-        return view('front.uc.galery', ['category' => $category]);
+        return view('uc.galery', ['category' => $category]);
     }
 
     public function sociales()
@@ -67,22 +105,22 @@ class PagesTestController extends Controller
         $category = Category::find(6);
         $newName = "Sociales - ".$category->name;
         $category->name = $newName;
-        return view('front.uc.galery', ['category' => $category]);
+        return view('uc.galery', ['category' => $category]);
     }
 
     public function contact()
     {
-        return view('front.uc.contact');
+        return view('uc.contact');
     }
 
     public function notFound()
     {
-        return view('front.uc.404');
+        return view('uc.404');
     }
 
     public function login()
     {
-        return view('front.uc.login');
+        return view('uc.login');
     }
 
     private function _getRoute($category){
