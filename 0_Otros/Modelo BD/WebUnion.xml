@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
-<!-- Active URL: http://db.lewagon.com/ -->
+<!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
 <sql>
 <datatypes db="mysql">
 	<group label="Numeric" color="rgb(238,238,170)">
@@ -144,9 +144,12 @@
 <row name="bo_bloqueado" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>0</default></row>
-<row name="bo_tripulante" null="1" autoincrement="0">
+<row name="bo_tripulante" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>0</default></row>
+<row name="bo_corporacion" null="0" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>0</default></row>
 <key type="PRIMARY" name="">
 <part>id_usuario</part>
 </key>
