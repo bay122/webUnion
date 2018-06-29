@@ -22,43 +22,40 @@
                                 <div class="leave-form fl-left">
                                     <div class="blog-comment-form">
                                         <div class="row">
-
-                                            <div class="col-md-12 col-sm-12 col-xs-12 no-padding">
-                                                <div class="col-md-4 col-sm-4 col-xs-12 margin-four-bottom text-center">
-                                                    <div class="col-md-12 no-padding margin-bottom-10">
-                                                        <i class="fa fa-map-marker title-larger text-gray"></i>
-                                                    </div>
-                                                    <div class="col-md-12 no-padding">
-                                                        <span class=" text-uppercase alt-font text-black">Visítanos</span>
-                                                        </p>
-                                                        <p class="text-medium no-margin">
+                                            <div class="row">
+                                             <div class="col-md-12 col-sm-12 col-xs-12 no-padding">
+                                            
+                                              <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <center>
+                                                   <i class="fa fa-map-marker title-larger text-black "></i><br>
+                                                   <span class=" text-uppercase alt-font text-black">Visítanos</span>
+                                                   <p class="text-medium no-margin">
                                                             Arlegui y Etchever, Viña del Mar, <br /> Quinta Región de Valparaíso, Chile.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-sm-4 col-xs-12 margin-four-bottom text-center">
-                                                    <div class="col-md-12 no-padding margin-bottom-10">
-                                                        <i class="fa fa-envelope-o title-larger text-gray"></i>
-                                                    </div>
-                                                    <div class="col-md-12 no-padding">
-                                                        <span class=" text-uppercase alt-font text-black">Escríbenos</span>
-                                                        </p>
-                                                        <div class="text-medium no-margin">
-                                                            <a class="gray-text" href="mailto:sales@domain.com">contacto@unioncristiana.com</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-sm-4 col-xs-12 margin-four-bottom text-center">
-                                                    <div class="col-md-12 no-padding margin-bottom-10">
-                                                        <i class="fa fa-mobile title-larger text-gray"></i>
-                                                    </div>
-                                                    <div class="col-md-12 no-padding">
-                                                        <span class="text-uppercase alt-font text-black">Llámanos</span>
-                                                        </p>
-                                                        <p class="text-medium no-margin">+56 (32) 271 0953</p>
-                                                    </div>
-                                                </div>
+                                                    </p>
+                                                </center>
+                                              </div>
+                                              <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <center>
+                                                  <i class="fa fa-envelope-o title-larger text-black"></i><br>
+                                                    <span class=" text-uppercase alt-font text-black">Escríbenos</span>
+                                                   <p class="text-medium no-margin">
+                                                          <a class="gray-text" href="mailto:sales@domain.com">contacto@unioncristiana.com</a>
+                                                    </p>
+                                                </center>
+                                              </div>
+                                              <div class="col-md-4 col-sm-4 col-xs-12">
+                                                 <center>
+                                                   <i class="fa fa-mobile title-larger text-black"></i><br>
+                                                   <span class="text-uppercase alt-font text-black">Llámanos</span>
+                                                   <p class="text-medium no-margin">
+                                                            +56 (32) 271 0953
+                                                    </p>
+                                                </center>
+                                              </div>
                                             </div>
+                                            
+                                            </div>
+                                            <br> <br>
 
                                             <div class="col-md-12 col-sm-12 col-xs-12 map  margin-four-bottom"> 
                                                 <iframe height="313" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6690.383921018448!2d-71.5570941!3d-33.0250728!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689dde23ce5bc85%3A0x1d6ec5c1fd013bfd!2sIglesia+Uni%C3%B3n+Cristiana+de+Vi%C3%B1a+del+Mar!5e0!3m2!1ses-419!2scl!4v1500385509745" style="pointer-events: none;" id="map_canvas1" class="width-100">
