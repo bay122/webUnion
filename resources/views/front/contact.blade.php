@@ -3,7 +3,7 @@
 @section('title', 'Contacto')
 
 @section('main')
-    <div id="post-145" class="post-145 page type-page status-publish has-post-thumbnail hentry">
+    <div class="page type-page status-publish has-post-thumbnail hentry">
         <section class="page-title-small border-bottom-mid-gray border-top-mid-gray blog-single-page-background bg-gray">
             <div class="container-fluid">
                 <div class="col-md-12 col-sm-12 col-xs-12 text-center"><span class="text-extra-small text-uppercase alt-font right-separator blog-single-page-meta">Cómo Encontrarnos</span>
