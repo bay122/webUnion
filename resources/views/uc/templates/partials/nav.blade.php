@@ -14,10 +14,25 @@
                         <li {{ currentRoute('home') }} id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
                             <a href="{{ url('') }}" itemprop="url">@lang('Home')</a>
                         </li>
-                        <li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
-                            <a href="{{ url('articles/editorial') }}" itemprop="url">Quienes somos?</a>
+                        <li id="menu-item-231" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-72 dropdown">
+                            <a class="dropdown-caret-icon" data-toggle="dropdown">
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            <a href="#" class="dropdown-toggle" itemprop="url">Sobre Nosotros</a>
+                            <ul class="sub-menu dropdown-menu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-post text-nowrap" itemprop="url">
+                                    <a href="{{ url('/informacion/nosotros') }}">Quienes Somos?</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-post text-nowrap" itemprop="url">
+                                    <a href="{{ url('/informacion/ministerios') }}">Nuestros Ministerios</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li id="menu-item-72" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-72 dropdown"><a class="dropdown-caret-icon" data-toggle="dropdown"><i class="fa fa-caret-down"></i></a><a href="#" class="dropdown-toggle" itemprop="url">Comunión</a>
+                        <li id="menu-item-72" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-72 dropdown">
+                            <a class="dropdown-caret-icon" data-toggle="dropdown">
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            <a href="#" class="dropdown-toggle" itemprop="url">Comunión</a>
                             <ul class="sub-menu dropdown-menu">
                                 @foreach ($categories as $category)
                                     <li class="menu-item menu-item-type-post_type menu-item-object-post text-nowrap" itemprop="url"><a href="{{ route('category', [$category->slug ]) }}">{{ $category->title }}</a></li>
