@@ -84,8 +84,8 @@
 
     <header id="masthead" class="bg-white header-style-2 navbar-fixed-top header-img navbar-top shadow-header" 
     		itemscope="itemscope" itemtype="http://schema.org/WPHeader">
-			@include('uc.templates.partials.header')
-			@include('uc.templates.partials.nav')
+			@include('front.partials.header')
+			@include('front.partials.nav')
 	</header><!-- end header -->
 	<div class="below-navigation clear-both"></div>
 
@@ -97,7 +97,7 @@
    ================================================== -->
    <footer>
    		<!-- @ include('partials.footer') -->
-		@include('uc.templates.partials.footer')
+		@include('front.partials.footer')
 	</footer><!-- end footer -->
 
    <div id="preloader">
