@@ -351,11 +351,11 @@ textarea {
  *  03. grid - (_grid.scss)
  *
  * ------------------------------------------------------------------- */
-.row {
+/*.row {
 	width: 94%;
 	max-width: 1170px;
 	margin: 0 auto;
-}
+}*/
 
 .row:before,
 .row:after {
