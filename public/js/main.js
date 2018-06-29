@@ -598,6 +598,16 @@
 	};
 
 
+  /* Toggle Content
+	* ------------------------------------------------------ */
+	var ssToggleContent = function() {
+
+		$('.toggle-button').on('click', function (e) {
+			var target = $(this).parent().find('.toggle-section');
+			$(target).fadeToggle(1100);
+	  	});
+
+	};
 
   /* Initialize
 	* ------------------------------------------------------ */
@@ -619,6 +629,7 @@
 		ssAjaxChimp();		
 		ssBackToTop();
 		ssGoogleMap();
+		ssToggleContent();
 
 	})();
  
