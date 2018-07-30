@@ -38,9 +38,10 @@
                             <label for="role">@lang('Role')</label>
                             <select class="form-control" name="role" id="role">
                                 <option value="admin" {{ old('role', $user->role) === 'admin' ? 'selected' : '' }}>@lang('Administrator')</option>
-                                <option value="redac" {{ old('role', $user->role) === 'redac' ? 'selected' : '' }}>@lang('Redactor')</option>
-                                <option value="user" {{ old('role', $user->role) === 'user' ? 'selected' : '' }}>@lang('User')</option>
-                            </select>
+                                <option value="tripulante" {{ old('role', $user->role) === 'tripulante' ? 'selected' : '' }}>@lang('Tripulante')</option>
+                                <option value="user" {{ old('role', $user->role) === 'user' ? 'selected' : '' }}>@lang('User')</option>                                
+                                <!--<option value="redac" {{ old('role', $user->role) === 'redac' ? 'selected' : '' }}>@lang('Redactor')</option>-->
+                            </select>  
                         </div>
                         @if ($user->ingoing)
                             <div class="checkbox">
