@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'GreatAdmin',
                 'email' => 'admin@la.fr',
-                'password' => bcrypt('admin'),
+                'password' => bcrypt('123'),
                 'role' => 'admin',
                 'valid' => true,
                 'confirmed' => true,
@@ -31,8 +31,8 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'GreatRedactor',
                 'email' => 'redac@la.fr',
-                'password' => bcrypt('redac'),
-                'role' => 'redac',
+                'password' => bcrypt('123'),
+                'role' => 'tripulante',
                 'valid' => true,
                 'confirmed' => true,
                 'remember_token' => str_random(10),
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Walker',
                 'email' => 'walker@la.fr',
-                'password' => bcrypt('walker'),
+                'password' => bcrypt('123'),
                 'role' => 'user',
                 'valid' => true,
                 'confirmed' => true,
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Slacker',
                 'email' => 'slacker@la.fr',
-                'password' => bcrypt('slacker'),
+                'password' => bcrypt('123'),
                 'role' => 'user',
                 'valid' => true,
                 'confirmed' => true,
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Worker',
                 'email' => 'worker@la.fr',
-                'password' => bcrypt('worker'),
+                'password' => bcrypt('123'),
                 'role' => 'user',
                 'valid' => false,
                 'confirmed' => true,
@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Sorditofublos',
                 'email' => 'sordi@la.fr',
-                'password' => bcrypt('sordi'),
+                'password' => bcrypt('123'),
                 'role' => 'user',
                 'valid' => true,
                 'confirmed' => true,
@@ -97,7 +97,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Martinobinus',
                 'email' => 'martin@la.fr',
-                'password' => bcrypt('martin'),
+                'password' => bcrypt('123'),
                 'role' => 'user',
                 'valid' => false,
                 'confirmed' => false,
@@ -149,7 +149,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Post 1',
             'slug' => 'post-1',
             'seo_title' => 'Post 1',
-            'user_id' => 1,
+            'id_usuario' => 1,
             'image' => '/files/img01.jpg',
         ]);
 
@@ -157,7 +157,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Post 2',
             'slug' => 'post-2',
             'seo_title' => 'Post 2',
-            'user_id' => 1,
+            'id_usuario' => 1,
             'image' => '/files/img02.jpg',
         ]);
 
@@ -167,7 +167,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Post 3',
             'slug' => 'post-3',
             'seo_title' => 'Post 3',
-            'user_id' => 2,
+            'id_usuario' => 2,
             'image' => '/files/user2/img03.jpg',
         ]);
 
@@ -175,7 +175,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Post 4',
             'slug' => 'post-4',
             'seo_title' => 'Post 4',
-            'user_id' => 2,
+            'id_usuario' => 2,
             'image' => '/files/user2/img04.jpg',
         ]);
 
@@ -183,7 +183,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Post 5',
             'slug' => 'post-5',
             'seo_title' => 'Post 5',
-            'user_id' => 2,
+            'id_usuario' => 2,
             'image' => '/files/user2/img05.jpg',
         ]);
 
@@ -191,7 +191,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Post 6',
             'slug' => 'post-6',
             'seo_title' => 'Post 6',
-            'user_id' => 2,
+            'id_usuario' => 2,
             'image' => '/files/user2/img06.jpg',
         ]);
 
@@ -199,7 +199,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Post 7',
             'slug' => 'post-7',
             'seo_title' => 'Post 7',
-            'user_id' => 2,
+            'id_usuario' => 2,
             'image' => '/files/user2/img07.png',
         ]);
 
@@ -209,7 +209,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Post 8',
             'slug' => 'post-8',
             'seo_title' => 'Post 8',
-            'user_id' => 2,
+            'id_usuario' => 2,
             'image' => '/files/user2/img08.jpg',
         ]);
 
@@ -217,7 +217,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Post 9',
             'slug' => 'post-9',
             'seo_title' => 'Post 9',
-            'user_id' => 2,
+            'id_usuario' => 2,
             'image' => '/files/user2/img09.jpg',
             'meta_description' => 'Aperiam molestiae ut sed vel harum nulla vel.',
             'meta_keywords' => 'minus,facilis,quo',
@@ -230,7 +230,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Post 10',
             'slug' => 'post-10',
             'seo_title' => 'Post 10',
-            'user_id' => 2,
+            'id_usuario' => 2,
             'image' => '/files/user2/img10.jpg',
         ]);
 
@@ -277,18 +277,18 @@ class DatabaseSeeder extends Seeder
         foreach (range(1, $nbrPosts) as $i) {
             factory(Comment::class)->create([
                 'post_id' => $i,
-                'user_id' => rand(1, $nbrUsers),
+                'id_usuario' => rand(1, $nbrUsers),
             ]);
         }
 
         $comment1 = factory(Comment::class)->create([
             'post_id' => 2,
-            'user_id' => 3,
+            'id_usuario' => 3,
         ]);
 
         $comment2 = factory(Comment::class)->create([
             'post_id' => 4,
-            'user_id' => 4,
+            'id_usuario' => 4,
         ]);
 
         $nbrComments = $nbrPosts + 2;
@@ -296,26 +296,26 @@ class DatabaseSeeder extends Seeder
         // Comments second level
         $comment3 = factory(Comment::class)->create([
             'post_id' => 2,
-            'user_id' => 4,
+            'id_usuario' => 4,
             //'parent_id' => $nbrComments - 1,
         ])->makeChildOf($comment1);
 
         factory(Comment::class)->create([
             'post_id' => 4,
-            'user_id' => 5,
+            'id_usuario' => 5,
             //'parent_id' => $nbrComments,
         ])->makeChildOf($comment2);
 
         // Comments third level
         factory(Comment::class)->create([
             'post_id' => 2,
-            'user_id' => 2,
+            'id_usuario' => 2,
             //'parent_id' => $nbrComments + 1,
         ])->makeChildOf($comment3);
 
         factory(Comment::class)->create([
             'post_id' => 2,
-            'user_id' => 1,
+            'id_usuario' => 1,
             //'parent_id' => $nbrComments + 1,
         ])->makeChildOf($comment3);
 
