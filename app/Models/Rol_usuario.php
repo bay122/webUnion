@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_rol
  * @property int $id_usuario_usuario
  */
-class Roles_usuarios extends Model
+class Roles_usuario extends Model
 {
     /**
      * The table associated with the model.

@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_departamento
  * @property string $gl_comentario
  */
-class Usuario_recomendaciones extends Model
+class Usuario_recomendacion extends Model
 {
     /**
      * The primary key for the model.

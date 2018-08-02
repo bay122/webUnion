@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $data
  * @property string $read_at
  */
-class Notifications extends Model
+class Notification extends Model
 {
     /**
      * @var array

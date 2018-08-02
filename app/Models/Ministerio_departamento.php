@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $bo_activo
  * @property int $id_ministerio_ministerio
  */
-class Ministerio_departamentos extends Model
+class Ministerio_departamento extends Model
 {
     /**
      * The table associated with the model.

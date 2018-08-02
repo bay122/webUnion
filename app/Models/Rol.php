@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $gl_nombre
  * @property string $gl_json_permisos
  */
-class Roles extends Model
+class Rol extends Model
 {
     /**
      * @var array

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $gl_latitud
  * @property float $gl_longitud
  */
-class Regiones extends Model
+class Region extends Model
 {
     /**
      * The primary key for the model.

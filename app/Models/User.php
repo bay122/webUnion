@@ -1,8 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ResetPassword as ResetPasswordNotification;
+use App\Events\ModelCreated;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @property int $id_usuario
@@ -18,8 +22,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property Comment[] $comments
  * @property Post[] $posts
  */
-class User extends Model
+class User extends Authenticatable
 {
+	use Notifiable, IngoingTrait;
+
     /**
      * The primary key for the model.
      * 
@@ -27,24 +33,78 @@ class User extends Model
      */
     protected $primaryKey = 'id_usuario';
 
-    /**
+	/**
+     * The event map for the model.
+     *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password', 'rol', 'valid', 'bo_bloqueado', 'bo_tripulante', 'bo_corporacion'];
+    protected $dispatchesEvents = [
+        'created' => ModelCreated::class,
+    ];
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'email', 'password', 'rol', 'confirmed', 'valid', 'bo_bloqueado', 'bo_tripulante', 'bo_corporacion'
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+	/**
+     * One to Many relation
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function comments()
+	public function posts()
+	{
+		return $this->hasMany(Post::class);
+	}
+
+	/**
+     * One to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+	public function comments()
+	{
+		return $this->hasMany(Comment::class);
+	}
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
     {
-        return $this->hasMany('App\Comment', 'id_usuario', 'id_usuario');
+        $this->notify(new ResetPasswordNotification($token));
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Get user files directory
+     *
+     * @return string|null
      */
-    public function posts()
+    public function getFilesDirectory()
     {
-        return $this->hasMany('App\Post', 'id_usuario', 'id_usuario');
+        if ($this->role === 'redac') {
+            $folderPath = 'user' . $this->id;
+            if (!in_array($folderPath , Storage::disk('files')->directories())) {
+                Storage::disk('files')->makeDirectory($folderPath);
+            }
+            return $folderPath;
+        }
+        return null;
     }
 }

@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_ministerio_tipo
  * @property string $gl_descripcion
  */
-class ministerios extends Model
+class ministerio extends Model
 {
     /**
      * The primary key for the model.

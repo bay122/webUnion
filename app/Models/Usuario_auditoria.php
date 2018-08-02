@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $id_publica
  * @property string $gl_tipo_medio
  */
-class Usuarios_auditoria extends Model
+class Usuario_auditoria extends Model
 {
     /**
      * The table associated with the model.

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_pais
  * @property int $gl_nombre
  */
-class Paises extends Model
+class Pais extends Model
 {
     /**
      * The primary key for the model.

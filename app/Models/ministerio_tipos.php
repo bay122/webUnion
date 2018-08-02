@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $gl_nombre
  * @property string $gl_descripcion
  */
-class ministerios_tipos extends Model
+class ministerio_tipos extends Model
 {
     /**
      * The primary key for the model.

@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $gl_sexo
  * @property string $size
  */
-class Usuarios_datos extends Model
+class Usuario_datos extends Model
 {
     /**
      * The primary key for the model.

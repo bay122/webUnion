@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property boolean $bo_estado
  * @property string $gl_json_dato_contacto
  */
-class Usuarios_contacto extends Model
+class Usuario_contacto extends Model
 {
     /**
      * The table associated with the model.
