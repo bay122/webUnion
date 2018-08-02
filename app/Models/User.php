@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
  * @property string $name
  * @property string $email
  * @property string $password
- * @property string $rol
+ * @property string $role
  * @property string $size
  * @property boolean $valid
  * @property int $bo_bloqueado
@@ -48,7 +48,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'rol', 'confirmed', 'valid', 'bo_bloqueado', 'bo_tripulante', 'bo_corporacion'
+        'name', 'email', 'password', 'role', 'confirmed', 'valid', 'bo_bloqueado', 'bo_tripulante', 'bo_corporacion'
     ];
 
     /**
@@ -98,7 +98,7 @@ class User extends Authenticatable
      */
     public function getFilesDirectory()
     {
-        if ($this->role === 'redac') {
+        if ($this->role === 'redac' || $this->role === 'tripulante') {
             $folderPath = 'user' . $this->id;
             if (!in_array($folderPath , Storage::disk('files')->directories())) {
                 Storage::disk('files')->makeDirectory($folderPath);
