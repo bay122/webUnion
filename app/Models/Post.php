@@ -8,6 +8,20 @@ use App\Events\ {
     PostUpdated
 };
 
+/**
+ * @property int $id
+ * @property int $id_usuario
+ * @property string $title
+ * @property string $slug
+ * @property string $seo_title
+ * @property string $excerpt
+ * @property string $body
+ * @property string $meta_description
+ * @property string $meta_keywords
+ * @property boolean $active
+ * @property string $image
+ * @property Usuario $usuario
+ */
 class Post extends Model
 {
     use IngoingTrait;
@@ -28,7 +42,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'slug', 'seo_title', 'excerpt', 'body', 'meta_description', 'meta_keywords', 'active', 'image', 'user_id'
+        'title', 'slug', 'seo_title', 'excerpt', 'body', 'meta_description', 'meta_keywords', 'active', 'image', 'id_usuario'
     ];
 
     /**

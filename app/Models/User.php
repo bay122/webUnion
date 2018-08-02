@@ -8,9 +8,30 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
 use App\Events\ModelCreated;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * @property int $id_usuario
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $role
+ * @property string $size
+ * @property boolean $valid
+ * @property int $bo_bloqueado
+ * @property int $bo_tripulante
+ * @property boolean $bo_corporacion
+ * @property Comment[] $comments
+ * @property Post[] $posts
+ */
 class User extends Authenticatable
 {
 	use Notifiable, IngoingTrait;
+
+    /**
+     * The primary key for the model.
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'id_usuario';
 
 	/**
      * The event map for the model.
@@ -27,7 +48,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'confirmed', 'valid'
+        'name', 'email', 'password', 'role', 'confirmed', 'valid', 'bo_bloqueado', 'bo_tripulante', 'bo_corporacion'
     ];
 
     /**
@@ -77,7 +98,7 @@ class User extends Authenticatable
      */
     public function getFilesDirectory()
     {
-        if ($this->role === 'redac') {
+        if ($this->role === 'redac' || $this->role === 'tripulante') {
             $folderPath = 'user' . $this->id;
             if (!in_array($folderPath , Storage::disk('files')->directories())) {
                 Storage::disk('files')->makeDirectory($folderPath);

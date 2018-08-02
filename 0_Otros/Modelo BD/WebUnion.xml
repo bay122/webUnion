@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
+<sql>
+<datatypes db="mysql">
+	<group label="Numeric" color="rgb(238,238,170)">
+		<type label="Integer" length="0" sql="INTEGER" quote=""/>
+	 	<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+	 	<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+	 	<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+	 	<type label="INT" length="0" sql="INT" quote=""/>
+		<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+		<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+	</group>
+
+	<group label="Character" color="rgb(255,200,200)">
+		<type label="Char" length="1" sql="CHAR" quote="'"/>
+		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+		<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+		<type label="Binary" length="1" sql="BINARY" quote="'"/>
+		<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+		<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+	</group>
+
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+		<type label="Date" length="0" sql="DATE" quote="'"/>
+		<type label="Time" length="0" sql="TIME" quote="'"/>
+		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+		<type label="Year" length="0" sql="YEAR" quote=""/>
+		<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+	</group>
+	
+	<group label="Miscellaneous" color="rgb(200,200,255)">
+		<type label="ENUM" length="1" sql="ENUM" quote=""/>
+		<type label="SET" length="1" sql="SET" quote=""/>
+		<type label="Bit" length="0" sql="bit" quote=""/>
+	</group>
+</datatypes><table x="426" y="174" name="posts">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="title" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="slug" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default><comment>para url amigables</comment>
+</row>
+<row name="seo_title" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default><comment>para busqueda de indexadores de sitios</comment>
+</row>
+<row name="excerpt" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<comment>??????</comment>
+</row>
+<row name="body" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<comment>cuerpo del post</comment>
+</row>
+<row name="meta_description" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<comment>????</comment>
+</row>
+<row name="meta_keywords" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<comment>????</comment>
+</row>
+<row name="active" null="1" autoincrement="0">
+<datatype>bit</datatype>
+<default>False</default><comment>Si el post se encuentra activo, y por ende, se lista en el sitio</comment>
+</row>
+<row name="id_usuario" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="usuarios" row="id_usuario" />
+<comment>Usuario que crea el post</comment>
+</row>
+<row name="image" null="1" autoincrement="0">
+<datatype>BLOB</datatype>
+<default>NULL</default><comment>Imagen del post</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="641" y="122" name="comments">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="user_id_usuario" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuarios" row="id_usuario" />
+</row>
+<row name="post_id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="posts" row="id" />
+</row>
+<row name="parent_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="comments" row="id" />
+</row>
+<row name="lft" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><comment>????</comment>
+</row>
+<row name="rgt" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="depth" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="body" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<comment>cuerpo del comentario</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1131" y="184" name="usuarios">
+<row name="id_usuario" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default><comment>name esta en "unique"</comment>
+</row>
+<row name="email" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="password" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default><comment>Encriptado con SHA1</comment>
+</row>
+<row name="role" null="0" autoincrement="0">
+<datatype>ENUM</datatype>
+<default>NULL</default><comment>'user','redac','admin'</comment>
+</row>
+<row name="valid" null="0" autoincrement="0">
+<datatype>bit</datatype>
+<default>False</default></row>
+<row name="bo_bloqueado" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<row name="bo_tripulante" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>0</default></row>
+<row name="bo_corporacion" null="0" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>0</default></row>
+<key type="PRIMARY" name="">
+<part>id_usuario</part>
+</key>
+</table>
+<table x="215" y="236" name="post_tag">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="post_id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="posts" row="id" />
+</row>
+<row name="tag_id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="tags" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="195" y="109" name="category_post">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="category_id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="categories" row="id" />
+</row>
+<row name="post_id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="posts" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="33" y="112" name="categories">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="title" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default><comment>Unique</comment>
+</row>
+<row name="slug" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default><comment>unique, usado para rutas de web amigables</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="65" y="255" name="tags">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="tag" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="85" y="711" name="contacts">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="email" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="message" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="78" y="598" name="ingoings">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="ingoing_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="ingoing_type" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Función desconosida</comment>
+</table>
+<table x="71" y="436" name="notifications">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="type" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="notifiable" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="data" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+</row>
+<row name="read_at" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1615" y="151" name="usuarios_datos">
+<row name="id_usuarios_datos" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_usuario" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuarios" row="id_usuario" />
+</row>
+<row name="gl_rut" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="gl_nombres" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="gl_apellido_paterno" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="gl_apellido_materno" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="id_region" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="regiones" row="id_region" />
+</row>
+<row name="id_comuna" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="comunas" row="id_comuna" />
+</row>
+<row name="fc_llegada_iglesia" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="fc_nacimiento" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="id_pais_origen" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="paises" row="id_pais" />
+</row>
+<row name="id_nacionalidad" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="paises" row="id_pais" />
+</row>
+<row name="gl_sexo" null="1" autoincrement="0">
+<datatype>ENUM</datatype>
+<default>NULL</default><comment>1 Masculino / 2 Femenino</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id_usuarios_datos</part>
+</key>
+</table>
+<table x="1380" y="427" name="usuario_ministerio">
+<row name="id_usuario_ministerio" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="bo_participante" null="0" autoincrement="0">
+<datatype>bit</datatype>
+<default>1</default></row>
+<row name="bo_equipo_trabajo" null="0" autoincrement="0">
+<datatype>bit</datatype>
+<default>0</default></row>
+<row name="bo_directiva" null="0" autoincrement="0">
+<datatype>bit</datatype>
+<default>0</default></row>
+<row name="bo_activo" null="1" autoincrement="0">
+<datatype>bit</datatype>
+<default>NULL</default></row>
+<row name="fc_inicio" null="0" autoincrement="0">
+<datatype>DATE</datatype>
+</row>
+<row name="fc_fin" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="id_ministerio_departamento" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="ministerios_departamentos" row="id_ministerio_departamento" />
+</row>
+<row name="id_ministerio" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="ministerios" row="id_ministerio" />
+</row>
+<row name="id_usuario_users" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuarios" row="id_usuario" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_usuario_ministerio</part>
+</key>
+</table>
+<table x="1381" y="691" name="usuario_ministerio_formacion">
+<row name="id_usuario_ministerio_formacion" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="bo_participante" null="0" autoincrement="0">
+<datatype>bit</datatype>
+<default>1</default></row>
+<row name="bo_activo" null="0" autoincrement="0">
+<datatype>bit</datatype>
+</row>
+<row name="fc_inicio" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="fc_fin" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="bo_finalizado" null="0" autoincrement="0">
+<datatype>bit</datatype>
+<default>0</default></row>
+<row name="id_ministerio" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="ministerios" row="id_ministerio" />
+</row>
+<row name="id_usuario" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuarios" row="id_usuario" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_usuario_ministerio_formacion</part>
+</key>
+</table>
+<table x="1820" y="678" name="ministerios">
+<row name="id_ministerio" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="gl_nombre" null="1" autoincrement="0">
+<datatype>VARCHAR(120)</datatype>
+<default>NULL</default></row>
+<row name="id_ministerio_tipo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="ministerios_tipos" row="id_ministerio_tipo" />
+</row>
+<row name="gl_descripcion" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_ministerio</part>
+</key>
+</table>
+<table x="1993" y="692" name="ministerios_tipos">
+<row name="id_ministerio_tipo" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="gl_nombre" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="gl_descripcion" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_ministerio_tipo</part>
+</key>
+</table>
+<table x="1112" y="20" name="roles">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="gl_nombre" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="gl_json_permisos" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="884" y="29" name="roles_usuario">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_rol" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="roles" row="id" />
+</row>
+<row name="id_usuario_usuario" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuarios" row="id_usuario" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1817" y="511" name="ministerios_departamentos">
+<row name="id_ministerio_departamento" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="gl_nombre" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="bo_activo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_ministerio_ministerio" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="ministerios" row="id_ministerio" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_ministerio_departamento</part>
+</key>
+</table>
+<table x="429" y="475" name="usuarios_auditoria">
+<row name="id_usuario_auditoria" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_usuario" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuarios" row="id_usuario" />
+</row>
+<row name="ultimo_login" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="id_publica" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="gl_tipo_medio" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'WEB'</default></row>
+<key type="PRIMARY" name="">
+<part>id_usuario_auditoria</part>
+</key>
+</table>
+<table x="2095" y="103" name="regiones">
+<row name="id_region" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="gl_nombre_region" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="gl_nombre_corto" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="gl_latitud" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
+<row name="gl_longitud" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_region</part>
+</key>
+</table>
+<table x="1616" y="0" name="usuarios_contacto">
+<row name="id_usuario_contacto" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_usuario" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuarios" row="id_usuario" />
+</row>
+<row name="id_usuario_tipo_contacto" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuarios_tipo_contacto" row="id_usuario_tipo_contacto" />
+</row>
+<row name="bo_estado" null="1" autoincrement="0">
+<datatype>bit</datatype>
+<default>NULL</default></row>
+<row name="gl_json_dato_contacto" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_usuario_contacto</part>
+</key>
+</table>
+<table x="2038" y="15" name="usuarios_tipo_contacto">
+<row name="id_usuario_tipo_contacto" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="gl_nombre" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_usuario_tipo_contacto</part>
+</key>
+<comment>direccion
+telefono fijo
+telefono movil
+email
+casilla postal</comment>
+</table>
+<table x="2083" y="249" name="comunas">
+<row name="id_comuna" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_region" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="regiones" row="id_region" />
+</row>
+<row name="gl_nombre_comuna" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="gl_latitud" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
+<row name="gl_logintud" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_comuna</part>
+</key>
+</table>
+<table x="2089" y="402" name="paises">
+<row name="id_pais" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="gl_nombre" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_pais</part>
+</key>
+</table>
+<table x="1012" y="499" name="usuario_recomendaciones">
+<row name="id_usuario_recomendaciones" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_usuario" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuarios" row="id_usuario" />
+</row>
+<row name="id_usuario_recomendado" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuarios" row="id_usuario" />
+<comment>Campo no obligatorio, la persona recomendada podría no ser necesariamente usaurio del sistema</comment>
+</row>
+<row name="gl_json_datos_contacto" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="fc_recomendacion" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default><comment>se podría prescindir de este campo si se utiliza el campo de creación</comment>
+</row>
+<row name="fc_entrada_vigencia" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="id_ministerio" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="ministerios" row="id_ministerio" />
+</row>
+<row name="id_departamento" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="ministerios_departamentos" row="id_ministerio_departamento" />
+</row>
+<row name="gl_comentario" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_usuario_recomendaciones</part>
+</key>
+</table>
+</sql>

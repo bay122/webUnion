@@ -4,6 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property int $ingoing_id
+ * @property string $ingoing_type
+ */
 class Ingoing extends Model
 {
 	/**

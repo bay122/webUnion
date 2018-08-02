@@ -5,7 +5,7 @@
 
     RewriteEngine On
 
-    RewriteBase /example
+    #RewriteBase /example
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d

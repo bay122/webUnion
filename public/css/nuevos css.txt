@@ -1,0 +1,3 @@
+normalize.css -> normalisa el css en todos los navegadores
+app.css y general.css -> nuevo estilo del sitio
+glyphiicons-halflings

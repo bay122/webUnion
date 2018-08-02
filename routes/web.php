@@ -18,10 +18,17 @@
 */
 
 // Home
-Route::name('home')->get('/', 'Front\PostController@index');
+Route::name('home')->get('/', 'Front\UCController@index');
+Route::name('home')->get('/home', 'Front\PostController@index');
 
 // Contact
 Route::resource('contacts', 'Front\ContactController', ['only' => ['create', 'store']]);
+
+// Información sobre la iglesia
+Route::prefix('informacion')->namespace('Front')->group(function () {
+    Route::name('nosotros')->get('/nosotros', 'UCController@nosotros', ['as' => 'site.nosotros']);
+    Route::name('ministerios')->get('/ministerios', 'UCController@ministerios', ['as' => 'site.ministerios']);
+});
 
 // Posts and comments
 Route::prefix('posts')->namespace('Front')->group(function () {
