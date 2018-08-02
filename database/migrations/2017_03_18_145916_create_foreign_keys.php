@@ -9,7 +9,7 @@ class CreateForeignKeys extends Migration {
 	public function up()
 	{
         Schema::table('posts', function(Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('id_usuario')->references('id')->on('usuarios')
                         ->onDelete('restrict')
                         ->onUpdate('restrict');
         });
@@ -24,7 +24,7 @@ class CreateForeignKeys extends Migration {
 						->onUpdate('cascade');
 		});
 		Schema::table('comments', function(Blueprint $table) {
-			$table->foreign('user_id')->references('id')->on('users')
+			$table->foreign('id_usuario')->references('id')->on('usuarios')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
