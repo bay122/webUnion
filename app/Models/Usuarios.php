@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Comment[] $comments
  * @property Post[] $posts
  */
-class Usuarios extends Model
+class Usuario extends Model
 {
     /**
      * The primary key for the model.
