@@ -14,6 +14,16 @@
                         <li {{ currentRoute('home') }} id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
                             <a href="{{ url('') }}" itemprop="url">@lang('Home')</a>
                         </li>
+                        <li {{ currentRoute('home') }} id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
+                            <a href="{{ url('/informacion/nosotros') }}" itemprop="url">Esto Somos</a>
+                        </li>
+                        <li {{ currentRoute('home') }} id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
+                            <a href="{{ url('/informacion/declaracion_de_fe') }}" itemprop="url">Declaración de Fe</a>
+                        </li>
+                        <li {{ currentRoute('home') }} id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
+                            <a href="{{ url('/informacion/ministerios') }}" itemprop="url">Ministerios</a>
+                        </li>
+                        @if (false)
                         <li id="menu-item-231" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-72 dropdown">
                             <a class="dropdown-caret-icon" data-toggle="dropdown">
                                 <i class="fa fa-caret-down"></i>
@@ -28,6 +38,8 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
+                        @if (false)
                         <li id="menu-item-72" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-72 dropdown">
                             <a class="dropdown-caret-icon" data-toggle="dropdown">
                                 <i class="fa fa-caret-down"></i>
@@ -42,6 +54,7 @@
                                 <li id="menu-item-180" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-180"><a href="" itemprop="url">Full width post</a></li-->
                             </ul>
                         </li>
+                        @endif  
                         @guest
                         <li {{ currentRoute('contacts.create') }} id="menu-item-232" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-232">
                             <a href="{{ route('contacts.create') }}" itemprop="url">@lang('Contact')</a>
@@ -49,6 +62,7 @@
                         @endguest
                     </ul>
                 </div>
+                @if (false)
                 <div class="menu-main-menu-container navbar-collapse collapse alt-font col-md-3 col-sm-3 col-xs-6 fl-right">
                     <ul id="menu-main-menu" class="nav navbar-nav navbar-white paperio-default-menu">
                         @request('register')
@@ -116,7 +130,9 @@
                     <a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
                     <a class="menu-toggle" href="#"><span>Menu</span></a>
                 </div--> <!-- end triggers -->
+                @endif  
             </div>
+            @if (false)
             <!--div class="col-md-2 col-sm-2 col-xs-2 fl-right search-box triggers">
                 <div class="menu-item menu-item-type-post_type menu-item-object-page menu-item-232">
                     <a href="{{ url('contacts/create') }}" itemprop="url">Contacto</a>
@@ -126,10 +142,12 @@
                 </div>
                 <a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
             </div-->
+            @endif  
         </div>
     </div>
 </nav>
 
+@if (false)
 <div class="search-wrap">
     <form role="search" method="get" class="search-form" action="{{ route('posts.search') }}">
         <label style="width: 50% !important;">
@@ -141,3 +159,4 @@
     <a href="#" id="close-search" class="close-btn">Close</a>
 
 </div> <!-- end search wrap -->
+@endif  
