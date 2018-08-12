@@ -40,7 +40,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/uc.css')}}" media="all" /><!-- ARCHIVO CSS CUSTOM PAGINA COMUNION -->
     <!-- Base CSS -->
-	<link rel="stylesheet" type="text/css" href="{{asset('css/general.css')}}" media="all" /><!-- ARCHIVO PRINCIPAL PAGINA COMUNION -->
+	<link rel="stylesheet" type="text/css" href="{{asset('css/general.css').'?'.rand()}}" media="all" /><!-- ARCHIVO PRINCIPAL PAGINA COMUNION -->
     <!-- ================================================== -->
 
 	@yield('css')
@@ -123,7 +123,7 @@
    <!-- CUSTOM Java Script
    ================================================== -->
    <!-- Scripts -->
-	<script src="{{ asset('js/app.js') }}"></script>
+	<!--script src="{{ asset('js/app.js') }}"></script-->
 	<script type="text/javascript" src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('plugins/otros/js/utils.js') }}"></script><!--  CARRUSEL Y MENU LATERAL -->
 	<script type="text/javascript" src="{{ asset('plugins/otros/js/infinite_scroll.js') }}"></script><!--  INFINITE SCROLL -->
