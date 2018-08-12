@@ -609,6 +609,23 @@
 
 	};
 
+  /* Toggle Tabs
+  	Función para mostrar/ocultar contenido en tablas con tabs
+	* ------------------------------------------------------ */
+	/*var ssViewTab = function(current, target) {
+	    var i, tabcontent, tablinks;
+	    tabcontent = document.getElementsByClassName("tabcontent");
+	    for (i = 0; i < tabcontent.length; i++) {
+	        tabcontent[i].style.display = "none";
+	    }
+	    tablinks = document.getElementsByClassName("tablinks");
+	    for (i = 0; i < tablinks.length; i++) {
+	        tablinks[i].className = tablinks[i].className.replace(" active", "");
+	    }
+	    document.getElementById(target).style.display = "block";
+	    current.className += " active";
+	}*/
+
   /* Initialize
 	* ------------------------------------------------------ */
 	(function ssInit() {	
@@ -630,9 +647,27 @@
 		ssBackToTop();
 		ssGoogleMap();
 		ssToggleContent();
-
+		//ssViewTab();
 	})();
  
  
 
 })(jQuery);
+
+ /* Toggle Tabs
+        Función para mostrar/ocultar contenido en tablas con tabs
+        * ------------------------------------------------------ */
+        var ssViewTab = function(current, target) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(target).style.display = "block";
+            current.className += " active";
+        }
+
