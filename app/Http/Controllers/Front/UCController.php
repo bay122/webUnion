@@ -75,4 +75,14 @@ class UCController extends Controller
     {
         return view('front.informacion.nosotros');
     }
+
+    /**
+     * Display a listing of the posts.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function declaracionDeFe()
+    {
+        return view('front.informacion.declaracion_de_fe');
+    }
 }

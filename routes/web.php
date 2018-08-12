@@ -27,6 +27,7 @@ Route::resource('contacts', 'Front\ContactController', ['only' => ['create', 'st
 // Información sobre la iglesia
 Route::prefix('informacion')->namespace('Front')->group(function () {
     Route::name('nosotros')->get('/nosotros', 'UCController@nosotros', ['as' => 'site.nosotros']);
+    Route::name('declaracionDeFe')->get('/declaracion_de_fe', 'UCController@declaracionDeFe', ['as' => 'site.declaracion_de_fe']);
     Route::name('ministerios')->get('/ministerios', 'UCController@ministerios', ['as' => 'site.ministerios']);
 });
 
