@@ -18281,11 +18281,38 @@ a.text-link-white {
     transform: scale(1);
 }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 567px) {
+    .nav-tabs-uc {
+        margin-left: -30px;
+        width: 120%;
+    }
+    
+    .nav-tabs-uc>li{
+        margin-left: -10px;
+    }
+    .tab-content{
+        margin-left: 0px;
+    }
+}
+@media only screen and (min-device-width: 568px) and (max-device-width: 767px) {
+    .nav-tabs-uc {
+        margin-left: -30px;
+        width: 110%;
+    }
+    
+    .nav-tabs-uc>li{
+        margin-left: -10px;
+    }
+    .tab-content{
+        margin-left: 0px;
+    }
+}
+
 .tab-navc>li>a::after {
     background: #21527d none repeat scroll 0% 0%;
     color: #fff;
 }
-
+/*
 .tab-pane {
     padding: 15px 0;
 }
