@@ -1,35 +1,72 @@
 @extends('front.layout')
 
 @section('main')
-   <section id="content-wrap">
-        <div class="row">
-            <div class="col-twelve">
-                <div class="primary-content">
-                    @if (session('status'))
+<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/FB_IMG_1535034758934.jpg');">
+			<div class="wrap-login100 p-b-30">
+						@if (session('confirmation-success'))
                         @component('front.components.alert')
                             @slot('type')
                                 success
                             @endslot
-                            <p>{{ session('status') }}</p>
+                            {!! session('confirmation-success') !!}
                         @endcomponent
-                    @endif
-                    <div class="alert-box ss-notice hideit">
-                        <p>@lang('You have forgotten your password, dont mind ! You can create a new one. But for your own security we want to be sure of your identity. So send us your email by filling this form. You will get a message with instruction to create your new password.')</p>
-                        <i class="fa fa-times close"></i>
+                        @endif
+                        @if (session('confirmation-danger'))
+                            @component('front.components.alert')
+                                @slot('type')
+                                    error
+                                @endslot
+                                {!! session('confirmation-danger') !!}
+                            @endcomponent
+                        @endif
+				<form class="login100-form validate-form" role="form" method="POST" action="{{ route('login') }}">
+                    <div class="login100-form-avatar">
+						<img src="images/logos/unionCristiana@2x-1.jpg" alt="AVATAR">
                     </div>
-                    <h3>@lang('Reset Password')</h3>
-                    <form role="form" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
-                        @if ($errors->has('email'))
+                    </br>
+                    {{ csrf_field() }}
+                        @if ($errors->has('log'))
                             @component('front.components.error')
-                                {{ $errors->first('email') }}
+                                {{ $errors->first('log') }}
                             @endcomponent
                         @endif   
-                        <input id="email" type="email" placeholder="@lang('Email')" class="full-width" name="email" value="{{ old('email') }}" required>
-                        <input class="button-primary full-width-on-mobile" type="submit" value="@lang('Send Password Reset Link')">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+                        <input id="log" type="text" placeholder="@lang('Login')" class="input100" name="log" value="{{ old('log') }}" required autofocus>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100" >
+							<i class="fa fa-user" style="margin-bottom: 5%;" ></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+                        <input id="password" type="password" placeholder="@lang('Password')" class="input100"  name="password" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100" >
+							<i class="fa fa-lock" style="margin-bottom: 5%;"></i>
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn p-t-10">
+						<button class="login100-form-btn" type="submit" value="@lang('Login')">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center w-full p-t-25">
+                         <a href="{{ route('password.request') }}" class="txt1">
+                                @lang('Forgot Your Password?')
+                        </a>
+					</div>
+
+					<div class="text-center w-full">
+                        <a href="{{ route('register') }}" class="txt1">
+                                @lang('Not registered?')
+                                <i class="fa fa-long-arrow-right"></i>
+                        </a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 @endsection
