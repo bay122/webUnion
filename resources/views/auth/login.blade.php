@@ -32,20 +32,7 @@
 	<link rel="stylesheet" href="{{ asset('css/main.css') }}"><!-- ARCHIVO PRINCIPAL PAGINA EJEMPLO -->
 	<!--===============================================================================================-->
 		
-	<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_style/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-	<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_style/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
-	<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_style/vendor/animate/animate.css') }}">
-	<!--===============================================================================================-->	
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_style/vendor/css-hamburgers/hamburgers.min.css') }}">
-	<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_style/vendor/select2/select2.min.css') }}">
-	<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_style/css/util.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_style/css/main.css') }}">
-	<!--===============================================================================================-->
+
 	<!-- ================================================== -->
 	<!-- CUSTOMS UC CSS -->
 	<!-- Font Awesome -->
