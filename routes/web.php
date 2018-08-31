@@ -90,6 +90,11 @@ Route::prefix('admin')->namespace('Back')->group(function () {
         // Categories
         Route::resource('categories', 'CategoryController', ['except' => 'show']);
 
+        // Video Home       
+         Route::resource('videos', 'ConfiguracionController', ['only' => [
+            'index','update'
+        ]]);
+        
         // Contacts
         Route::name('contacts.seen')->put('contacts/seen/{contact}', 'ContactController@updateSeen');
         Route::resource('contacts', 'ContactController', ['only' => [

@@ -192,7 +192,7 @@ desired effect
           ])
 
         <li><a href="{{ route('categories.index') }}"><i class="fa fa-list"></i> <span>@lang('Categories')</span></a></li>
-
+        <li><a href="{{ route('videos.index') }}"><i class="fa fa-video-camera"></i> <span>@lang('Video')</span></a></li>
         @endadmin
 
         @include('back.partials.treeview', [

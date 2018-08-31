@@ -71,61 +71,17 @@
             @endif  
 
             <div class="row">
-                <div class="col-xs-12 col-sm-7">
+                <div class="col-xs-12 col-sm-{{  $configuracion->col }}">
                     <!-- 16:9 aspect ratio -->
                     <div class="embed-responsive embed-responsive-16by9">
-                      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1pV7i5mvkbo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    {!! $configuracion->contenido !!}
                     </div>
                 </div>
+                @if ($configuracion->estado =='1')  
                 <div class="col-xs-12 col-sm-5">
-                    <div class="padding-five fl-left bg-gray width-100">
-                        <div class="blog-details text-center">
-                            <h2 class="alt-font font-weight-600 title-small text-mid-gray margin-six no-margin-bottom text-uppercase entry-title blog-layout-title">
-                                <a rel="bookmark" href="http://wpdemos.themezaa.com/paperio/anchali/first-for-celebrity-news/">Ácimos</a>
-                            </h2>
-                            <div class="margin-two-bottom no-margin-lr letter-spacing-2 text-extra-small text-uppercase border-bottom-mid-gray padding-one-bottom xs-margin-six display-inline-block">
-                                <ul class="post-meta-box meta-box-style2 blog-layout-meta">
-                                    <li>
-                                        <a rel="category tag" class="text-link-light-gray blog-layout-meta-link" href="#">1° Corintios 5:6-8</a>
-                                    </li>
-                                    <li class="published">25 Abril 2018</li>
-                                </ul>
-                            </div>
-                            <p class="margin-four-bottom xs-margin-eight-bottom sm-margin-five-bottom width-80 sm-width-100 margin-lr-auto entry-summary">
-                                6 No es buena vuestra jactancia. ¿No sabéis que un poco de levadura leuda toda la masa?
-                                7 Limpiaos, pues, de la vieja levadura, para que seáis nueva masa, sin levadura como sois; porque nuestra pascua, que es Cristo, ya fue sacrificada por nosotros.
-                                8 Así que celebremos la fiesta, no con la vieja levadura, ni con la levadura de malicia y de maldad, sino con panes sin levadura, de sinceridad y de verdad.
-                            </p>
-                            <!--
-                                <ul class="col-md-12 col-sm-12 col-xs-12 blog-post-meta-style3 blog-meta text-uppercase padding-top-25 border-top-mid-gray alt-font no-padding-lr blog-layout-meta">
-                                    <li class="col-md-4 col-sm-4 col-xs-12 no-padding text-center vcard author">By 
-                                        <a class="text-small fn blog-layout-meta-link" href="">admin</a>
-                                    </li>
-                                    <li class="col-md-4 col-sm-4 col-xs-12 no-padding text-center xs-margin-top-10">
-                                        <a href="" class="text-uppercase font-weight-400 text-small alt-font blog-layout-meta-link">Read More</a>
-                                    </li>
-                                    <li class="col-md-4 col-sm-4 col-xs-12 no-padding text-center">
-                                        <ul class="blog-listing-comment blog-layout-meta general-blog-listing-comment">
-                                            <li>
-                                                <a href="" class="comment text-small blog-layout-comment-link">
-                                                    <i class="far fa-comment"></i>
-                                                    <span>2 Comments</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="" class="sl-button text-small blog-layout-comment-link sl-button-137" data-nonce="6a0961c078" data-post-id="137" data-iscomment="0" title="Like">
-                                                    <i class="far fa-heart"></i>
-                                                    <span>43 </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            -->
-                        </div>
-                    </div>
+                         {!! $configuracion->descripcion !!}
                 </div>
-                
+                @endif
                 <!--div class="promo-area col-md-6 col-sm-6 col-xs-12">
                     <div class="text-center promo-item cover-background" style="background:url(images/categories/NOTAS.jpg)">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/1pV7i5mvkbo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

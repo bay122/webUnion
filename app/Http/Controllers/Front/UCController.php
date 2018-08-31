@@ -6,7 +6,7 @@ use App\ {
     Http\Controllers\Controller
 };
 use Illuminate\Http\Request;
-
+use App\Models\Configuracion;
 class UCController extends Controller
 {
 
@@ -26,7 +26,8 @@ class UCController extends Controller
      */
     public function index()
     {
-        return view('front.index');
+        $configuracion = Configuracion::find(1);
+        return view('front.index',compact('configuracion','id'));
     }
 
     /**

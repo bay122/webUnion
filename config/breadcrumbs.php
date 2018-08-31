@@ -73,5 +73,11 @@ return [
         'icon' => 'list',
         'url' => '/admin/categories',
     ],
+    'videos' =>
+    [
+        'name' => 'videos',
+        'icon' => 'list',
+        'url' => '/admin/videos',
+    ],
 
 ];
