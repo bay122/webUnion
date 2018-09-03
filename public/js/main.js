@@ -605,6 +605,7 @@
 		$('.toggle-button').on('click', function (e) {
 			var target = $(this).parent().find('.toggle-section');
 			$(target).fadeToggle(1100);
+			//$(target).slideToggle(1000);
 	  	});
 
 	};
@@ -670,4 +671,3 @@
             document.getElementById(target).style.display = "block";
             current.className += " active";
         }
-
