@@ -18321,3 +18321,18 @@ a.text-link-white {
     padding: 20px
 }
 /*********************************/
+/*
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+*/
+.sticky {
+  position: fixed;
+  top: 90px;
+  /*width: 100%;*/
+  width: 110%;
+  margin-left: -55px;
+  z-index: 100;
+}
