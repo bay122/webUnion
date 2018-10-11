@@ -31,10 +31,28 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <div class="col-sm-3">
+                    <label for="titulo" class="col-sm-2 control-label">Titulo</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo" value="">
+                  </div>
+                  <div class="col-sm-3">
+                    <label for="subtitulo" class="col-sm-2 control-label">Subtitulo</label>
+                    <input type="text" class="form-control" id="subtitulo" name="subtitulo" value="">
+                  </div>
+                  <div class="col-sm-3">
+                    <label for="categoria" class="col-sm-2 control-label">Categoría/Versiculos</label>
+                    <input type="text" class="form-control" id="categoria" name="categoria" value="">
+                  </div>
+                  <div class="col-sm-3">
+                    <label for="fecha" class="col-sm-2 control-label">Fecha</label>
+                    <input type="text" class="form-control" id="fecha" name="fecha" value="">
+                  </div>
+                </div>
+                <div class="form-group">
                   <label for="descripcion" class="col-sm-2 control-label">Descripción</label>
 
                   <div class="col-sm-10">
-                  <textarea rows="5" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" >{{ old('contenido', $configuracion->descripcion) }}</textarea> 
+                  <textarea rows="5" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" >{{ old('contenido', $descripcion) }}</textarea> 
                   </div>
                 </div>
                 <div class="form-group">
