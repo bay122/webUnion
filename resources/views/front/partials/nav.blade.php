@@ -62,6 +62,30 @@
                         @endguest
                     </ul>
                 </div>
+
+                @auth
+                <div class="menu-main-menu-container navbar-collapse collapse alt-font col-md-3 col-sm-3 col-xs-6 fl-right">
+                    <ul id="menu-main-menu" class="nav navbar-nav navbar-white paperio-default-menu">           
+                        @admin
+                        <li>
+                            <a href="{{ url('admin') }}" itemprop="url">@lang('Administration')</a>
+                        </li>
+                        @endadmin
+                        @redac
+                        <li>
+                            <a href="{{ url('admin/posts') }}" itemprop="url">@lang('Administration')</a>
+                        </li>
+                        @endredac
+                        <li>
+                            <a id="logout" href="{{ route('logout') }}" itemprop="url">@lang('Logout')</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                @endauth
+
                 @if (false)
                 <div class="menu-main-menu-container navbar-collapse collapse alt-font col-md-3 col-sm-3 col-xs-6 fl-right">
                     <ul id="menu-main-menu" class="nav navbar-nav navbar-white paperio-default-menu">
