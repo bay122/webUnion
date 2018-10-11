@@ -157,6 +157,7 @@
 						</button>
 					</div>
 
+					@if(false)
 					<div class="text-center w-full p-t-25">
                          <a href="{{ route('password.request') }}" class="txt1">
                                 @lang('Forgot Your Password?')
@@ -169,6 +170,7 @@
                                 <i class="fa fa-long-arrow-right"></i>
                         </a>
 					</div>
+					@endif
 				</form>
 			</div>
 		</div>
