@@ -96,11 +96,12 @@ class UCController extends Controller
         $familiares = array($familiar1,$familiar2,$familiar3,$familiar4,$familiar5,$familiar6,$familiar7);
 
         $carpeta = "ensenanzas";
-        $ensenanza1 = $this->categorias($carpeta,"grupos_vida","GRUPOS DE VIDA");
-        $ensenanza2 = $this->categorias($carpeta,"ebm","ESTUDIO BÍBLICO MISIONAL (EBM)");
-        $ensenanza3 = $this->categorias($carpeta,"icm","INSTITUTO DE CAPACITACIÓN MINISTERIAL (ICM)");
+        $ensenanza1 = $this->categorias($carpeta,"discipulado_fundamental","DISCIPULADO FUNDAMENTAL");
+        $ensenanza2 = $this->categorias($carpeta,"comunidad_de_vida","COMUNIDAD DE VIDA");
+        //$ensenanza3 = $this->categorias($carpeta,"icm","INSTITUTO DE CAPACITACIÓN MINISTERIAL (ICM)");
         $ensenanza4 = $this->categorias($carpeta,"pcm","PROGRAMA DE CAPACITACIÓN MINISTERIA");
-        $ensenanzas = array($ensenanza1,$ensenanza2,$ensenanza3,$ensenanza4);
+        //$ensenanzas = array($ensenanza1,$ensenanza2,$ensenanza3,$ensenanza4);
+        $ensenanzas = array($ensenanza1,$ensenanza2,$ensenanza4);
 
         $carpeta = "misiones";
         $mision1 = $this->categorias($carpeta,"en_accion","MINISTERIO EN ACCIÓN");
@@ -146,6 +147,8 @@ class UCController extends Controller
                         Durante el año tenemos otras actividades, entre las que destaca café concert denominado “Desde Chile A Las Naciones”, evento realizado en conjunto con el Ministerio de Misiones.
                         <br>
                         En forma mensual, organizamos con Jóvenes Adolescentes e Intermedios, un “After Jóvenes”, instancia para disfrutar juntos y reunir fondos para apoyar el trabajo misionero de nuestros hermanos que han salido a diferentes países.
+                        <br>
+                            <strong>¡Te esperamos cada viernes a las 19:45 hrs!</strong>
                        
                       ";
         }
@@ -198,29 +201,29 @@ class UCController extends Controller
                              <br><br>
                             ";
         }
-        elseif($description == 'grupos_vida'){
+        elseif($description == 'discipulado_fundamental'){
             $description = "
-                            <h4>GRUPOS DE VIDA</h4>
-                            Los Grupos de Vida son grupos pequeños de personas que se reúnen semanalmente con el propósito de estudiar la Biblia juntos y crecer en la comunión y la oración, aprendiendo así a ser discípulos de Cristo. Los grupos son distribuidos de acuerdo a edad y género y tienen una duración de dos años. Inscripciones los meses de Marzo y Julio.
+                            <h4>DISCIPULADO FUNDAMENTAL</h4>
+                            Los Discipulados Fundamentales son grupos pequeños de personas que se reúnen semanalmente con el propósito de estudiar la Biblia juntos y crecer en la comunión y la oración, aprendiendo así a ser discípulos de Cristo. Los grupos son distribuidos de acuerdo a edad y género y tienen una duración de dos años. Inscripciones los meses de Marzo y Julio.
                             <br>
                             Nuestro propósito es glorificar a Dios proporcionando un espacio de acompañamiento y crecimiento en Cristo, por medio del estudio de las Escrituras y búsqueda de Dios en comunidad.
                             <br>
                             ¡Esperamos que unirte a un grupo sea de mucha bendición para ti!
-                            <br>
-                            <br>
+                            <br>";
+                            /*<br>
                             <strong>Contacto: gruposdevida@unioncristiana.cl</strong>
-                           ";
+                           ";*/
         }
-        elseif($description == 'ebm'){
+        elseif($description == 'comunidad_de_vida'){
             $description = "
-                            <h4>ESTUDIO BÍBLICO MISIONAL (EBM)</h4>
-                            Ministerio que combina el estudio de la Biblia, la predicación del evangelio y el amor al prójimo de una manera práctica. Se realizan estudios bíblicos semanalmente en grupos de hasta 15 personas, utilizando el método inductivo para dicho estudio. A la vez, cada grupo realiza salidas para predicar el evangelio y para practicar misericordia en medio de nuestra comunidad.
-                            <br>
-                            <br>
+                            <h4>Comunidad de Vida</h4>
+                            Ministerio que combina el estudio de la Biblia, la predicación del evangelio y el amor al prójimo de una manera práctica. Se realizan estudios bíblicos semanalmente en grupos de hasta 15 personas, en reuniones con una duración aproximada de 2 horas, utilizando el método inductivo para dicho estudio. A la vez, cada grupo realiza salidas para predicar el evangelio y para practicar misericordia en medio de nuestra comunidad.
+                            <br>";
+                            /*<br>
                             <strong>Contacto: estudiomisional@unioncristiana.cl</strong>
-                           ";
+                           ";*/
         }
-        elseif($description == 'icm'){
+        /*elseif($description == 'icm'){
             $description = "
                             <h4>INSTITUTO DE CAPACITACIÓN MINISTERIAL (ICM)</h4>
                             La misión de ICM es entregar formación teológica, bíblica y ministerial a los miembros de la congregación, con el fin de capacitarlos para asumir diferentes roles de liderazgo servicial. Actualmente, consta con dos programas de estudio: Programa de Capacitación Ministerial (P.C.M.) y Certificación en Teología (MOCLAM).
@@ -228,7 +231,7 @@ class UCController extends Controller
                             <br>
                             <strong>Contacto: capacitacion@unioncristiana.cl</strong>
                            ";
-        }
+        }*/
         elseif($description == 'pcm'){
             $description = "
                             <h4>PROGRAMA DE CAPACITACIÓN MINISTERIAL</h4>
@@ -251,10 +254,10 @@ class UCController extends Controller
                             Trabajamos para desarrollar este objetivo e impactar a nivel local, nacional y transcultural.
                             <br>
                             Durante el año desarrollamos actividades evangelísticas tanto en nuestra región como fuera de ella a través de viajes misioneros: reuniones de oración, un evento misionero anual y misioneros fuera del país extendiendo el reino de Dios.
-                            <br>
-                            <br>
+                            <br>";
+                            /*<br>
                             ¡Te invitamos a participar! Escríbenos a: <strong>misiones@unioncristiana.cl</strong>
-                           ";
+                           ";*/
         }
         elseif($description == 'musica'){
             $description = "
@@ -262,10 +265,10 @@ class UCController extends Controller
                             El ministerio de música es un equipo de personas dispuestas al servicio de la congregación con el propósito de glorificar a Dios a través de canciones centradas en el evangelio y Su palabra.
                             <br>
                             El objetivo principal es reconocer por medio de la alabanza cantada quién es Dios y junto a esto animar a la iglesia a rendirse a Cristo y Su señorío.
-                            <br>
-                            <br>
+                            <br>";
+                            /*<br>
                             <strong>Contacto: musica@unioncristiana.cl</strong>
-                           ";
+                           ";*/
         }
         elseif($description == 'oracion'){
             $description = "
@@ -279,10 +282,10 @@ class UCController extends Controller
                             “Somos un ministerio guiado por el amor de Cristo, que tiene como objetivo servir al prójimo,  recibir, acoger, integrar; además, poner en práctica nuestros talentos y dones a disposición de las necesidades de la iglesia”
                             <br>
                             ¡Nuestro llamado en la congregación es servir!
-                            <br>
-                            <br>
+                            <br>";
+                            /*<br>
                             <strong>Contacto: anfitriones@unioncristiana.cl</strong>
-                           ";
+                           ";*/
         }
         elseif($description == 'medios'){
             $description = "
@@ -292,10 +295,10 @@ class UCController extends Controller
                             Comunicación y medios está conformado por voluntarios que sirven a Dios y a la congregación a través de áreas como diseño gráfico, multimedia, audiovisual y plataformas digitales.
                             <br>
                             Cada domingo tenemos transmisión en directo a las 11:30 hrs. Más detalles en la sección VIDEOS
-                            <br>
-                            <br>
+                            <br>";
+                            /*<br>
                             <strong>Contacto: medios@unioncristiana.cl</strong>
-                           ";
+                           ";*/
         }
         return $description;
     }
