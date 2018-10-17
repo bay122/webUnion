@@ -56,7 +56,7 @@
                                 <div class="paperio-text-block col-md-12 col-sm-12 col-xs-12 no-padding">
                                     <div class="paperio-text-block col-md-12 col-sm-12 col-xs-12 no-padding">
                                     @foreach($categorias[1] as $categoria_detalle) 
-                                        <div class="col-md-6 col-sm-12">
+                                        <div class="col-md-6 col-xs-12">
                                             <div class="toggle-button">
                                                 <div class="promo-area col-xs-12 margin-bottom-30 xs-margin-six-bottom">
                                                     <div class="text-center promo-item cover-background" style="background:url({{ asset($categoria_detalle->image->route) }})">
@@ -91,7 +91,7 @@
                                 <div class="paperio-text-block col-md-12 col-sm-12 col-xs-12 no-padding">
                                     <div class="paperio-text-block col-md-12 col-sm-12 col-xs-12 no-padding">
                                     @foreach($categorias[0] as $categoria_detalle) 
-                                        <div class="col-md-6 col-sm-12">
+                                        <div class="col-md-6 col-xs-12">
                                             <div class="toggle-button">
                                                 <div class="promo-area col-xs-12 margin-bottom-30 xs-margin-six-bottom">
                                                     <div class="text-center promo-item cover-background" style="background:url({{ asset($categoria_detalle->image->route) }})">
@@ -129,7 +129,7 @@
                                 <div class="paperio-text-block col-md-12 col-sm-12 col-xs-12 no-padding">
                                     <div class="paperio-text-block col-md-12 col-sm-12 col-xs-12 no-padding">
                                     @foreach($categorias[2] as $categoria_detalle) 
-                                        <div class="col-md-6 col-sm-12">
+                                        <div class="col-md-6 col-xs-12">
                                             <div class="toggle-button">
                                                 <div class="promo-area col-xs-12 margin-bottom-30 xs-margin-six-bottom">
                                                     <div class="text-center promo-item cover-background" style="background:url({{ asset($categoria_detalle->image->route) }})">
@@ -167,7 +167,7 @@
                                 <div class="paperio-text-block col-md-12 col-sm-12 col-xs-12 no-padding">
                                     <div class="paperio-text-block col-md-12 col-sm-12 col-xs-12 no-padding">
                                     @foreach($categorias[3] as $categoria_detalle) 
-                                        <div class="col-md-6 col-sm-12">
+                                        <div class="col-md-6 col-xs-12">
                                             <div class="toggle-button">
                                                 <div class="promo-area col-xs-12 margin-bottom-30 xs-margin-six-bottom">
                                                     <div class="text-center promo-item cover-background" style="background:url({{ asset($categoria_detalle->image->route) }})">
