@@ -168,7 +168,7 @@
                 navigation: true,
                 navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
                 pagination: true,
-                autoPlay: 3000,
+                autoPlay: 5000,//3000,
                 stopOnHover: true,
                 items: 1,
                 itemsDesktop: [1199, 1],
@@ -176,6 +176,7 @@
                 itemsTablet: [768, 1],
                 itemsMobile: [767, 1]
             });
+
         }); /*]]>*/
 	</script><!-- end carrusel -->
 	<!--===============================================================================================-->	
