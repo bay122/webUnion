@@ -14,7 +14,8 @@ class ContactRequest extends Request
         return [
             'name' => 'bail|required|max:255',
             'email' => 'bail|required|email',
-            'message' => 'bail|required|max:1000'
+            'message' => 'bail|required|max:1000',
+            'id_ministerio' => 'bail'
         ];
     }
 }

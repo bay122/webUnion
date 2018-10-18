@@ -6,6 +6,7 @@
             <tr>
                 <th>@lang('Name')</th>
                 <th>@lang('Email')</th>
+                <th>Ministerio</th>
                 <th>@lang('New')</th>
                 <th>@lang('Creation')</th>
                 <th></th>
@@ -15,6 +16,7 @@
                 <tr>
                     <td>{{ $contact->name }}</td>
                     <td>{{ $contact->email }}</td>
+                    <td>{{ $contact->id_ministerio }}</td>
                     <td>
                         <input type="checkbox" name="seen" value="{{ $contact->id }}" {{ is_null($contact->ingoing) ?  'disabled' : 'checked'}}>
                     </td>
