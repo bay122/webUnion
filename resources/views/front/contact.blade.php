@@ -23,10 +23,10 @@
 
                                             <div class="col-md-12 col-sm-12 col-xs-12 no-padding">
                                                 <div class="col-md-4 col-sm-4 col-xs-12 margin-four-bottom text-center">
-                                                    <div class="col-md-12 no-padding margin-bottom-10">
+                                                    <div class="col-xs-12 no-padding margin-bottom-10">
                                                         <i class="fa fa-map-marker title-larger text-gray"></i>
                                                     </div>
-                                                    <div class="col-md-12 no-padding">
+                                                    <div class="col-xs-12 no-padding">
                                                         <span class=" text-uppercase alt-font text-black">Visítanos</span>
                                                         </p>
                                                         <p class="text-medium no-margin">
@@ -35,10 +35,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-4 col-xs-12 margin-four-bottom text-center">
-                                                    <div class="col-md-12 no-padding margin-bottom-10">
+                                                    <div class="col-xs-12 no-padding margin-bottom-10">
                                                         <i class="fa fa-envelope-o title-larger text-gray"></i>
                                                     </div>
-                                                    <div class="col-md-12 no-padding">
+                                                    <div class="col-xs-12 no-padding">
                                                         <span class=" text-uppercase alt-font text-black">Escríbenos</span>
                                                         </p>
                                                         <div class="text-medium no-margin">
@@ -47,10 +47,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-4 col-xs-12 margin-four-bottom text-center">
-                                                    <div class="col-md-12 no-padding margin-bottom-10">
+                                                    <div class="col-xs-12 no-padding margin-bottom-10">
                                                         <i class="fa fa-mobile title-larger text-gray"></i>
                                                     </div>
-                                                    <div class="col-md-12 no-padding">
+                                                    <div class="col-xs-12 no-padding">
                                                         <span class="text-uppercase alt-font text-black">Llámanos</span>
                                                         </p>
                                                         <p class="text-medium no-margin">+56 (32) 271 0953</p>
