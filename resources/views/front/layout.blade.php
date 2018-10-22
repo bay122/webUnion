@@ -45,8 +45,10 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/general.css').'?'.rand()}}" media="all" /><!-- ARCHIVO PRINCIPAL PAGINA COMUNION -->
     <!-- ================================================== -->
 
+	<!-- INICIO CONTENT CSS-->
 	@yield('css')
-
+	<!-- FIN CONTENT CSS-->
+	
 	<style>
 		.search-wrap .search-form::after {
 			content: "@lang('Press Enter to begin your search.')";
@@ -119,8 +121,10 @@
 		   })
 	   })
    </script>
-	
-   @yield('scripts')
+
+	<!-- INICIO CONTENT JAVASCRIPT-->
+    @yield('scripts')
+	<!-- FIN CONTENT JAVASCRIPT-->
 
    <!-- CUSTOM Java Script
    ================================================== -->
