@@ -78,15 +78,10 @@
                     </div>
                 </div>
                 @if ($configuracion->estado =='1')  
-                <div class="col-xs-12 col-sm-5">
-                         {!! $configuracion->descripcion !!}
-                </div>
-                @endif
-                <!--div class="promo-area col-md-6 col-sm-6 col-xs-12">
-                    <div class="text-center promo-item cover-background" style="background:url(images/categories/NOTAS.jpg)">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/1pV7i5mvkbo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="col-xs-12 col-sm-5">
+                        {!! $configuracion->html !!}
                     </div>
-                </div-->
+                @endif
             </div>
         </div>
     </section>
