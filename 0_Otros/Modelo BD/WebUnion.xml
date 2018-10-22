@@ -89,7 +89,7 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="user_id_usuario" null="1" autoincrement="0">
+<row name="id_usuario" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="usuarios" row="id_usuario" />
 </row>
