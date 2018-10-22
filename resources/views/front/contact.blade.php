@@ -181,6 +181,6 @@
     }
 
 </script>
-    @include('uc.templates.partials.suscribe_socials')
+    @include('front.partials.suscribe_socials')
 @endsection
 
