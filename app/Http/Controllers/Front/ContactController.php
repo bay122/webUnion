@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Front;
 use App\ {
     Http\Controllers\Controller,
     Http\Requests\ContactRequest,
+    Models\ministerio,
     Models\Contact
+    
 };
+
 
 class ContactController extends Controller
 {
@@ -25,9 +28,11 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view ('front.contact');
-        //return view ('uc.contact');
+    {   
+        $ministerios = ministerio::all(); 
+
+        return view('front.contact',compact('ministerios'));
+       
     }
 
     /**

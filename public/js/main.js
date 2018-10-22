@@ -605,9 +605,27 @@
 		$('.toggle-button').on('click', function (e) {
 			var target = $(this).parent().find('.toggle-section');
 			$(target).fadeToggle(1100);
+			//$(target).slideToggle(1000);
 	  	});
 
 	};
+
+  /* Toggle Tabs
+  	Función para mostrar/ocultar contenido en tablas con tabs
+	* ------------------------------------------------------ */
+	/*var ssViewTab = function(current, target) {
+	    var i, tabcontent, tablinks;
+	    tabcontent = document.getElementsByClassName("tabcontent");
+	    for (i = 0; i < tabcontent.length; i++) {
+	        tabcontent[i].style.display = "none";
+	    }
+	    tablinks = document.getElementsByClassName("tablinks");
+	    for (i = 0; i < tablinks.length; i++) {
+	        tablinks[i].className = tablinks[i].className.replace(" active", "");
+	    }
+	    document.getElementById(target).style.display = "block";
+	    current.className += " active";
+	}*/
 
   /* Initialize
 	* ------------------------------------------------------ */
@@ -630,9 +648,26 @@
 		ssBackToTop();
 		ssGoogleMap();
 		ssToggleContent();
-
+		//ssViewTab();
 	})();
  
  
 
 })(jQuery);
+
+ /* Toggle Tabs
+        Función para mostrar/ocultar contenido en tablas con tabs
+        * ------------------------------------------------------ */
+        var ssViewTab = function(current, target) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(target).style.display = "block";
+            current.className += " active";
+        }

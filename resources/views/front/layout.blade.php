@@ -30,6 +30,8 @@
 	<link rel="stylesheet" href="{{ asset('css/base.css') }}"><!-- ARCHIVO CSS CUSTOM PAGINA EJEMPLO -->
 	<link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/main.css') }}"><!-- ARCHIVO PRINCIPAL PAGINA EJEMPLO -->
+	<!--===============================================================================================-->
+		
 
 	<!-- ================================================== -->
 	<!-- CUSTOMS UC CSS -->
@@ -40,11 +42,13 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/uc.css')}}" media="all" /><!-- ARCHIVO CSS CUSTOM PAGINA COMUNION -->
     <!-- Base CSS -->
-	<link rel="stylesheet" type="text/css" href="{{asset('css/general.css')}}" media="all" /><!-- ARCHIVO PRINCIPAL PAGINA COMUNION -->
+	<link rel="stylesheet" type="text/css" href="{{asset('css/general.css').'?'.rand()}}" media="all" /><!-- ARCHIVO PRINCIPAL PAGINA COMUNION -->
     <!-- ================================================== -->
 
+	<!-- INICIO CONTENT CSS-->
 	@yield('css')
-
+	<!-- FIN CONTENT CSS-->
+	
 	<style>
 		.search-wrap .search-form::after {
 			content: "@lang('Press Enter to begin your search.')";
@@ -117,13 +121,15 @@
 		   })
 	   })
    </script>
-	
-   @yield('scripts')
+
+	<!-- INICIO CONTENT JAVASCRIPT-->
+    @yield('scripts')
+	<!-- FIN CONTENT JAVASCRIPT-->
 
    <!-- CUSTOM Java Script
    ================================================== -->
    <!-- Scripts -->
-	<script src="{{ asset('js/app.js') }}"></script>
+	<!--script src="{{ asset('js/app.js') }}"></script-->
 	<script type="text/javascript" src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('plugins/otros/js/utils.js') }}"></script><!--  CARRUSEL Y MENU LATERAL -->
 	<script type="text/javascript" src="{{ asset('plugins/otros/js/infinite_scroll.js') }}"></script><!--  INFINITE SCROLL -->
@@ -166,7 +172,7 @@
                 navigation: true,
                 navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
                 pagination: true,
-                autoPlay: 3000,
+                autoPlay: 5000,//3000,
                 stopOnHover: true,
                 items: 1,
                 itemsDesktop: [1199, 1],
@@ -174,8 +180,10 @@
                 itemsTablet: [768, 1],
                 itemsMobile: [767, 1]
             });
+
         }); /*]]>*/
-    </script><!-- end carrusel -->
+	</script><!-- end carrusel -->
+	<!--===============================================================================================-->	
 
 </body>
 

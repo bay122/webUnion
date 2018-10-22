@@ -122,6 +122,9 @@ desired effect
                     {{ csrf_field() }}
                   </form>
                 </div>
+                <div class="pull-left">
+                  <a id="home" href="{{url('')}}" href="#" class="btn btn-default btn-flat">@lang('Home')</a>
+                </div>
               </li>
             </ul>
           </li>
@@ -192,9 +195,10 @@ desired effect
           ])
 
         <li><a href="{{ route('categories.index') }}"><i class="fa fa-list"></i> <span>@lang('Categories')</span></a></li>
-
+        <li><a href="{{ route('videos.index') }}"><i class="fa fa-video-camera"></i> <span>@lang('Video')</span></a></li>
         @endadmin
-
+        
+        @redac
         @include('back.partials.treeview', [
           'icon' => 'file-text',
           'type' => 'post',
@@ -218,7 +222,10 @@ desired effect
         ])
 
         <li><a href="{{ route('medias.index') }}"><i class="fa fa-image"></i> <span>@lang('Medias')</span></a></li>
-
+        @endredac
+        @tripulante
+        <li><a href="{{ route('videos.index') }}"><i class="fa fa-video-camera"></i> <span>@lang('Video')</span></a></li>
+        @endtripulante
         @admin
           <li><a href="{{ route('settings.edit') }}"><i class="fa fa-cog"></i> <span>@lang('Settings')</span></a></li>
         @endadmin
@@ -270,7 +277,7 @@ desired effect
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2017 <a href="#">@lang('My nice Company')</a>.</strong> @lang('All rights reserved').
+    <strong>Copyright &copy; 2018 <a href="{{url('')}}">Unión Cristiana</a>.</strong> @lang('All rights reserved').
   </footer>
 
 </div>

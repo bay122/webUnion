@@ -8,6 +8,7 @@
     <section id="bricks">
 
         <div class="row masonry">
+        @if (false)
             @isset($info)
                 @component('front.components.alert')
                     @slot('type')
@@ -23,14 +24,37 @@
                     @endslot
                     {{ $errors->first('search') }}
                 @endcomponent
-            @endif  
+            @endif
+        @endif  
         </div> <!-- end row -->
     </section> <!-- end bricks -->
-    <section class="margin-two-bottom sm-margin-six-bottom xs-margin-twelve-bottom">
-        @include('uc.templates.partials.corrusel')
+    <section class="margin-two-bottom sm-margin-six-bottom">
+        @include('front.partials.corrusel')
     </section>
     <section class="margin-four-bottom xs-margin-ten-bottom">
         <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <span style="display: block;background: black;" class="text-uppercase font-weight-700 text-center text-white text-large alt-font letter-spacing-1">Horario de Reuniones Generales</span>
+                    <div>
+                        <div class="col-xs-12 col-sm-4 text-uppercase text-center font-weight-700 text-black text-large alt-font letter-spacing-1" style="border: 2px solid black;">
+                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> Domingos 10:00 Hs
+                        </div>
+                        <div class="col-xs-12 col-sm-4 text-uppercase text-center font-weight-700 text-white text-large alt-font letter-spacing-1" style="border: 2px solid black;background: #737373;">
+                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> Domingos 11:30 Hs
+                        </div>
+                        <div class="col-xs-12 col-sm-4 text-uppercase text-center font-weight-700 text-black text-large alt-font letter-spacing-1" style="border: 2px solid black;">
+                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> Domingos 13:00 Hs
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="margin-four-bottom xs-margin-ten-bottom">
+        <div class="container">
+            @if (false)
             <!--div class="row">
                 @ foreach($categories as $category)
                 <div class="promo-area col-md-4 col-sm-4 col-xs-12 margin-bottom-30 xs-margin-six-bottom">
@@ -44,24 +68,20 @@
                 </div>
                 @ endforeach
             </div-->
+            @endif  
 
             <div class="row">
-                <div class="promo-area col-md-6 col-sm-6 col-xs-12">
-                    <div class="text-center promo-item cover-background" style="height:350px;background:url(images/categories/NOTAS.jpg)">
-                        <!--a class="promo-linking" href="#" target="_self"></a-->
-                        <div class="promo-border" style=" background: rgba(0, 0, 0, .5)">
-                            <h3 class="text-uppercase letter-spacing-3 text-white promo-title">Nuestras Reuniones:</h3>
-                            <span style="display: block;" class="text-uppercase text-black text-small alt-font letter-spacing-1">Primera Reunión: Domingos 10:00 hs</span>
-                            <span style="display: block;" class="text-uppercase text-black text-small alt-font letter-spacing-1">Segunda Reunión: Domingos 11:30 hs</span>
-                            <span style="display: block;" class="text-uppercase text-black text-small alt-font letter-spacing-1">Tercera Reunión: Domingos 13:00 hs</span>
-                        </div>
+                <div class="col-xs-12 col-sm-{{  $configuracion->col }}">
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                    {!! $configuracion->contenido !!}
                     </div>
                 </div>
-                <div class="promo-area col-md-6 col-sm-6 col-xs-12">
-                    <div class="text-center promo-item cover-background" style="background:url(images/categories/NOTAS.jpg)">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/1pV7i5mvkbo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                @if ($configuracion->estado =='1')  
+                    <div class="col-xs-12 col-sm-5">
+                        {!! $configuracion->html !!}
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </section>

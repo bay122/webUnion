@@ -34,6 +34,10 @@ class AppServiceProvider extends ServiceProvider
             return auth()->user()->role === 'redac';
         });
 
+        Blade::if('tripulante', function () {
+            return auth()->user()->role === 'tripulante';
+        });
+
         Blade::if('request', function ($url) {
             return request()->is($url);
         });

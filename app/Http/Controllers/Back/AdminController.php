@@ -20,8 +20,14 @@ class AdminController extends Controller
      */
     public function index()
     {
+        //Esta funcion carga los paneles con notificaciones
+        //para la vista de administrador
+        
         $pannels = [];
 
+        //El listado de paneles lo saca de la variable de configuracion pannels
+        //esta variable se encuentra en:
+        //config/pannels.php
         foreach (config('pannels') as $pannel) {
 
             $panelAdmin = new PannelAdmin($pannel);

@@ -23,10 +23,10 @@
 
                                             <div class="col-md-12 col-sm-12 col-xs-12 no-padding">
                                                 <div class="col-md-4 col-sm-4 col-xs-12 margin-four-bottom text-center">
-                                                    <div class="col-md-12 no-padding margin-bottom-10">
+                                                    <div class="col-xs-12 no-padding margin-bottom-10">
                                                         <i class="fa fa-map-marker title-larger text-gray"></i>
                                                     </div>
-                                                    <div class="col-md-12 no-padding">
+                                                    <div class="col-xs-12 no-padding">
                                                         <span class=" text-uppercase alt-font text-black">Visítanos</span>
                                                         </p>
                                                         <p class="text-medium no-margin">
@@ -35,10 +35,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-4 col-xs-12 margin-four-bottom text-center">
-                                                    <div class="col-md-12 no-padding margin-bottom-10">
+                                                    <div class="col-xs-12 no-padding margin-bottom-10">
                                                         <i class="fa fa-envelope-o title-larger text-gray"></i>
                                                     </div>
-                                                    <div class="col-md-12 no-padding">
+                                                    <div class="col-xs-12 no-padding">
                                                         <span class=" text-uppercase alt-font text-black">Escríbenos</span>
                                                         </p>
                                                         <div class="text-medium no-margin">
@@ -47,10 +47,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-4 col-xs-12 margin-four-bottom text-center">
-                                                    <div class="col-md-12 no-padding margin-bottom-10">
+                                                    <div class="col-xs-12 no-padding margin-bottom-10">
                                                         <i class="fa fa-mobile title-larger text-gray"></i>
                                                     </div>
-                                                    <div class="col-md-12 no-padding">
+                                                    <div class="col-xs-12 no-padding">
                                                         <span class="text-uppercase alt-font text-black">Llámanos</span>
                                                         </p>
                                                         <p class="text-medium no-margin">+56 (32) 271 0953</p>
@@ -102,6 +102,30 @@
                                                                     aria-required="true" aria-invalid="false"
                                                                     type="email"  name="email" value="{{ old('email') }}" required>
                                                                 </span>
+
+                                                                <span class="checkbox">
+                                                                Contactar un ministerio
+                                                                <input  class="input-field medium-input" 
+                                                                    type="checkbox" id="verMinisterio"> 
+                                                                </span>
+
+                                                                
+                                                                <span id="selectMinisterios" style="display: none">
+                                                                    <select id="ministerios" aria-required="true" aria-invalid="false" class="input-field medium-input" name="id_ministerio">
+                                                                            <option value="" selected>Seleccione un Ministerio</option>
+                                                                        @foreach($ministerios as $ministerio)
+                                                                             <option 
+                                                                             value="{{ $ministerio->id_ministerio}}">
+                                                                                    {{ $ministerio->gl_nombre}}
+                                                                             </option>
+                                                                        @endforeach
+                                                                         
+                                                                         
+                                                                         
+                                                                    </select>
+                                                                </span>
+
+
                                                             </div>
                                                             <div class="col-md-6">
                                                                 @if ($errors->has('message'))
@@ -111,7 +135,7 @@
                                                                 @endif 
                                                                 
                                                                 <span class="your-comment">
-                                                                    <textarea name="message" id="message" cols="40" rows="4" class="input-textarea medium-input" aria-invalid="false"
+                                                                    <textarea name="message" id="message" cols="40" rows="9" class="input-textarea medium-input" aria-invalid="false"
                                                                      placeholder="@lang('Your message')" ></textarea>
                                                                 </span>
 
@@ -131,6 +155,32 @@
             </div>
         </section>
     </div>
+<script type="text/javascript">
 
-    @include('uc.templates.partials.suscribe_socials')
+    $(document).ready(function(){
+        
+        accionCheckbox();      
+
+    });
+
+    function accionCheckbox(){ 
+
+
+        $('#verMinisterio').click(function(){
+          if (this.checked){
+
+            $('#selectMinisterios').show();
+
+          }else{
+
+                $('#selectMinisterios').hide();
+                $("#ministerios").val('null');
+          }
+
+        });
+    }
+
+</script>
+    @include('front.partials.suscribe_socials')
 @endsection
+

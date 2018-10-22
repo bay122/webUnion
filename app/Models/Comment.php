@@ -7,7 +7,7 @@ use Baum\Node;
 
 /**
  * @property int $id
- * @property int $user_id_usuario
+ * @property int $id_usuario
  * @property int $post_id
  * @property int $parent_id
  * @property int $lft
@@ -44,7 +44,7 @@ class Comment extends Node
     public function user()
     {
         return $this->belongsTo(User::class);
-        //return $this->belongsTo('App\Usuario', 'user_id_usuario', 'id_usuario');
+        //return $this->belongsTo('App\Usuario', 'id_usuario', 'id_usuario');
     }
 
     /**

@@ -86,7 +86,7 @@ class PostRepository
                 $query->whereActive (true);
             })->when ($parameters['new'], function ($query) {
                 $query->has ('ingoing');
-            })->when (auth()->user()->role === 'redac', function ($query) {
+            })->when (auth()->user()->role === 'redac' || auth()->user()->role === 'tripulante', function ($query) {
                 $query->whereHas('user', function ($query) {
                     $query->where('users.id', auth()->id());
                 });

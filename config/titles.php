@@ -41,5 +41,8 @@ return [
         'create' => 'categoryCreate',
         'edit' => 'categoryEdit',
     ],
+    'videos' => [
+        'index' => 'videosGestion',
+     ],
 
 ];
