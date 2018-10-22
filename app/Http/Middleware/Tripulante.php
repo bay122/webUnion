@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Redac
+class Tripulante
 {
     /**
      * Handle an incoming request.

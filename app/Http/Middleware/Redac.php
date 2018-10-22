@@ -17,7 +17,7 @@ class Redac
     {
         $user = $request->user();
 
-        if ($user && ($user->role === 'admin' || $user->role === 'redac')) {
+        if ($user && ($user->role === 'admin' || $user->role === 'redac')) {//|| $user->role === 'tripulante'
             return $next($request);
         }
 
