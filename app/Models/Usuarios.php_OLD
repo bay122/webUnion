@@ -37,7 +37,7 @@ class Usuario extends Model
      */
     public function comments()
     {
-        return $this->hasMany('App\Comment', 'user_id_usuario', 'id_usuario');
+        return $this->hasMany('App\Comment', 'id_usuario', 'id_usuario');
     }
 
     /**
