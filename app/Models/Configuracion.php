@@ -30,7 +30,7 @@ class Configuracion extends Model
     /**
      * @var array
      */
-    protected $fillable = ['contenido', 'col', 'descripcion', 'estado'];
+    protected $fillable = ['contenido', 'col', 'titulo', 'categoria', 'fecha', 'descripcion', 'html', 'estado'];
 
 
 

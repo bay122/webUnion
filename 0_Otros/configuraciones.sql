@@ -32,7 +32,11 @@ CREATE TABLE `configuraciones` (
   `id` int(10) UNSIGNED NOT NULL,
   `contenido` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `col` int(2) NOT NULL,
+  `titulo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'Capsula',
+  `categoria` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'Video',
+  `fecha` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '2018',
   `descripcion` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `html` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `estado` int(1) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
