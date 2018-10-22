@@ -60,100 +60,103 @@
                             <a href="{{ route('contacts.create') }}" itemprop="url">@lang('Contact')</a>
                         </li>
                         @endguest
-                    </ul>
-                </div>
 
-                @auth
-                <div class="menu-main-menu-container navbar-collapse collapse alt-font col-md-3 col-sm-3 col-xs-6 fl-right">
-                    <ul id="menu-main-menu" class="nav navbar-nav navbar-white paperio-default-menu">           
-                        @admin
-                        <li>
-                            <a href="{{ url('admin') }}" itemprop="url">@lang('Administration')</a>
-                        </li>
-                        @endadmin
-                        @redac
-                        <li>
-                            <a href="{{ url('admin/posts') }}" itemprop="url">@lang('Administration')</a>
-                        </li>
-                        @endredac
-                        <li>
-                            <a id="logout" href="{{ route('logout') }}" itemprop="url">@lang('Logout')</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">
-                                {{ csrf_field() }}
-                            </form>
-                        </li>
+                        @auth
+                            @admin
+                            <li class="aling-rigth">
+                                <a href="{{ url('admin') }}" itemprop="url">@lang('Administration')</a>
+                            </li>
+                            @endadmin
+                            @redac
+                            <li class="aling-rigth">
+                                <a href="{{ url('admin/posts') }}" itemprop="url">@lang('Posts')</a>
+                            </li>
+                            @endredac
+                            @tripulante
+                            <li class="aling-rigth">
+                                <a href="{{ url('admin') }}" itemprop="url">@lang('Administration')</a>
+                            </li>
+                            @endtripulante
+
+                            <li>
+                                <a id="logout" href="{{ route('logout') }}" itemprop="url">@lang('Logout')</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        @endauth
+
                     </ul>
                 </div>
-                @endauth
 
                 @if (false)
-                <div class="menu-main-menu-container navbar-collapse collapse alt-font col-md-3 col-sm-3 col-xs-6 fl-right">
-                    <ul id="menu-main-menu" class="nav navbar-nav navbar-white paperio-default-menu">
-                        @request('register')
-                            <li class="current">
-                                <a href="{{ request()->url() }}" itemprop="url">@lang('Register')</a>
-                            </li>
-                        @endrequest
-                        @request('password/email')
-                            <li class="current">
-                                <a href="{{ request()->url() }}" itemprop="url">@lang('Forgotten password')</a>
-                            </li>
-                        @else
-                            @guest
-                                <li {{ currentRoute('login') }}>
-                                    <a href="{{ route('login') }}" itemprop="url">@lang('Login')</a>
+                    <div class="menu-main-menu-container navbar-collapse collapse alt-font col-md-3 col-sm-3 col-xs-6 fl-right">
+                        <ul id="menu-main-menu" class="nav navbar-nav navbar-white paperio-default-menu">
+                            @request('register')
+                                <li class="current">
+                                    <a href="{{ request()->url() }}" itemprop="url">@lang('Register')</a>
                                 </li>
-                                @request('password/reset')
-                                    <li class="current">
-                                        <a href="{{ request()->url() }}" itemprop="url">@lang('Password')</a>
-                                    </li>
-                                @endrequest
-                                @request('password/reset/*')
-                                    <li class="current">
-                                        <a href="{{ request()->url() }}" itemprop="url">@lang('Password')</a>
-                                    </li>
-                                @endrequest
+                            @endrequest
+                            @request('password/email')
+                                <li class="current">
+                                    <a href="{{ request()->url() }}" itemprop="url">@lang('Forgotten password')</a>
+                                </li>
                             @else
-                                @admin
-                                    <li>
-                                        <a href="{{ url('admin') }}" itemprop="url">@lang('Administration')</a>
+                                @guest
+                                    <li {{ currentRoute('login') }}>
+                                        <a href="{{ route('login') }}" itemprop="url">@lang('Login')</a>
                                     </li>
-                                @endadmin
-                                @redac
+                                    @request('password/reset')
+                                        <li class="current">
+                                            <a href="{{ request()->url() }}" itemprop="url">@lang('Password')</a>
+                                        </li>
+                                    @endrequest
+                                    @request('password/reset/*')
+                                        <li class="current">
+                                            <a href="{{ request()->url() }}" itemprop="url">@lang('Password')</a>
+                                        </li>
+                                    @endrequest
+                                @else
+                                    @admin
+                                        <li>
+                                            <a href="{{ url('admin') }}" itemprop="url">@lang('Administration')</a>
+                                        </li>
+                                    @endadmin
+                                    @redac
+                                        <li>
+                                            <a href="{{ url('admin/posts') }}" itemprop="url">@lang('Administration')</a>
+                                        </li>
+                                    @endredac
                                     <li>
-                                        <a href="{{ url('admin/posts') }}" itemprop="url">@lang('Administration')</a>
+                                        <a id="logout" href="{{ route('logout') }}" itemprop="url">@lang('Logout')</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">
+                                            {{ csrf_field() }}
+                                        </form>
                                     </li>
-                                @endredac
-                                <li>
-                                    <a id="logout" href="{{ route('logout') }}" itemprop="url">@lang('Logout')</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            @endguest
-                        @endrequest
-                        <li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
-                            <a class="search-trigger" itemprop="url" href="#">Buscar <i class="fa fa-search"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <!--div class="col-md-2 col-sm-2 col-xs-6 fl-right search-box">
-                    <form role="search" method="get" class="search-form navbar-form no-padding" action="">
-                        <div class="input-group add-on">
-                            <input type="search" class="search-field form-control" placeholder="Buscar...." value="" name="s" disabled/>
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit" disabled>
-                                  <i class="fa fa-search"></i>
-                                </button>
+                                @endguest
+                            @endrequest
+                            <li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
+                                <a class="search-trigger" itemprop="url" href="#">Buscar <i class="fa fa-search"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--div class="col-md-2 col-sm-2 col-xs-6 fl-right search-box">
+                        <form role="search" method="get" class="search-form navbar-form no-padding" action="">
+                            <div class="input-group add-on">
+                                <input type="search" class="search-field form-control" placeholder="Buscar...." value="" name="s" disabled/>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit" disabled>
+                                      <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div-->
+                        </form>
+                    </div-->
 
-                <!--div class="triggers">
-                    <a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
-                    <a class="menu-toggle" href="#"><span>Menu</span></a>
-                </div--> <!-- end triggers -->
+                    <!--div class="triggers">
+                        <a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
+                        <a class="menu-toggle" href="#"><span>Menu</span></a>
+                    </div--> <!-- end triggers -->
                 @endif  
             </div>
             @if (false)
