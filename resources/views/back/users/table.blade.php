@@ -8,6 +8,8 @@
                 Administrator
             @elseif($user->role === 'redac')
                 Redactor
+            @elseif($user->role === 'tripulante')
+                Tripulante
             @else
                 User
             @endif
