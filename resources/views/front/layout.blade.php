@@ -158,7 +158,9 @@
         /*
 		<![CDATA[*/
         jQuery(document).ready(function($) {
-            var $lateralSocualMenuDiv = '<div class="web-theme alt-font xs-display-none"><a href="http://www.unioncristiana.cl" target="_blank"><span> Web Union Crisiana</span></a></div><div class="quick-question alt-font xs-display-none"><a href="https://www.youtube.com/channel/UC-wwU93xQVE175shmbhU6Zg" target="_blank"><span>Canal YouTube</span></a></div>';
+            var $lateralSocualMenuDiv = '<div class="youtube-theme alt-font xs-display-none"><a href="https://www.youtube.com/channel/UC-wwU93xQVE175shmbhU6Zg" target="_blank"><span>Nuestro Canal YouTube</span></a></div>';
+            $lateralSocualMenuDiv += '<div class="facebook-theme alt-font xs-display-none"><a href="https://es-la.facebook.com/iglesiaunioncristiana" target="_blank"><span> Nuestro Facebook</span></a></div>';
+            $lateralSocualMenuDiv += '<div class="instagram-theme alt-font xs-display-none"><a href="https://instagram.com/iglesia.unioncristiana" target="_blank"><span> Nuestro Instagram</span></a></div>';
             $('body').append($lateralSocualMenuDiv);
         }); /*]]>*/
     </script><!-- end botones laterales -->

@@ -38,13 +38,13 @@
                     <span style="display: block;background: black;" class="text-uppercase font-weight-700 text-center text-white text-large alt-font letter-spacing-1">Horario de Reuniones Generales</span>
                     <div>
                         <div class="col-xs-12 col-sm-4 text-uppercase text-center font-weight-700 text-black text-large alt-font letter-spacing-1" style="border: 2px solid black;">
-                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> Domingos 10:00 Hs
+                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> Domingo 10:00 Hs
                         </div>
                         <div class="col-xs-12 col-sm-4 text-uppercase text-center font-weight-700 text-white text-large alt-font letter-spacing-1" style="border: 2px solid black;background: #737373;">
-                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> Domingos 11:30 Hs
+                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> Domingo 11:30 Hs
                         </div>
                         <div class="col-xs-12 col-sm-4 text-uppercase text-center font-weight-700 text-black text-large alt-font letter-spacing-1" style="border: 2px solid black;">
-                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> Domingos 13:00 Hs
+                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> Domingo 13:00 Hs
                         </div>
                     </div>
                 </div>
