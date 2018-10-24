@@ -8,7 +8,7 @@
 	================================================== -->
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta charset="UTF-8">
-	<title>{{ isset($post) && $post->seo_title ? $post->seo_title :  __(lcfirst('Title')) }}</title>
+	<title>{{ isset($post) && $post->seo_title ? $post->seo_title :  __(lcfirst('Iglesia Unión Cristina')) }}</title>
 	<meta name="description" content="{{ isset($post) && $post->meta_description ? $post->meta_description : __('description') }}">
 	<meta name="author" content="@lang(lcfirst ('Author'))">
 	@if(isset($post) && $post->meta_keywords)
@@ -25,8 +25,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-	<!-- CSS
+	<!-- favicon 
 	================================================== -->
+	<link rel="shortcut icon" href="{{ asset('favicon.png') }}" type='image/x-icon' />
+
+	<!-- CSS
+	================================================== -->	
 	<link rel="stylesheet" href="{{ asset('css/base.css') }}"><!-- ARCHIVO CSS CUSTOM PAGINA EJEMPLO -->
 	<link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/main.css') }}"><!-- ARCHIVO PRINCIPAL PAGINA EJEMPLO -->
