@@ -28,8 +28,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-	<!-- CSS
+	<!-- favicon 
 	================================================== -->
+	<link rel="shortcut icon" href="{{ asset('favicon.png') }}" type='image/x-icon' />
+
+	<!-- CSS
+	================================================== -->	
 	<link rel="stylesheet" href="{{ asset('css/base.css') }}"><!-- ARCHIVO CSS CUSTOM PAGINA EJEMPLO -->
 	<link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/main.css') }}"><!-- ARCHIVO PRINCIPAL PAGINA EJEMPLO -->
@@ -55,7 +59,8 @@
 	<style>
 		.search-wrap .search-form::after {
 			content: "@lang('Press Enter to begin your search.')";
-		}
+	    }		
+
 	</style>
 
 

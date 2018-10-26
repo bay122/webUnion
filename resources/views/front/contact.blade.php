@@ -103,13 +103,10 @@
                                                                     type="email"  name="email" value="{{ old('email') }}" required>
                                                                 </span>
 
-                                                                <span class="checkbox">
-                                                                Contactar un ministerio
-                                                                <input  class="input-field medium-input" 
-                                                                    type="checkbox" id="verMinisterio"> 
-                                                                </span>
+                                                                <input id="checkbox1" class="checkbox" type="checkbox">
+                                                                <label for="checkbox1" style="font-weight: 1;">Contactar un ministerio</label>
 
-                                                                
+                                                                                                                              
                                                                 <span id="selectMinisterios" style="display: none">
                                                                     <select id="ministerios" aria-required="true" aria-invalid="false" class="input-field medium-input" name="id_ministerio">
                                                                             <option value="" selected>Seleccione un Ministerio</option>
@@ -166,9 +163,9 @@
     function accionCheckbox(){ 
 
 
-        $('#verMinisterio').click(function(){
+        $('#checkbox1').click(function(){
           if (this.checked){
-
+            
             $('#selectMinisterios').show();
 
           }else{
