@@ -18189,7 +18189,7 @@ a.text-link-white {
     position: fixed;
     top: 115px;/*165px;*/
     border-radius: 4px;
-    right: -180px;/*-135px;*/
+    right: -198px;/*-135px;*/
     background: url("../images/icons/youtube-4-16.png") no-repeat 14px center rgba(50, 50, 50, .8);
     z-index: 1000
 }
@@ -18200,7 +18200,7 @@ a.text-link-white {
     position: fixed;
     top: 165px;
     border-radius: 4px;
-    right: -146px;
+    right: -164px;
     background: url("../images/icons/facebook-4-16.png") no-repeat 14px center rgba(50, 50, 50, .8);
     z-index: 1000
 }
@@ -18211,22 +18211,35 @@ a.text-link-white {
     position: fixed;
     top: 215px;
     border-radius: 4px;
-    right: -154px;
+    right: -168px;
     background: url("../images/icons/instagram-16.png") no-repeat 14px center rgba(50, 50, 50, .8);
+    z-index: 1000
+}
+
+.twitter-theme {
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    position: fixed;
+    top: 265px;
+    border-radius: 4px;
+    right: -152px;
+    background: url("../images/icons/twitter-16.png") no-repeat 14px center rgba(50, 50, 50, .8);
     z-index: 1000
 }
 
 .web-theme:hover,
 .youtube-theme:hover,
 .facebook-theme:hover,
-.instagram-theme:hover {
+.instagram-theme:hover,
+.twitter-theme:hover {
     right: -26px
 }
 
 .web-theme span,
 .youtube-theme span,
 .facebook-theme span,
-.instagram-theme span {
+.instagram-theme span,
+.twitter-theme span {
     padding: 0 28px;
     position: relative;
     top: 0;
@@ -18236,14 +18249,16 @@ a.text-link-white {
 .web-theme:hover span,
 .youtube-theme:hover span,
 .facebook-theme:hover span,
-.instagram-theme:hover span {
+.instagram-theme:hover span,
+.twitter-theme:hover span {
     opacity: 1
 }
 
 .web-theme a,
 .youtube-theme a,
 .facebook-theme a,
-.instagram-theme a {
+.instagram-theme a,
+.twitter-theme a {
     color: #fff;
     font-size: 10px;
     letter-spacing: 1px;
