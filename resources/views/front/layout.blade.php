@@ -8,8 +8,11 @@
 	================================================== -->
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta charset="UTF-8">
-	<title>{{ isset($post) && $post->seo_title ? $post->seo_title :  __(lcfirst('Title')) }}</title>
-	<meta name="description" content="{{ isset($post) && $post->meta_description ? $post->meta_description : __('description') }}">
+	<title>{{ isset($post) && $post->seo_title ? $post->seo_title :  __('Unión Cristiana') }}</title>
+	<meta name="description" content="{{ isset($post) && $post->meta_description ? $post->meta_description : __('Iglesia Unión Cristiana') }}">
+	<meta property="og:title" content="Iglesia Unión Cristiana" />
+	<meta property="og:description" content="Etchevers 42, Viña Del Mar. Reuniones: Domingos 10:00hs, 11:30hs y 13:00hs " />
+	<meta property="og:image" content="{{ asset('images/logos/og_image_logo.png') }}" />
 	<meta name="author" content="@lang(lcfirst ('Author'))">
 	@if(isset($post) && $post->meta_keywords)
 		<meta name="keywords" content="{{ $post->meta_keywords }}">
