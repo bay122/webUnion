@@ -22,9 +22,10 @@
                         <div class="textwidget">
                             <div class="hide-text-sidebar margin-bottom-10 text-center text-mid-gray text-medium">Búscanos en redes sociales.</div>
                             <ul class="footer-social-icons-center">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook social-icon-fa"></i></a></li>
-                                <li><a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter social-icon-fa"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram social-icon-fa"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UC-wwU93xQVE175shmbhU6Zg" target="_blank"><i class="fa fa-youtube-play social-icon-fa"></i></a></li>
+                                <li><a href="https://es-la.facebook.com/iglesiaunioncristiana" target="_blank"><i class="fa fa-facebook social-icon-fa"></i></a></li>
+                                <li><a href="https://instagram.com/iglesia.unioncristiana" target="_blank"><i class="fa fa-instagram social-icon-fa"></i></a></li>
+                                <li><a href="https://twitter.com/ucristiana" target="_blank"><i class="fa fa-twitter social-icon-fa"></i></a></li>
                                 @if(false)
                                 <!--li><a href="https://in.pinterest.com/" target="_blank"><i class="fa fa-pinterest-p social-icon-fa"></i></a></li>
                                 <li><a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus social-icon-fa"></i></a></li>

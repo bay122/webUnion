@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <!--div class="item text-center cover-background bg-image-srcset" style="background: url({{ asset('images/carrousel/misiones.jpg') }});">
+                <div class="item text-center cover-background bg-image-srcset" style="background: url({{ asset('images/carrousel/misiones.jpg') }});">
                     <div class="opacity-light bg-black overlay-layer"></div>
                     <div class="outer">
                         <div class="middle">
@@ -62,8 +62,8 @@
                             </div>
                         </div>
                     </div>
-                </div-->
-                <!--div class="item text-center cover-background bg-image-srcset" style="background: url({{ asset('images/carrousel/notas.jpg') }});">
+                </div>
+                <div class="item text-center cover-background bg-image-srcset" style="background: url({{ asset('images/carrousel/notas.jpg') }});">
                     <div class="opacity-light bg-black overlay-layer"></div>
                     <div class="outer">
                         <div class="middle">
@@ -81,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                </div-->
+                </div>
             </div>
         </div>
     </div>

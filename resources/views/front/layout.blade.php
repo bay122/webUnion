@@ -8,8 +8,11 @@
 	================================================== -->
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta charset="UTF-8">
-	<title>{{ isset($post) && $post->seo_title ? $post->seo_title :  __(lcfirst('Title')) }}</title>
-	<meta name="description" content="{{ isset($post) && $post->meta_description ? $post->meta_description : __('description') }}">
+	<title>{{ isset($post) && $post->seo_title ? $post->seo_title :  __('Unión Cristiana') }}</title>
+	<meta name="description" content="{{ isset($post) && $post->meta_description ? $post->meta_description : __('Iglesia Unión Cristiana') }}">
+	<meta property="og:title" content="Iglesia Unión Cristiana" />
+	<meta property="og:description" content="Etchevers 42, Viña Del Mar. Reuniones: Domingos 10:00hs, 11:30hs y 13:00hs " />
+	<meta property="og:image" content="{{ asset('images/logos/og_image_logo.png') }}" />
 	<meta name="author" content="@lang(lcfirst ('Author'))">
 	@if(isset($post) && $post->meta_keywords)
 		<meta name="keywords" content="{{ $post->meta_keywords }}">
@@ -25,8 +28,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-	<!-- CSS
+	<!-- favicon 
 	================================================== -->
+	<link rel="shortcut icon" href="{{ asset('favicon.png') }}" type='image/x-icon' />
+
+	<!-- CSS
+	================================================== -->	
 	<link rel="stylesheet" href="{{ asset('css/base.css') }}"><!-- ARCHIVO CSS CUSTOM PAGINA EJEMPLO -->
 	<link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/main.css') }}"><!-- ARCHIVO PRINCIPAL PAGINA EJEMPLO -->
@@ -52,7 +59,8 @@
 	<style>
 		.search-wrap .search-form::after {
 			content: "@lang('Press Enter to begin your search.')";
-		}
+	    }		
+
 	</style>
 
 
@@ -157,7 +165,10 @@
         /*
 		<![CDATA[*/
         jQuery(document).ready(function($) {
-            var $lateralSocualMenuDiv = '<div class="web-theme alt-font xs-display-none"><a href="http://www.unioncristiana.cl" target="_blank"><span> Web Union Crisiana</span></a></div><div class="quick-question alt-font xs-display-none"><a href="https://www.youtube.com/channel/UC-wwU93xQVE175shmbhU6Zg" target="_blank"><span>Canal YouTube</span></a></div>';
+            var $lateralSocualMenuDiv = '<div class="youtube-theme alt-font xs-display-none"><a href="https://www.youtube.com/channel/UC-wwU93xQVE175shmbhU6Zg" target="_blank"><span>Nuestro Canal YouTube</span></a></div>';
+            $lateralSocualMenuDiv += '<div class="facebook-theme alt-font xs-display-none"><a href="https://es-la.facebook.com/iglesiaunioncristiana" target="_blank"><span> Nuestro Facebook</span></a></div>';
+            $lateralSocualMenuDiv += '<div class="instagram-theme alt-font xs-display-none"><a href="https://instagram.com/iglesia.unioncristiana" target="_blank"><span> Nuestro Instagram</span></a></div>';
+            $lateralSocualMenuDiv += '<div class="twitter-theme alt-font xs-display-none"><a href="https://instagram.com/iglesia.unioncristiana" target="_blank"><span> Nuestro Twitter</span></a></div>';
             $('body').append($lateralSocualMenuDiv);
         }); /*]]>*/
     </script><!-- end botones laterales -->
