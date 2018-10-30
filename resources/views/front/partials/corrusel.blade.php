@@ -22,6 +22,12 @@
                         </div>
                     </div-->
                 </div>
+
+                <div class="item text-center cover-background bg-image-srcset" style="background: url({{ asset('images/carrousel/jovenes_intermedios.jpeg') }}) no-repeat center !important; background-size: cover !important;">
+                </div>
+
+                
+                @if(false)
                 <div class="item text-center cover-background bg-image-srcset" style="background: url({{ asset('images/carrousel/reunion_jovenes.jpeg') }});">
                     <div class="opacity-light bg-black overlay-layer"></div>
                     <div class="outer">
@@ -82,6 +88,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>
