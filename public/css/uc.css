@@ -132,3 +132,68 @@
     border-radius: 4px;  
     background-color: #ffffff; 
 }
+
+
+
+
+
+.horarios_component_title{
+  display: block;
+  background: #8DCD4E;
+  border-radius: 5px;
+  margin-bottom: 3px;
+}
+.horarios_component{
+  background: #DCDCDC;
+  color: #5B5B5B;
+}
+@media (min-width: 768px) {
+    .horarios_component_left{
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    .horarios_component_center{}
+
+    .horarios_component_rigth{
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    .horarios_component_separador {
+      /*position: relative;
+      background: #3beadc;*/
+    }
+    div.horarios_component_separador:after {
+        content : "";
+        position: absolute;
+        right    : 0;
+        z-index: 100;
+        top  : 4px;
+        width  : 2px;
+        height   : 70%;  /* or 100px */
+        background: #F34B46;
+    }
+}
+@media (max-width: 768px) {
+    .horarios_component_left{
+      margin-bottom: 3px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    .horarios_component_center{
+      margin-bottom: 3px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    .horarios_component_rigth{
+      margin-bottom: 3px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+}
+
