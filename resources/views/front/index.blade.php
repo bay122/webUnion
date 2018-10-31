@@ -37,16 +37,16 @@
                 <div class="col-xs-12">
                     <span class="horarios_component_title text-uppercase font-weight-700 text-center text-white text-large alt-font letter-spacing-1">Horario de Reuniones Domingos</span>
                     <div>
-                        <div class="col-xs-12 col-sm-4 horarios_component horarios_component_left horarios_component_separador text-uppercase text-center font-weight-700 text-large alt-font letter-spacing-1" style="">
-                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> 10:00 Hs
+                        <div class="col-xs-12 col-sm-4 horarios_component horarios_component_left horarios_component_separador text-center font-weight-700 text-large alt-font letter-spacing-1" style="">
+                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> 10:00 hrs.
 
                         </div>
-                        <div class="col-xs-12 col-sm-4 horarios_component horarios_component_center horarios_component_separador text-uppercase text-center font-weight-700 text-large alt-font letter-spacing-1" style="">
-                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> 11:30 Hs
+                        <div class="col-xs-12 col-sm-4 horarios_component horarios_component_center horarios_component_separador text-center font-weight-700 text-large alt-font letter-spacing-1" style="">
+                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> 11:30 hrs.
 
                         </div>
-                        <div class="col-xs-12 col-sm-4 horarios_component horarios_component_rigth text-uppercase text-center font-weight-700 text-large alt-font letter-spacing-1" style="">
-                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> 13:00 Hs
+                        <div class="col-xs-12 col-sm-4 horarios_component horarios_component_rigth text-center font-weight-700 text-large alt-font letter-spacing-1" style="">
+                            <i class="fa fa-clock-o text-large" style="font-weight: initial;"></i> 13:00 hrs.
 
                         </div>
                     </div>
