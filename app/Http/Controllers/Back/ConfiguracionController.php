@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\back;
 
 use App\ {
+    Services\Security,
     Http\Requests\VideoRequest,
     Http\Controllers\Controller,
     Models\Configuracion
@@ -85,13 +86,13 @@ class ConfiguracionController extends Controller
             $tamano_columnas=7;
         }
 
-        $configuracion->contenido   = $this->revisarString($video_base);
-        $configuracion->titulo      = $this->revisarString($titulo);
-        $configuracion->categoria   = $this->revisarString($categoria);
-        $configuracion->fecha       = $this->revisarString($fecha);
-        $configuracion->descripcion = $this->revisarString($descripcion);
-        $configuracion->html        = $this->revisarString($html_descripcion);
-        $configuracion->estado      = $this->revisarString($mostrar_descripcion_video);
+        $configuracion->contenido   = Security::validar($video_base, 'string');
+        $configuracion->titulo      = Security::validar($titulo, 'string');
+        $configuracion->categoria   = Security::validar($categoria, 'string');
+        $configuracion->fecha       = Security::revisarString($fecha);//TODO ver que validar usar
+        $configuracion->descripcion = Security::validar($descripcion, 'string');
+        $configuracion->html        = Security::revisarString($html_descripcion);//TODO ver que validar usar
+        $configuracion->estado      = Security::revisarString($mostrar_descripcion_video);//TODO ver que validar usar
         $configuracion->col         = $tamano_columnas;
 
         $configuracion->save();
@@ -99,73 +100,6 @@ class ConfiguracionController extends Controller
         $request->session ()->flash ('ok', __('Settings have been successfully saved. '));
 
         return redirect()->route('videos.index', ['page' => $request->page]);
-    }
-
-    
-     /**
-     * [revisarString limpieza string contra inyecciones SQL]
-     * @param  string  $string    [string a evaluar]
-     * @return string             [string formateado]
-     */
-    private function revisarString($string){
-        $reemplazar[] = '`';
-        $reemplazar[] = 'select ';
-        $reemplazar[] = 'SELECT ';
-        $reemplazar[] = 'insert ';
-        $reemplazar[] = 'INSERT ';
-        $reemplazar[] = 'update ';
-        $reemplazar[] = 'UPDATE ';
-        $reemplazar[] = 'delete ';
-        $reemplazar[] = 'DELETE ';
-        $reemplazar[] = 'schema ';
-        $reemplazar[] = 'SCHEMA ';
-        $reemplazar[] = 'create ';
-        $reemplazar[] = 'CREATE ';
-        $reemplazar[] = 'drop ';
-        $reemplazar[] = 'DROP ';
-
-        $reemplazar[] = ' from ';
-        $reemplazar[] = ' FROM ';
-        $reemplazar[] = ' where ';
-        $reemplazar[] = ' WHERE ';
-        $reemplazar[] = ' and ';
-        $reemplazar[] = ' AND ';
-        $reemplazar[] = ' having ';
-        $reemplazar[] = ' HAVING ';
-        $reemplazar[] = ' case ';
-        $reemplazar[] = ' CASE ';
-        $reemplazar[] = ' when ';
-        $reemplazar[] = ' WHEN ';
-        $reemplazar[] = ' end ';
-        $reemplazar[] = ' END ';
-        $reemplazar[] = ' if ';
-        $reemplazar[] = ' IF ';
-        $reemplazar[] = ' else ';
-        $reemplazar[] = ' ELSE ';
-        $reemplazar[] = ' union ';
-        $reemplazar[] = ' UNION ';
-
-        $reemplazar[] = ' like';
-        $reemplazar[] = ' LIKE';
-        $reemplazar[] = ' concat';
-        $reemplazar[] = ' CONCAT';
-        $reemplazar[] = ' count';
-        $reemplazar[] = ' COUNT';
-        $reemplazar[] = ' rand';
-        $reemplazar[] = ' RAND';
-        $reemplazar[] = ' floor';
-        $reemplazar[] = ' FLOOR';
-        //$reemplazar[] = "'";
-        //$reemplazar[] = '"';
-        $reemplazar[] = '(';
-        $reemplazar[] = ')';
-        $reemplazar[] = ' * ';
-        //$reemplazar[] = ';';
-        //$reemplazar[] = ',';
-        
-         $string = str_replace($reemplazar,'',$string);
-         
-        return $string;
     }
    
 }
