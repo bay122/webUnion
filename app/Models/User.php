@@ -60,6 +60,26 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * One to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function grupos_formacion_usuario()
+    {
+        return $this->hasMany(GrupoFormacionUsuario::class);
+    }
+
+    /**
+     * One to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function ministerios()
+    {
+        return $this->hasMany(UsuarioMinisterio::class);
+    }
+
 	/**
      * One to Many relation
      *

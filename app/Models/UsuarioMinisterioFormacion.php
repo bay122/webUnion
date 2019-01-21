@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,14 +14,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_ministerio
  * @property int $id_usuario
  */
-class Usuario_ministerio_formacion extends Model
+class UsuarioMinisterioFormacion extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'Usuario_ministerio_formacion';
+    protected $table = 'usuario_ministerio_formacion';
 
     /**
      * The primary key for the model.

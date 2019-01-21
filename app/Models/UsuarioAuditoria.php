@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $id_publica
  * @property string $gl_tipo_medio
  */
-class Usuario_auditoria extends Model
+class UsuarioAuditoria extends Model
 {
     /**
      * The table associated with the model.

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $gl_nombre
  * @property string $gl_descripcion
  */
-class ministerio_tipos extends Model
+class MinisterioTipo extends Model
 {
     /**
      * The primary key for the model.

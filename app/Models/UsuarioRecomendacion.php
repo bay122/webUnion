@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_departamento
  * @property string $gl_comentario
  */
-class Usuario_recomendacion extends Model
+class UsuarioRecomendacion extends Model
 {
+    /**
+     * The table associated with the model.
+     * 
+     * @var string
+     */
+    protected $table = 'usuarios_recomendaciones';
+
     /**
      * The primary key for the model.
      * 

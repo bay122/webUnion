@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,8 +20,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $gl_sexo
  * @property string $size
  */
-class Usuario_datos extends Model
+class UsuarioDatos extends Model
 {
+    /**
+     * The table associated with the model.
+     * 
+     * @var string
+     */
+    protected $table = 'usuarios_datos';
+
     /**
      * The primary key for the model.
      * 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_rol
  * @property int $id_usuario_usuario
  */
-class Roles_usuario extends Model
+class RolUsuario extends Model
 {
     /**
      * The table associated with the model.

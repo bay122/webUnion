@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_usuario_tipo_contacto
  * @property int $gl_nombre
  */
-class Usuario_tipo_contacto extends Model
+class UsuarioTipoContacto extends Model
 {
     /**
      * The table associated with the model.

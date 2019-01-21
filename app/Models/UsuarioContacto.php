@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property boolean $bo_estado
  * @property string $gl_json_dato_contacto
  */
-class Usuario_contacto extends Model
+class UsuarioContacto extends Model
 {
     /**
      * The table associated with the model.
