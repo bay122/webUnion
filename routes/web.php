@@ -96,6 +96,10 @@ Route::prefix('admin')->namespace('Back')->group(function () {
             'index','update'
         ]]);
         
+         Route::resource('discipulado', 'GrupoFormacionController', ['only' => [
+            'index', 'show', 'create', 'store', 'update', 'destroy'
+        ]]);
+
         // Contacts
         Route::name('contacts.seen')->put('contacts/seen/{contact}', 'ContactController@updateSeen');
         Route::resource('contacts', 'ContactController', ['only' => [
@@ -138,6 +142,31 @@ Route::prefix('admin')->namespace('Back')->group(function () {
     });
 
 });
+
+
+/*
+Docs: 
+    https://laravel.com/docs/5.6/controllers#restful-partial-resource-routes
+    https://laravel.com/docs/5.6/requests
+    https://laravel.com/api/5.3/Illuminate/Http/Request.html
+
+    Ejemplo de nueva ruta REST FULL:
+
+    Route::resource('nombre', 'NombreController')->only([
+        'index', 'show'
+    ]);
+    Route::resource('photos', 'PhotoController')->except([
+        'create', 'store', 'update', 'destroy'
+    ]);
+
+    Metodos:
+        - index: index de la pagina
+        - show: ver un elemento en especifico
+        - create: ver formulario de creación de un elemtno
+        - sotre: guardar un nuevo elemento
+        - update: actualizar un elemento existente
+        - destroy: eliminar un elemento existente 
+ */
 
 /*
 Route::group(['prefix' => 'comunion'], function(){

@@ -44,5 +44,11 @@ return [
     'videos' => [
         'index' => 'videosGestion',
      ],
+    'disicpulado' => [
+        'index' => 'index',
+        'edit' => 'Edición',
+        'create' => 'Nuevo',
+        'show' => 'Detalle',
+    ],
 
 ];
