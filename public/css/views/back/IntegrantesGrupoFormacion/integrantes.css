@@ -1,0 +1,20 @@
+.table_header{
+	text-align: center;
+	color: #fff;
+    background-color: #286090;
+    border-color: #122b40;
+}
+
+.panel-default > .panel-heading {
+    color: #fbfbfb;
+    background-color: #7a7a7a;
+    border-color: #7a7a7a;
+    font-size: 16px;
+}
+
+@media (min-width: 600px) {
+	span[for="fc_nacimiento"]{
+	    overflow: visible;
+	    white-space: nowrap;
+	}
+}

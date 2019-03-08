@@ -1,0 +1,18 @@
+.label{
+	font-size: unset;
+}
+
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ccc !important;
+    border-radius: 0 !important;
+    height: 34px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #555;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+	border-color: #555 transparent transparent transparent;
+    border-width: 7px 3px 0 3px;
+    margin-left: -2px;
+}
