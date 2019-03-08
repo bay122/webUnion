@@ -32,7 +32,7 @@ class Access
     		return false;
     	}else{
 	    	$user = auth()->user();
-	    	$perfiles = $user->perfiles(1);
+	    	$perfiles = $user->perfiles($id_ministerio);
 	    	if($perfiles->count() > 0){
 	    		/**
 	    		 * @TODO: cargar el perfil actual del usuario en la sesión, para no tener que buscar entre todos sus perfiles.
