@@ -1,4 +1,4 @@
-ALTER TABLE `grupos_formacion` ADD `id_grupo_formacion_tipo` INT NULL DEFAULT NULL AFTER `id_departamento`;
+ALTER TABLE `grupos_formacion` ADD `id_grupo_formacion_tipo` INT NULL DEFAULT NULL AFTER `id_ministerio_departamento`;
 ALTER TABLE `grupos_formacion` ADD `id_grupo_formacion_tipos_sexo` INT NULL AFTER `id_grupo_formacion_tipo`;
 ALTER TABLE `grupos_formacion` CHANGE `bo_estado` `bo_estado` INT(1) NOT NULL DEFAULT '1' COMMENT 'Registro eliminado (1: activo, 0: eliminado)';
 ALTER TABLE `grupos_formacion` ADD `bo_activo` TINYINT(1) NOT NULL DEFAULT '1' COMMENT 'Relación con el ministerio activa (1: activo, 0: finalizado)' AFTER `fc_fin`;

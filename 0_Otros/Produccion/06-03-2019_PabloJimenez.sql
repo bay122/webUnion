@@ -1,19 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
---
--- Servidor: localhost
--- Tiempo de generación: 07-03-2019 a las 15:31:40
--- Versión del servidor: 5.7.22-0ubuntu0.16.04.1
--- Versión de PHP: 7.0.30-0ubuntu0.16.04.1
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
---
--- Base de datos: `pan_con_queso`
---
-
 -- --------------------------------------------------------
 
 --
@@ -64,25 +48,6 @@ ALTER TABLE `perfiles`
 
 -- ------------------------------------------------------------------------------
 -- ------------------------------------------------------------------------------
-
-
--- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
---
--- Servidor: localhost
--- Tiempo de generación: 07-03-2019 a las 15:32:07
--- Versión del servidor: 5.7.22-0ubuntu0.16.04.1
--- Versión de PHP: 7.0.30-0ubuntu0.16.04.1
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
---
--- Base de datos: `pan_con_queso`
---
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `perfiles_usuario`
