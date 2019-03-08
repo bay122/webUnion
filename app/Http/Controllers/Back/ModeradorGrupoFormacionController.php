@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Back;
 
 use DB;
 use Redirect;
-use Request;
+use Illuminate\Http\Request;
 use App\ {
     Services\Security,
+    Services\Helper,
     Http\Controllers\Controller,
     Http\Requests\ModeradorGrupoFormacionRequest,
     Http\Requests\ModeradorGrupoFormacionUpdateRequest,
@@ -78,7 +79,7 @@ class ModeradorGrupoFormacionController extends Controller
 
         Helper::loadJavascript("back/GrupoFormacion/integrantes_index.js");
         Helper::loadCss("back/IntegrantesGrupoFormacion/integrantes.css");
-        
+
     	//return view('back.discipulado.moderador.create', compact('paises', 'regiones', 'comunas','paisDefault', 'regionDefault', 'comunaDefault'));
         return view('back.discipulado.asistentes.create', 
         			  compact('paises',
@@ -269,7 +270,7 @@ class ModeradorGrupoFormacionController extends Controller
 
         $request->session ()->flash ('ok', __('The data has been updated successfully. '));
 
-        return redirect()->route('discipulado.asistentes.index');
+        return redirect()->route('discipulado.moderador.index');
     }
 
     /**

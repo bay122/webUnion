@@ -10,6 +10,10 @@ $(document).ready(function (){
     $('#fc_nacimiento').datepicker().on('changeDate', function(e){validar_edad();});
 
 	//$('#fc_llegada_iglesia').datepicker();
+	
+	if($("#email").val()){
+		buscarUsuario();
+	}
 
 	$("div[for='box_form']").remove();
 
@@ -77,7 +81,11 @@ function validar_edad(){
 }
 
 $("#email").on('change', function (e) {
-    if(validarEmail($("#email").val()))
+    buscarUsuario();
+});
+
+function buscarUsuario(){
+	if(validarEmail($("#email").val()))
 	{
 		$("#box_form").append('<div for="box_form" class="overlay"><i class="fa fa-refresh fa-spin"></i><div>');
 	    $.ajax({
@@ -110,9 +118,7 @@ $("#email").on('change', function (e) {
 	    $("#datos_usuario").hide();
 	    xModal.danger("ERROR: El email es incorrecto.");
 	}
-
-});
-
+}
 
 function cargarDatosUsuario(datos_usuario){
     $("#id_usuario").val(datos_usuario.id_usuario);

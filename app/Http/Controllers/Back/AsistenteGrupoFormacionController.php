@@ -289,6 +289,7 @@ class AsistenteGrupoFormacionController extends Controller
                 $bo_equipo_trabajo = true;
             }
 
+            //@TODO: realizar insert validando si existe id_usuario proveniente de función buscar
             //$usuario = User::create([
             $usuario = User::updateOrCreate(['email' => $gl_email],
             	[

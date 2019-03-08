@@ -8,6 +8,8 @@ class IntegranteGrupoFormacionRequest extends Request
      * Get the validation rules that apply to the request.
      * Docs:
      *     https://laravel.com/docs/5.7/validation
+     *     https://laracasts.com/discuss/channels/laravel/date-format-validation
+     *     https://laracasts.com/discuss/channels/general-discussion/date-format-in-laravel?page=0
      * @return array
      */
     public function rules()
@@ -26,8 +28,8 @@ class IntegranteGrupoFormacionRequest extends Request
             'gl_sexo' => 'bail|required|max:255',
             'telefono' => 'bail|nullable|max:255',
             'rut' => 'bail|nullable|max:255',
-            'fc_nacimiento' => 'bail|nullable|date',
-            'fc_llegada_iglesia' => 'bail|nullable|date',
+            'fc_nacimiento' => 'bail|nullable|date_format:"d/m/Y"',
+            'fc_llegada_iglesia' => 'bail|nullable|date_format:"d/m/Y"',
             'pais_origen' => 'bail|nullable|max:255',
             'region' => 'bail|nullable|max:255',
             'nacionalidad' => 'bail|nullable|max:255',
