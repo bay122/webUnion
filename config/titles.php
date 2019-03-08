@@ -44,7 +44,7 @@ return [
     'videos' => [
         'index' => 'videosGestion',
      ],
-    'disicpulado' => [
+    'discipulado' => [
         'index' => 'index',
         'edit' => 'Edición',
         'create' => 'Nuevo',
