@@ -16,12 +16,20 @@ class Security
         if($tipo == 'numero'){
             if(isset($valor) AND !empty($valor)){
                 if(trim($valor) == ''){
-                    $retorno = 0;
+                	if(!empty($opcion) && $opcion=='nullable'){
+                		return NULL;
+                	}else{
+                    	$retorno = 0;
+                	}
                 }else{
                     $retorno = intval(trim($valor));
                 }
             }else{
-                $retorno = 0;
+            	if(!empty($opcion) && $opcion=='nullable'){
+            		return NULL;
+            	}else{
+                	$retorno = 0;
+            	}
             }
         }
         
@@ -54,35 +62,41 @@ class Security
         }
         
         if($tipo == "date"){
-            $retorno = '0000-00-00 00:00:00';
+            $retorno = NULL;
             if(isset($valor)){
-                if(trim($valor) == ""){
-                    $retorno = "0000-00-00 00:00:00";
+                if(!empty(trim($valor))){
+                    $fecha = explode(" ", $valor);
+                    if (strpos($fecha[0], "/") !== false) {
+                        $parte = explode("/", $fecha[0]);
+                    }else{
+                        $parte = explode("-", $fecha[0]);
+                    }
+                    if(count($parte)>2){
+                    	if(strlen ($parte[2]) == 4){
+                        	$retorno = $parte[2]."-".$parte[1]."-".$parte[0];
+                    	}else{
+                    		$retorno = $parte[0]."-".$parte[1]."-".$parte[2];
+                    	}
+                    }
                 }
-                else{
+            }
+        }
+        if($tipo == "datetime"){
+            $retorno = NULL;
+            if(isset($valor)){
+                if(!empty(trim($valor))){
                     $fechaHora = explode(" ", $valor);
                     if (strpos($fechaHora[0], "/") !== false) {
                         $parte = explode("/", $fechaHora[0]);
                     }else{
                         $parte = explode("-", $fechaHora[0]);
                     }
-                    if(count($parte)>2){
-                        $retorno = $parte[2]."-".$parte[1]."-".$parte[0]." 00:00:00";
-                    }else{
-                        $retorno = "0000-00-00 00:00:00";
+                    $hora = "00:00:00";
+                    if(count($fechaHora)>1 && trim($fechaHora[1])){
+                        $hora = $fechaHora[1];
                     }
-                }
-            }else{
-                $retorno = "0000-00-00 00:00:00";
-            }
-        }
-        if($tipo == "fecha_bd"){
-            $retorno = '0000-00-00';
-            if(isset($valor)){
-                if(trim($valor) != ''){
-                    $parte  = explode('-', trim($valor));
-                    if(count($parte) > 2){
-                        $retorno    = $parte[0].'-'.$parte[1].'-'.$parte[2];
+                    if(count($parte)>2){
+                        $retorno = $parte[2]."-".$parte[1]."-".$parte[0]." ".$hora;
                     }
                 }
             }
@@ -368,4 +382,5 @@ class Security
         }
         return $valor;
     }
+
 }
