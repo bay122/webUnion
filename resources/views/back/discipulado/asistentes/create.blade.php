@@ -70,7 +70,7 @@
 <!-- /.row -->
 @endif
 
-<div id="box_form" class="box {{$box_color}}">
+<div id="box_form" class="box {{$box_color ?? 'primary'}}">
 	<div class="box-header with-border">
 		<h3 class="box-title">{{$bo_moderador?'Nuevo Moderador':'Nuevo Integrante'}}</h3>
 		<div class="box-tools pull-right">
