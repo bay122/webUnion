@@ -23,7 +23,11 @@ class HeaderComposer
 
         foreach ($segments as $segment) {
             if (!is_numeric($segment)) {
-                $elements[$segment]['name'] = __('admin.breadcrumbs.' . $elements[$segment]['name'] . '-name');
+            	if(isset($elements[$segment])){
+                	$elements[$segment]['name'] = __('admin.breadcrumbs.' . $elements[$segment]['name'] . '-name');
+            	}else{
+            		$elements[$segment]['name'] = 'unknow';
+            	}
                 if($segment === end($segments)) {
                     $elements[$segment]['url'] = '#';
                 }
@@ -32,12 +36,20 @@ class HeaderComposer
         }
 
         // Title
+        //file_put_contents('php://stderr', PHP_EOL.print_r(Route::currentRouteName(),true).PHP_EOL, FILE_APPEND);
         $title = config('titles.' . Route::currentRouteName());
         $title = __('admin.titles.' . $title);
+        file_put_contents('php://stderr', PHP_EOL.print_r($title,true).PHP_EOL, FILE_APPEND);
 
         // Notifications
         $countNotifications = auth()->user()->unreadNotifications()->count();
 
-        $view->with(compact('breadcrumbs', 'title', 'countNotifications'));
+        if (strpos($title, 'admin.titles') !== false) {
+			$title = ucwords(str_replace(".", " ", Route::currentRouteName()));
+        	$view->with(compact('breadcrumbs', 'title', 'countNotifications'));
+		}else{
+        	$view->with(compact('breadcrumbs', 'title', 'countNotifications'));
+		}
+
     }
 }

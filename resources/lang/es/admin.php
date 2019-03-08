@@ -13,6 +13,7 @@ return [
         'medias-name' => 'medias',
         'settings-name' => 'ajustes',
         'categories-name' => 'categorias',
+        'discipulado-name' => 'discipulado',
     ],
     'titles' => [
         'dashboard' => 'Escritorio',
@@ -30,6 +31,7 @@ return [
         'categoriesGestion' => 'Gestión Categorias',
         'categoryCreate' => 'Creación de Categorias',
         'categoryEdit' => 'Edición de Categorias',
+        'disicpulado' => 'Discipulado',
     ],
     'menu' => [
         'dashboard' => 'Escritorio',

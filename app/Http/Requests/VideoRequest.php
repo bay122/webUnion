@@ -14,7 +14,7 @@ class VideoRequest extends Request
         $regex = '/^[A-Za-z0-9-éèàù]{1,50}?(,[A-Za-z0-9-éèàù]{1,50})*$/';
 
         return $rules = [
-            'contenido' => 'bail|required|max:255',
+            'contenido' => 'bail|required|max:350',
             'estado' => 'required',
             'titulo' => 'bail|max:255|nullable',
             'descripcion' => 'bail|max:3500|nullable',

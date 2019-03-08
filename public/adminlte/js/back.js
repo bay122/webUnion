@@ -19,7 +19,7 @@ var back = (function () {
         }
     }
 
-    var destroy = function (event, that, url, swalTitle, confirmButtonText, cancelButtonText, errorAjax) {
+    var destroy = function (event, that, url, swalTitle, confirmButtonText, cancelButtonText, errorAjax, reloadOnlyTable = true) {
         event.preventDefault()
         swal({
             title: swalTitle,
@@ -29,7 +29,7 @@ var back = (function () {
             confirmButtonText: confirmButtonText,
             cancelButtonText: cancelButtonText
         }).then(function () {
-            ajax(that.attr('href'), 'DELETE', url, errorAjax)
+            ajax(that.attr('href'), 'DELETE', url, errorAjax, reloadOnlyTable)
         })
     }
 
@@ -72,14 +72,18 @@ var back = (function () {
         load(url, errorAjax)
     }
 
-    var ajax = function (target, verb, url, errorAjax) {
+    var ajax = function (target, verb, url, errorAjax, reloadOnlyTable = true) {
         spin()
         $.ajax({
             url: target,
             type: verb
         })
             .done(function () {
-                load(url, errorAjax)
+            	if(reloadOnlyTable){
+					load(url, errorAjax)
+            	}else{
+            		location.reload();
+            	}
             })
             .fail(function () {
                 fail(errorAjax)

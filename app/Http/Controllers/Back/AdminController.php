@@ -103,6 +103,8 @@ class AdminController extends Controller
             return !strpos ($key, '_');
         }, ARRAY_FILTER_USE_KEY ));
 
+        //Docs: https://laravel.com/docs/5.8/helpers#method-__
+        
         $cache = $this->checkCache () ? ' ' . __('Config cache has been updated.'): '';
 
         $request->session ()->flash ('ok', __('Settings have been successfully saved. ') . $cache);

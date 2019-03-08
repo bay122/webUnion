@@ -14949,3 +14949,72 @@
 
 }(window, document));
 
+function calculate_date(date) {
+	var date_fecha = date.substring(0,11);
+	var date_time = date.substring(11,16);
+	var date = date_fecha.replace(" ", "");
+	
+	if(date === '' || date === '---'){
+		return (0 + 00 + 00 + 0 + 0) * 1;
+	}
+
+	if (date.indexOf('.') > 0) {
+		/*date a, format dd.mn.(yyyy) ; (year is optional)*/
+		var eu_date = date.split('.');
+	} else {
+		/*date a, format dd/mn/(yyyy) ; (year is optional)*/
+		var eu_date = date.split('/');
+	}
+	
+	/*year (optional)*/
+	if (eu_date[2]) {
+		var year = eu_date[2];
+	} else {
+		var year = 0;
+	}
+	
+	/*month*/
+	var month = eu_date[1];
+	if (month.length == 1) {
+		month = 0+month;
+	}
+	
+	/*day*/
+	var day = eu_date[0];
+	if (day.length == 1) {
+		day = 0+day;
+	}
+	
+	var eu_time = date_time.split(':');
+	
+	if (eu_time[0]){
+		hour = eu_time[0];
+	}else{
+		hour = 0;
+	}
+	
+	if (eu_time[1]){
+		minute = (eu_time[1]/60);
+	}else{
+		minute = 0;
+	}
+	
+	return (year + month + day + hour + minute) * 1;
+}
+
+jQuery.fn.dataTableExt.oSort['eu_date-asc'] = function(a, b) {
+
+	x = calculate_date(a);
+	y = calculate_date(b);
+	
+	return ((x < y) ? -1 : ((x > y) ?  1 : 0));
+};
+
+jQuery.fn.dataTableExt.oSort['eu_date-desc'] = function(a, b) {
+
+	x = calculate_date(a);
+	y = calculate_date(b);
+	
+	return ((x < y) ? 1 : ((x > y) ?  -1 : 0));
+};
+

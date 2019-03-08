@@ -79,5 +79,17 @@ return [
         'icon' => 'list',
         'url' => '/admin/videos',
     ],
+    'discipulado' =>
+    [
+        'name' => 'discipulado',
+        'icon' => 'list',
+        'url' => '/admin/discipulado',
+    ],
+    'moderador' =>
+    [
+        'name' => 'discipulador',
+        'icon' => 'list',
+        'url' => '/admin/discipulador',
+    ],
 
 ];

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Pais extends Model
 {
+    static $PAIS_CHILE = 152;
+	public $table = "paises";
+
     /**
      * The primary key for the model.
      * 
@@ -17,9 +20,22 @@ class Pais extends Model
      */
     protected $primaryKey = 'id_pais';
 
+
     /**
      * @var array
      */
-    protected $fillable = ['gl_nombre'];
+    protected $fillable = ['id_pais', 'gl_nombre', 'gl_nombre_nacionalidad'];
+
+
+
+    /**
+     * One to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+	public function datos_usuarios()
+	{
+		return $this->hasMany(UsuarioDatos::class, 'id_pais', 'id_pais');
+	}
 
 }

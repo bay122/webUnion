@@ -2,6 +2,8 @@
 
 **WebUnion - Laravel 5.5**
 
+BASE: http://laravel.sillo.org/laravel-5/
+
 ### Installation ###
 
 * type `git clone https://github.com/bestmomo/laravel5-5-example.git projectname` to clone the repository 

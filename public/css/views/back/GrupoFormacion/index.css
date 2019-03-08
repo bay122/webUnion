@@ -1,0 +1,21 @@
+.table_header{
+	color: #fff;
+    background-color: #286090;
+    border-color: #122b40;
+}
+
+.table_header>th{
+	text-align: center;
+}
+
+.label-pink{
+	background-color: #f96bc8 !important
+}
+
+.label-purple{
+	background-color: #9a6bf9 !important
+}
+
+.label-sm{
+    font-size: 0.8em;
+}
