@@ -7,7 +7,14 @@
         	@endforeach
 		</td>
         <td><b>@lang( jddayofweek(($grupo_formacion->nr_dia_semana - 1),1) )</b></td>
-        <td><b>{{ ($grupo_formacion->hr_inicio) ? date( 'H:i', strtotime($grupo_formacion->hr_inicio) ) : 'Sin información'}}</b></td>
+        <td>@if($grupo_formacion->hr_inicio && $grupo_formacion->hr_fin)
+        		<b>{{ date( 'H:i', strtotime($grupo_formacion->hr_inicio)) }} - {{ date( 'H:i', strtotime($grupo_formacion->hr_fin)) }}</b>
+        	@elseif($grupo_formacion->hr_inicio)
+        		<b>{{ date( 'H:i', strtotime($grupo_formacion->hr_inicio)) }}</b>
+        	@else
+        		<b>Sin información</b>
+        	@endif
+        </td>
         <td>{{ $grupo_formacion->tipo_grupo_formacion->gl_nombre }}</td>
         <td>
         	@if($grupo_formacion->tipo_sexo->gl_nombre == 'Masculino')
