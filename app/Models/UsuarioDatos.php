@@ -39,6 +39,71 @@ class UsuarioDatos extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_usuario', 'gl_rut', 'gl_nombres', 'gl_apellido_paterno', 'gl_apellido_materno', 'id_region', 'id_comuna', 'fc_llegada_iglesia', 'fc_nacimiento', 'id_pais_origen', 'id_nacionalidad', 'gl_sexo', 'size'];
+    protected $fillable = [
+    	'id_usuario', 
+    	'gl_rut', 
+    	'gl_nombres', 
+    	'gl_apellido_paterno', 
+    	'gl_apellido_materno', 
+    	'id_region', 
+    	'id_comuna', 
+    	'fc_llegada_iglesia', 
+    	'fc_nacimiento', 
+    	'id_pais_origen', 
+    	'id_nacionalidad', 
+    	'gl_sexo'
+    ];//, 'size'];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'fc_llegada_iglesia',
+        'fc_nacimiento',
+        'created_at'
+    ];
+
+
+    /**
+     * Get the user that owns the phone.
+     */
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'id_usuario', 'id_usuario');
+    }
+
+    /**
+     * Get the user that owns the phone.
+     */
+    public function region()
+    {
+        return $this->belongsTo(Region::class, 'id_region', 'id_region');
+    }
+
+    /**
+     * Get the user that owns the phone.
+     */
+    public function comuna()
+    {
+        return $this->belongsTo(Comuna::class, 'id_comuna', 'id_comuna');
+    }
+
+    /**
+     * Get the user that owns the phone.
+     */
+    public function pais_origen()
+    {
+        return $this->belongsTo(Pais::class, 'id_pais', 'id_pais');
+    }
+
+    /**
+     * Get the user that owns the phone.
+     */
+    public function nacionalidad()
+    {
+        return $this->belongsTo(Pais::class, 'id_pais', 'id_pais');
+    }
 
 }

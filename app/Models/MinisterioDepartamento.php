@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_ministerio_departamento
  * @property int $gl_nombre
  * @property int $bo_activo
- * @property int $id_ministerio_ministerio
+ * @property int $id_ministerio_departamento
  */
 class MinisterioDepartamento extends Model
 {
@@ -29,7 +29,7 @@ class MinisterioDepartamento extends Model
     /**
      * @var array
      */
-    protected $fillable = ['gl_nombre', 'bo_activo', 'id_ministerio_ministerio'];
+    protected $fillable = ['gl_nombre', 'bo_activo', 'id_ministerio_departamento'];
 
     /**
      * One to Many relation
@@ -59,5 +59,26 @@ class MinisterioDepartamento extends Model
     public function usuarios()
     {
         return $this->hasMany(UsuarioMinisterio::class);
+    }
+
+    
+    /**
+     * One to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tipos_grupos_formacion()
+    {
+        return $this->hasMany(GrupoFormacionTipo::class);
+    }
+
+    /**
+     * One to Many relation
+     * [Relationship with conditions and ordering]
+     * 		Docs: https://laravel-news.com/eloquent-tips-tricks
+     * @return [type] [description]
+     */
+    public function perfiles(){
+    	return $this->hasMany(Perfil::class, 'id_ministerio_departamento', 'id_ministerio_departamento')->where('bo_activo', true)->where('bo_estado', 1);//->orderBy('email');
     }
 }

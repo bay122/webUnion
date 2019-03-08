@@ -51,20 +51,56 @@ class GrupoFormacionUsuario extends Model
      * @var array
      */
     protected $fillable = [
+    	'id_grupo_formacion_usuario',
         'id_grupo_formacion',
-        'fc_ingreso',
-        'bo_moredador',
-        'json_otros_datos',
+        'id_usuario',
+		'fc_ingreso',
+		'fc_salida',
+		'bo_moderador',
+		'json_otros_datos',
+		'bo_activo',//Relación con el ministerio activa (1: activo, 0: finalizado)
+		'bo_estado',//Registro eliminado (1: activo, 0: eliminado)
+		'created_at',
     ];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'fc_ingreso',
+        'fc_salida',
+        'created_at'
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'json_otros_datos' => 'array',
+    ];
+
+     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'id_usuario_crea', 'id_usuario_actualiza', 'updated_at'
+    ];
+
+    
+	/**
      * One to Many relation
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function usuario()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_usuario', 'id_usuario');
     }
 
     /**
@@ -74,6 +110,7 @@ class GrupoFormacionUsuario extends Model
      */
     public function grupo_formacion()
     {
-        return $this->belongsTo(GrupoFormacion::class);
+        return $this->belongsTo(GrupoFormacion::class, 'id_grupo_formacion', 'id_grupo_formacion');
     }
+
 }

@@ -48,7 +48,16 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'confirmed', 'valid', 'bo_bloqueado', 'bo_tripulante', 'bo_corporacion'
+       'id_usuario', 
+       'name', 
+       'email', 
+       //'password', 
+       'role', 
+       'confirmed', 
+       'valid', 
+       'bo_bloqueado', 
+       'bo_tripulante', 
+       'bo_corporacion'
     ];
 
     /**
@@ -60,6 +69,29 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+
+    /**
+     * One to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function datos()
+    {
+        return $this->hasOne(UsuarioDatos::class, 'id_usuario', 'id_usuario');
+    }
+
+    /**
+     * One to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function datos_contacto()
+    {
+        return $this->hasMany(UsuarioContacto::class, 'id_usuario', 'id_usuario');
+    }
+    
+
     /**
      * One to Many relation
      *
@@ -67,7 +99,18 @@ class User extends Authenticatable
      */
     public function grupos_formacion_usuario()
     {
-        return $this->hasMany(GrupoFormacionUsuario::class);
+        return $this->hasMany(GrupoFormacionUsuario::class, 'id_usuario', 'id_usuario');
+    }
+
+    /**
+     * One to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function discipulados()
+    {
+        return $this->hasMany(GrupoFormacionUsuario::class, 'id_usuario', 'id_usuario')
+        ->where('bo_moderador', true)->where('bo_activo', 1)->where('bo_estado', 1);
     }
 
     /**
@@ -126,5 +169,23 @@ class User extends Authenticatable
             return $folderPath;
         }
         return null;
+    }
+
+   /**
+     * One to Many relation
+     * [Relationship with conditions and ordering]
+     * 		Docs: https://laravel-news.com/eloquent-tips-tricks
+     * 		Docs: https://stackoverflow.com/a/25475780
+     * @return [type] [description]
+     */
+    public function perfiles($id_ministerio = null){
+    	if(!empty($id_ministerio)){
+    		return $this->hasMany(PerfilUsuario::class, 'id_usuario', 'id_usuario')
+    					->leftJoin('perfiles', 'perfiles.id_perfil', '=', 'perfiles_usuario.id_perfil')
+    					->where('perfiles.id_ministerio', $id_ministerio)
+    					->where('perfiles_usuario.bo_activo', true)->where('perfiles_usuario.bo_estado', 1);
+    	}else{
+    		return $this->hasMany(PerfilUsuario::class, 'id_usuario', 'id_usuario')->where('bo_activo', true)->where('bo_estado', 1);//->orderBy('email');
+    	}
     }
 }

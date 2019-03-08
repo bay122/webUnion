@@ -35,7 +35,7 @@ class UsuarioMinisterio extends Model
     /**
      * @var array
      */
-    protected $fillable = ['bo_participante', 'bo_equipo_trabajo', 'bo_directiva', 'bo_activo', 'fc_inicio', 'fc_fin', 'id_usuario'];
+    protected $fillable = ['bo_participante', 'bo_equipo_trabajo', 'bo_directiva', 'bo_activo', 'fc_inicio', 'fc_fin', 'id_usuario', 'id_ministerio', 'id_ministerio_departamento'];
 
 
     /**
