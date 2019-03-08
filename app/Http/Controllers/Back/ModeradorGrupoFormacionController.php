@@ -75,6 +75,10 @@ class ModeradorGrupoFormacionController extends Controller
 		$comunas = Comuna::all();
 		$comunaDefault = Comuna::$COMUNA_VIÑA_DEL_MAR;
         $bo_moderador = true;
+
+        Helper::loadJavascript("back/GrupoFormacion/integrantes_index.js");
+        Helper::loadCss("back/IntegrantesGrupoFormacion/integrantes.css");
+        
     	//return view('back.discipulado.moderador.create', compact('paises', 'regiones', 'comunas','paisDefault', 'regionDefault', 'comunaDefault'));
         return view('back.discipulado.asistentes.create', 
         			  compact('paises',
