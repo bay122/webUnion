@@ -86,17 +86,17 @@
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col-sm-12">
-                        <label for="nr_integrantes" class="control-label">Total Integrantes</label>
-                        <input type="text" class="form-control" readonly="" value="{{$grupo_formacion->integrantes->count()  ?? '0'}}"/>
+                        <label for="nr_integrantes" class="control-label">Total Asistentes</label>
+                        <input type="text" class="form-control" readonly="" value="{{$grupo_formacion->asistentes->count()  ?? '0'}}"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <label for="nr_cupo_maximo" class="control-label">Máximo Integrantes</label>
+                        <label for="nr_cupo_maximo" class="control-label">Máximo Asistentes</label>
                         <input type="text" class="form-control" readonly="" value="{{ $grupo_formacion->nr_cupo_maximo }}"/>
                     </div>
                     <div class="col-sm-6">
-                        <label for="nr_cupo_minimo" class="control-label">Minimo de Integrantes</label>
+                        <label for="nr_cupo_minimo" class="control-label">Minimo de Asistentes</label>
                         <input type="text" class="form-control" readonly="" value="{{ $grupo_formacion->nr_cupo_minimo }}"/>
                     </div>
                 </div>

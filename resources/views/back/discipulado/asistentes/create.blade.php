@@ -51,8 +51,8 @@
 		<div class="info-box bg-{{$info_box_color}}">
 		  <span class="info-box-icon"><i class="fa fa-users"></i></span>
 		  <div class="info-box-content">
-		    <span class="info-box-text">Total de integrantes</span>
-		    <span class="info-box-number">{{$grupo_formacion->integrantes->count()}} / {{$grupo_formacion->nr_cupo_maximo}}</span>
+		    <span class="info-box-text">Total de Asistentes</span>
+		    <span class="info-box-number">{{$grupo_formacion->asistentes->count()}} / {{$grupo_formacion->nr_cupo_maximo}}</span>
 		    <!-- The progress section is optional -->
 		    <div class="progress">
 		      <div class="progress-bar" style="width: {{ $porcentaje_cupo }}%"></div>

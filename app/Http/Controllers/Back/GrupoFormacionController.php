@@ -138,7 +138,7 @@ class GrupoFormacionController extends Controller
         try {
         	$datos_grupo_formacion = [
 	            'id_ministerio' => Ministerio::$MINISTERIO_DISCIPULADO_FUNDAMENTAL,//Ministerio::find(1),
-	            //'id_departamento' => null,
+	            //'id_ministerio_departamento' => null,
 	            'nr_cupo_maximo' 		=> $nr_cupo_maximo,//10,
 	            'nr_cupo_minimo' 		=> $nr_cupo_minimo,//1,
 	            'fc_estimada_inicio'	=> $fc_estimada_inicio,

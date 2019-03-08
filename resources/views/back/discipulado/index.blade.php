@@ -68,7 +68,7 @@
                         <thead>
                         <tr class="table_header">
                             <th colspan="5">Descripción</th>
-                            <th colspan="4">Integrantes</th>
+                            <th colspan="4">Asistentes</th>
                             <th colspan="2">Fechas</th>
                             <th colspan="4">Acciones</th>
                         </tr>
@@ -134,7 +134,7 @@
                         </tr>
                         <tr class="table_header">
                             <th colspan="5">Descripción</th>
-                            <th colspan="4">Integrantes</th>
+                            <th colspan="4">Asistentes</th>
                             <th colspan="3">Fechas</th>
                             <th colspan="4">Acciones</th>
                         </tr>
