@@ -28,6 +28,7 @@
 </div>
 <!-- /.row -->
 
+@if(!empty($grupo_formacion))
 <div class="row">
 	<div class="col-sm-6">
 		<div class="info-box">
@@ -67,10 +68,11 @@
 	<!-- /.col-sm-6 -->
 </div>
 <!-- /.row -->
+@endif
 
 <div id="box_form" class="box {{$box_color}}">
 	<div class="box-header with-border">
-		<h3 class="box-title">Nuevo Integrante</h3>
+		<h3 class="box-title">{{$bo_moderador?'Nuevo Moderador':'Nuevo Integrante'}}</h3>
 		<div class="box-tools pull-right">
 			<!-- Buttons, labels, and many other things can be placed here! -->
 			<!-- Here is a label for example -->
