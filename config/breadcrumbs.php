@@ -85,5 +85,11 @@ return [
         'icon' => 'list',
         'url' => '/admin/discipulado',
     ],
+    'moderador' =>
+    [
+        'name' => 'discipulador',
+        'icon' => 'list',
+        'url' => '/admin/discipulador',
+    ],
 
 ];
