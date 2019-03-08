@@ -161,6 +161,16 @@ class GrupoFormacion extends Model
      * 		Docs: https://laravel-news.com/eloquent-tips-tricks
      * @return [type] [description]
      */
+    public function asistentes(){
+    	return $this->hasMany(GrupoFormacionUsuario::class, 'id_grupo_formacion', 'id_grupo_formacion')->where('bo_moderador', false)->where('bo_activo', true)->where('bo_estado', 1);//->orderBy('email');
+    }
+
+    /**
+     * One to Many relation
+     * [Relationship with conditions and ordering]
+     * 		Docs: https://laravel-news.com/eloquent-tips-tricks
+     * @return [type] [description]
+     */
     public function historial_moderadores(){
     	return $this->hasMany(GrupoFormacionUsuario::class, 'id_grupo_formacion', 'id_grupo_formacion')->where('bo_moderador', true)->where('bo_estado', 1);//->orderBy('email');
     }

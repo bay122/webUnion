@@ -25,16 +25,16 @@
             <span class="label label-purple label-sm">Mixto</span>
             @endif
         </td>
-        <td>@if($grupo_formacion->integrantes->count() < ($grupo_formacion->nr_cupo_maximo - 3))
+        <td>@if($grupo_formacion->asistentes->count() < ($grupo_formacion->nr_cupo_maximo - 3))
             <span class="label label-success">Disponible</span>
-            @elseif($grupo_formacion->integrantes->count() >= ($grupo_formacion->nr_cupo_maximo - 3) &&
-                    $grupo_formacion->integrantes->count() < ($grupo_formacion->nr_cupo_maximo))
+            @elseif($grupo_formacion->asistentes->count() >= ($grupo_formacion->nr_cupo_maximo - 3) &&
+                    $grupo_formacion->asistentes->count() < ($grupo_formacion->nr_cupo_maximo))
             <span class="label label-warning">Disponible</span>
             @else
             <span class="label label-danger">Completo</span>
             @endif
         </td>
-        <td>{{ $grupo_formacion->integrantes->count()  ?? '0' }}</td>
+        <td>{{ $grupo_formacion->asistentes->count()  ?? '0' }}</td>
         <td>{{ $grupo_formacion->nr_cupo_maximo }} </td>
         <td style="text-align: center;">{{ ($grupo_formacion->fc_estimada_inicio)?$grupo_formacion->fc_estimada_inicio->formatLocalized('%d/%m/%Y') : '' }}</td>
         <td style="text-align: center;">{{ ($grupo_formacion->fc_inicio)?$grupo_formacion->fc_inicio->formatLocalized('%d/%m/%Y') : '' }}</td>

@@ -59,19 +59,19 @@ class AsistenteGrupoFormacionController extends Controller
         $estado_cupo_color = 'danger';
         $info_box_color = 'red';
 
-        if($grupo_formacion->integrantes->count() < ($grupo_formacion->nr_cupo_maximo - 3)){
+        if($grupo_formacion->asistentes->count() < ($grupo_formacion->nr_cupo_maximo - 3)){
 	    	$estado_cupo = 'Disponible';
         	$estado_cupo_color = 'success';
         	$info_box_color = 'green';
         }
-	    elseif($grupo_formacion->integrantes->count() >= ($grupo_formacion->nr_cupo_maximo - 3) &&
-	        $grupo_formacion->integrantes->count() < ($grupo_formacion->nr_cupo_maximo)){
+	    elseif($grupo_formacion->asistentes->count() >= ($grupo_formacion->nr_cupo_maximo - 3) &&
+	        $grupo_formacion->asistentes->count() < ($grupo_formacion->nr_cupo_maximo)){
 	    	$estado_cupo = 'Disponible';
         	$estado_cupo_color = 'warning';
         	$info_box_color = 'yellow';
 	    }
 
-	    $porcentaje_cupo = (($grupo_formacion->integrantes->count()*100)/$grupo_formacion->nr_cupo_maximo);
+	    $porcentaje_cupo = (($grupo_formacion->asistentes->count()*100)/$grupo_formacion->nr_cupo_maximo);
 
 	    $sexo_integrantes_color = 'default';
 	    if($grupo_formacion->tipo_sexo->gl_nombre == 'Masculino'){
@@ -187,17 +187,17 @@ class AsistenteGrupoFormacionController extends Controller
         $box_color = 'box-danger';
         $info_box_color = 'red';
 
-        if($grupo_formacion->integrantes->count() < ($grupo_formacion->nr_cupo_maximo - 3)){
+        if($grupo_formacion->asistentes->count() < ($grupo_formacion->nr_cupo_maximo - 3)){
 	    	$box_color = 'box-success';
 	    	$info_box_color = 'green';
         }
-	    elseif($grupo_formacion->integrantes->count() >= ($grupo_formacion->nr_cupo_maximo - 3) &&
-	            $grupo_formacion->integrantes->count() < ($grupo_formacion->nr_cupo_maximo)){
+	    elseif($grupo_formacion->asistentes->count() >= ($grupo_formacion->nr_cupo_maximo - 3) &&
+	            $grupo_formacion->asistentes->count() < ($grupo_formacion->nr_cupo_maximo)){
 	    	$box_color = 'box-warning';
 	    	$info_box_color = 'yellow';
 	    }
 
-	    $porcentaje_cupo = (($grupo_formacion->integrantes->count()*100)/$grupo_formacion->nr_cupo_maximo);
+	    $porcentaje_cupo = (($grupo_formacion->asistentes->count()*100)/$grupo_formacion->nr_cupo_maximo);
 	    
 	    Helper::loadJavascript("back/GrupoFormacion/integrantes_index.js");
         Helper::loadCss("back/IntegrantesGrupoFormacion/integrantes.css");
