@@ -8,6 +8,8 @@ class ModeradorGrupoFormacionRequest extends Request
      * Get the validation rules that apply to the request.
      * Docs:
      *     https://laravel.com/docs/5.7/validation
+     *     https://laracasts.com/discuss/channels/laravel/date-format-validation
+     *     https://laracasts.com/discuss/channels/general-discussion/date-format-in-laravel?page=0
      * @return array
      */
     public function rules()
@@ -23,12 +25,12 @@ class ModeradorGrupoFormacionRequest extends Request
             'nombres' => 'bail|required|max:255',
             'apellido_paterno' => 'bail|required|max:255',
             'apellido_materno' => 'bail|nullable|max:255',
-            'email' => 'bail|required|email|max:255|unique:users,email',
+            'email' => 'bail|required|email|max:255',//|unique:users,email',
             'gl_sexo' => 'bail|required|max:255',
             'telefono' => 'bail|nullable|max:255',
             'rut' => 'bail|nullable|max:255',
-            'fc_nacimiento' => 'bail|nullable|date',
-            'fc_llegada_iglesia' => 'bail|nullable|date',
+            'fc_nacimiento' => 'bail|nullable|date_format:"d/m/Y"',//date',
+            'fc_llegada_iglesia' => 'bail|nullable|date_format:"d/m/Y"',//date',
             'pais_origen' => 'bail|nullable|max:255',
             'region' => 'bail|nullable|max:255',
             'nacionalidad' => 'bail|nullable|max:255',

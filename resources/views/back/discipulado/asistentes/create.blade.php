@@ -72,7 +72,7 @@
 
 <div id="box_form" class="box {{$box_color ?? 'primary'}}">
 	<div class="box-header with-border">
-		<h3 class="box-title">{{$bo_moderador?'Nuevo Moderador':'Nuevo Integrante'}}</h3>
+		<h3 class="box-title">{{(!empty($bo_moderador) && $bo_moderador)?'Nuevo Moderador':'Nuevo Integrante'}}</h3>
 		<div class="box-tools pull-right">
 			<!-- Buttons, labels, and many other things can be placed here! -->
 			<!-- Here is a label for example -->
