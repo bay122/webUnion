@@ -137,10 +137,18 @@
 		<div class="box-header with-border">
 			<h3 class="box-title">Integrantes</h3>
 			<div class="box-tools pull-right">
-				<a class="btn btn-{{$estado_cupo_color}}" href="{{ route('discipulado.asistentes.create', [$grupo_formacion->id_grupo_formacion]) }}">
-	                <span class="fa fa-user-plus"></span>
-	                @lang('Agregar Integrante')
-	            </a>
+                @if(($grupo_formacion->asistentes->count() < $grupo_formacion->nr_cupo_maximo+2))
+                <a class="btn btn-{{$estado_cupo_color}}" href="{{ route('discipulado.asistentes.create', [$grupo_formacion->id_grupo_formacion]) }}">
+                    <span class="fa fa-user-plus"></span>
+                    @lang('Agregar Integrante')
+                </a>
+                @else
+                <a class="btn btn-{{$estado_cupo_color}} disabled" href="">
+                    <span class="fa fa-user-plus"></span>
+                    @lang('Agregar Integrante')
+                </a>
+                @endif
+				
 			</div>
 			<!-- /.box-tools -->
 		</div>
