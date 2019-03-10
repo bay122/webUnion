@@ -55,9 +55,15 @@
             </a>
         </td>
         <td>
+            @if(($grupo_formacion->asistentes->count() < $grupo_formacion->nr_cupo_maximo+2))
             <a class="btn btn-success btn-xs btn-block" href="{{ route('discipulado.asistentes.create', [$grupo_formacion->id_grupo_formacion]) }}" role="button" title="@lang('Agregar Integrante')">
                 <span class="fa fa-user-plus"></span>
             </a>
+            @else
+            <a class="btn btn-success btn-xs btn-block disabled" href="" role="button" title="@lang('Agregar Integrante')">
+                <span class="fa fa-user-plus"></span>
+            </a>
+            @endif
         </td>
     </tr>
 @endforeach

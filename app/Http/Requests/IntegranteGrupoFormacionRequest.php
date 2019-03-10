@@ -29,7 +29,7 @@ class IntegranteGrupoFormacionRequest extends Request
             'telefono' => 'bail|nullable|max:255',
             'rut' => 'bail|nullable|max:255',
             'fc_nacimiento' => 'bail|nullable|date_format:"d/m/Y"',
-            'fc_llegada_iglesia' => 'bail|nullable|date_format:"d/m/Y"',
+            //'fc_llegada_iglesia' => 'bail|nullable|date_format:"d/m/Y"',
             'pais_origen' => 'bail|nullable|max:255',
             'region' => 'bail|nullable|max:255',
             'nacionalidad' => 'bail|nullable|max:255',

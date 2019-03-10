@@ -252,6 +252,8 @@ class AsistenteGrupoFormacionController extends Controller
      */
     public function store(IntegranteGrupoFormacionRequest $request)
     {
+        //file_put_contents('php://stderr', PHP_EOL.print_r($request->all(),true).PHP_EOL, FILE_APPEND);
+        
         $id_grupo_formacion     =   Security::validar($request->input("id_grupo_formacion") , 'numero');
         $bo_moderador           =   Security::validar($request->input("bo_moderador")       , 'numero');
         $gl_nombres             =   Security::validar($request->input("nombres")            , 'string');
@@ -261,15 +263,53 @@ class AsistenteGrupoFormacionController extends Controller
         $gl_sexo                =   Security::validar($request->input("gl_sexo")            , 'string');
         $gl_telefono            =   Security::validar($request->input("telefono")           , 'string');
         $gl_rut                 =   Security::validar($request->input("rut")                , 'string');
-        $fc_nacimiento          =   Security::validar($request->input("fc_nacimiento")      , 'date');//TODO: validar date
-        $fc_llegada_iglesia     =   Security::validar($request->input("fc_llegada_iglesia") , 'date');//TODO: validar date
+        $fc_nacimiento          =   Security::validar($request->input("fc_nacimiento")      , 'date');
+        $nr_edad                =   Security::validar($request->input("edad")               , 'numero');
+        //$fc_llegada_iglesia     =   Security::validar($request->input("fc_llegada_iglesia") , 'date');
         $id_pais_origen         =   Security::validar($request->input("pais_origen")        , 'string');
         $id_region              =   Security::validar($request->input("region")             , 'string');
         $id_nacionalidad        =   Security::validar($request->input("nacionalidad")       , 'string');
         $id_comuna              =   Security::validar($request->input("comuna")             , 'string');
         $gl_direccion           =   Security::validar($request->input("direccion")          , 'string');
+
+        $bo_discipulado_previo  =   Security::validar($request->input("bo_discipulado_previo"), 'numero');
+        $gl_discipulador_anterior=  Security::validar($request->input("gl_discipulador_anterior"), 'string');
+        $bo_iglesia_anterior    =   Security::validar($request->input("bo_iglesia_anterior"), 'numero');
+        $gl_otra_iglesia        =   Security::validar($request->input("gl_otra_iglesia"), 'string');
+        $gl_observaciones       =   Security::validar($request->input("gl_observaciones"), 'string');
+
+        $fc_llegada_iglesia     =   Security::validar($request->input("fc_llegada_iglesia") , 'numero');
+        $gl_llegada_iglesia = "";
+
+        switch ($fc_llegada_iglesia) {
+            case 1:
+                $gl_llegada_iglesia = "menos de 1 año";
+                break;
+            case 2:
+                $gl_llegada_iglesia = "1 año";
+                break;
+            case 3:
+                $gl_llegada_iglesia = "2 a 3 años";
+                break;
+            case 4:
+                $gl_llegada_iglesia = "más de 4 años";
+                break;
+        }
+
+        $json_otros_datos = [
+            "nr_edad"               => $nr_edad,
+            'fc_llegada_iglesia'    => $fc_llegada_iglesia,
+            'gl_llegada_iglesia'    => $gl_llegada_iglesia,
+            'bo_discipulado_previo' => $bo_discipulado_previo,
+            'gl_discipulador_anterior' => $gl_discipulador_anterior,
+            'bo_iglesia_anterior'   => $bo_iglesia_anterior,
+            'gl_otra_iglesia'       => $gl_otra_iglesia,
+            'gl_observaciones'      => $gl_observaciones,
+        ];
         
+
         $grupo_formacion        = GrupoFormacion::findOrFail($id_grupo_formacion);
+
         
         DB::beginTransaction();
 
@@ -317,11 +357,12 @@ class AsistenteGrupoFormacionController extends Controller
                 'gl_apellido_materno' => $gl_apellido_materno,
                 'id_region' => $id_region,
                 'id_comuna' => $id_comuna,
-                'fc_llegada_iglesia' => $fc_llegada_iglesia,
+                //'fc_llegada_iglesia' => $fc_llegada_iglesia,
                 'fc_nacimiento' => $fc_nacimiento,
                 'id_pais_origen' => $id_pais_origen,
                 'id_nacionalidad' => $id_nacionalidad,
                 'gl_sexo' => $gl_sexo,
+                'json_otros_datos' => json_encode($json_otros_datos),
                 //'created_at' => $created_at,
                 //'updated_at' => $updated_at,
             ]);

@@ -3,11 +3,27 @@ var baseURL = document.location.origin;
 $(document).ready(function (){
 	console.log("integrantes_index");
 
+    check_discipulado_previo();
+    check_iglesia_anterior();
+    check_sin_mail();
+
+    $("#bo_discipulado_previo").change((val)=>{
+        check_discipulado_previo();
+    });
+    $("#bo_iglesia_anterior").change((val)=>{
+        check_iglesia_anterior();
+    });
+
+    $("#bo_sin_mail").change((val)=>{
+        check_sin_mail();
+    });
+
 	//Datemask dd/mm/yyyy
     //$('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
     
     //Date picker
     $('#fc_nacimiento').datepicker().on('changeDate', function(e){validar_edad();});
+    $("#edad").change((val)=>{validar_input_edad();});
 
 	//$('#fc_llegada_iglesia').datepicker();
 	
@@ -46,25 +62,57 @@ $(document).ready(function (){
     });*/
 });
 
+function check_discipulado_previo(){
+    if($('#bo_discipulado_previo').is(':checked')){
+        $("#contenedor_discipulador_anterior").fadeIn("fast");
+    }else{
+        $("#contenedor_discipulador_anterior").fadeOut("fast");
+    }
+}
+function check_iglesia_anterior(){
+    if($('#bo_iglesia_anterior').is(':checked')){
+        $("#contenedor_nombre_otra_iglesia").fadeIn("fast");
+    }else{
+        $("#contenedor_nombre_otra_iglesia").fadeOut("fast");
+    }
+}
+function check_sin_mail(){
+    if($('#bo_sin_mail').is(':checked')){
+        $("#contenedor_email").fadeOut("fast");
+    }else{
+        $("#contenedor_email").fadeIn("fast");
+        $("#email").val("");
+    }
+}
+
 
 function validar_edad(){
 	var warn = false;
 	var msg_warn = '';
-	var fecha_ingresada =  moment($("#fc_nacimiento").val(), 'DD/MM/YYYY');
-	var edad = moment().diff(fecha_ingresada, 'years');
 
-    var nr_edad_minima = parseInt($("#nr_edad_minima").val());
-	var nr_edad_maxima = parseInt($("#nr_edad_maxima").val());
-
-    if(edad<nr_edad_minima){
-    	warn = true;
-        msg_warn += '<b>Advertencia:</b> No cumple con la edad <b>mínima</b> para un discipulado de <b>'+$("#gl_tipo_grupo_formacion").val()+'</b>.<br/>';
-        msg_warn +=' (Rango etareo: desde <b>'+$("#nr_edad_minima").val()+'</b> hasta <b>'+$("#nr_edad_maxima").val()+'</b>)';
+    if($("#edad").val() != ''){
+        $("label[for='edad'] i").remove();
+        $("div[for='edad']").removeClass("has-warning");
+        $("div[for='edad'] span").remove();
     }
-    if(edad>nr_edad_maxima){
-    	warn = true;
-    	msg_warn += '<b>Advertencia:</b> Supera la edad <b>máxima</b> para un discipulado de <b>'+$("#gl_tipo_grupo_formacion").val()+'</b>.<br/>';
-        msg_warn +=' (Rango etareo: desde <b>'+$("#nr_edad_minima").val()+'</b> hasta <b>'+$("#nr_edad_maxima").val()+'</b>)';
+
+    if($("#fc_nacimiento").val() != ''){
+        var fecha_ingresada =  moment($("#fc_nacimiento").val(), 'DD/MM/YYYY');
+        var edad = moment().diff(fecha_ingresada, 'years');
+
+        var nr_edad_minima = parseInt($("#nr_edad_minima").val());
+        var nr_edad_maxima = parseInt($("#nr_edad_maxima").val());
+
+        if(edad<nr_edad_minima){
+        	warn = true;
+            msg_warn += '<b>Advertencia:</b> No cumple con la edad <b>mínima</b> para un discipulado <br/>de <b>'+$("#gl_tipo_grupo_formacion").val()+'</b>.<br/>';
+            msg_warn +=' (Rango etareo: desde <b>'+$("#nr_edad_minima").val()+'</b> hasta <b>'+$("#nr_edad_maxima").val()+'</b>)';
+        }
+        if(edad>nr_edad_maxima){
+        	warn = true;
+        	msg_warn += '<b>Advertencia:</b> Supera la edad <b>máxima</b> para un discipulado <br/>de <b>'+$("#gl_tipo_grupo_formacion").val()+'</b>.<br/>';
+            msg_warn +=' (Rango etareo: desde <b>'+$("#nr_edad_minima").val()+'</b> hasta <b>'+$("#nr_edad_maxima").val()+'</b>)';
+        }
     }
 
     if(warn){
@@ -80,7 +128,49 @@ function validar_edad(){
     }
 }
 
+function validar_input_edad(){
+    var warn = false;
+    var msg_warn = '';
+
+    if($("#fc_nacimiento").val() != ''){
+        $("#fc_nacimiento").val("");
+        $("label[for='fc_nacimiento'] i").remove();
+        $("div[for='fc_nacimiento']").removeClass("has-warning");
+        $("div[for='fc_nacimiento'] span").remove();
+    }
+    var edad = $("#edad").val();
+    var nr_edad_minima = parseInt($("#nr_edad_minima").val());
+    var nr_edad_maxima = parseInt($("#nr_edad_maxima").val());
+
+    if($("#edad").val() != ''){
+        if(edad<nr_edad_minima){
+            warn = true;
+            msg_warn += '<b>Advertencia:</b> No cumple con la edad <b>mínima</b> para un discipulado <br/>de <b>'+$("#gl_tipo_grupo_formacion").val()+'</b>.<br/>';
+            msg_warn +=' (Rango etareo: desde <b>'+$("#nr_edad_minima").val()+'</b> hasta <b>'+$("#nr_edad_maxima").val()+'</b>)';
+        }
+        if(edad>nr_edad_maxima){
+            warn = true;
+            msg_warn += '<b>Advertencia:</b> Supera la edad <b>máxima</b> para un discipulado <br/>de <b>'+$("#gl_tipo_grupo_formacion").val()+'</b>.<br/>';
+            msg_warn +=' (Rango etareo: desde <b>'+$("#nr_edad_minima").val()+'</b> hasta <b>'+$("#nr_edad_maxima").val()+'</b>)';
+        }
+    }
+
+    if(warn){
+        if($("label[for='edad'] i").length == 0){
+            $("label[for='edad']").prepend( '<i class="fa fa-bell-o"></i>');
+            $("div[for='edad']").addClass("has-warning");
+            $("div[for='edad']").append( '<span for="edad" class="help-block">'+msg_warn+'</span>');
+        }
+    }else{
+        $("label[for='edad'] i").remove();
+        $("div[for='edad']").removeClass("has-warning");
+        $("div[for='edad'] span").remove();
+    }
+    
+}
+
 $("#email").on('change', function (e) {
+    $("#id_usuario").val("");
     buscarUsuario();
 });
 
@@ -100,7 +190,7 @@ function buscarUsuario(){
                         cargarDatosUsuario(response.usuario);
                         xModal.success("Cargando datos de usuario...");
                     }
-	    			$("#datos_usuario").show();
+	    			//$("#datos_usuario").show();
 	    			$("div[for='box_form']").remove();
                 }else{
                     xModal.danger("ERROR: "+response.mensaje);
@@ -115,7 +205,7 @@ function buscarUsuario(){
 	}
 	else
 	{
-	    $("#datos_usuario").hide();
+	    //$("#datos_usuario").hide();
 	    xModal.danger("ERROR: El email es incorrecto.");
 	}
 }
@@ -171,9 +261,10 @@ function submit(btn){
     if($("#apellido_paterno").val() == ''){
         msg_error += "- Debe ingresar el apellido paterno.<br/>";
     }
-    if($("#email").val() == ''){
+    if(($("#email").val() == '') && (!$('#bo_sin_mail').is(':checked'))){
         msg_error += "- Debe ingresar el mail.<br/>";
     }
+
     if($("#gl_sexo").val() == ''){
         msg_error += "- Debe ingresar el sexo.<br/>";
     }
@@ -219,6 +310,15 @@ function submit(btn){
         });
     }else{
         console.log("SUBMIT")
+        if($('#bo_sin_mail').is(':checked')){
+            var nombre = $("#nombres").val().replace(/\s/g, '');
+            var apellido_paterno = $("#apellido_paterno").val().replace(/\s/g, '');
+            var apellido_materno = $("#apellido_materno").val().replace(/\s/g, '');
+            var random = Date.now();
+            var sin_mail = nombre+apellido_paterno+apellido_materno+random+'@sinmail.com';
+            $("#email").val(sin_mail);
+        }
+
         //buttonEndProcess(button_process);
         $("#form").submit();
     }

@@ -51,7 +51,8 @@ class UsuarioDatos extends Model
     	'fc_nacimiento', 
     	'id_pais_origen', 
     	'id_nacionalidad', 
-    	'gl_sexo'
+    	'gl_sexo',
+        'json_otros_datos'
     ];//, 'size'];
 
     /**
@@ -63,6 +64,15 @@ class UsuarioDatos extends Model
         'fc_llegada_iglesia',
         'fc_nacimiento',
         'created_at'
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'json_otros_datos' => 'array',
     ];
 
 

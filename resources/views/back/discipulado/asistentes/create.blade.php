@@ -101,7 +101,15 @@
 
                 <div class="col-sm-12">
                 	<div class="row">
-                		<div class="col-sm-6">
+                		<div class="col-sm-3">
+	                       <div class="form-check">
+	    					    <input type="checkbox" value="1" class="form-check-input" id="bo_sin_mail" name="bo_sin_mail" {{ (old('bo_sin_mail')) ? 'checked' : '' }}>
+	    					    <label class="form-check-label" for="bo_sin_mail">@lang('Sin Mail')</label>
+	    					</div>
+	                    </div>
+	                </div>
+                	<div class="row">
+                		<div class="col-sm-6" id="contenedor_email">
                 			<div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
 		                        <label for="email">@lang('Email') *</label>
 		                        <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" onblur="validaEmail(this, 'Correo Inválido!')" required>
@@ -122,7 +130,7 @@
 
 	                    <div class="col-sm-3">
 	                       <div class="form-check {{ $errors->has('bo_moderador') ? 'has-error' : '' }}" style="margin-top: 30px;">
-	    					    <input type="checkbox" class="form-check-input" id="bo_moderador" name="bo_moderador" {{ (old('bo_moderador')) ? 'checked' : ((isset($bo_moderador) && $bo_moderador) ? 'checked' : '') }}>
+	    					    <input type="checkbox" value="1" class="form-check-input" id="bo_moderador" name="bo_moderador" {{ (old('bo_moderador')) ? 'checked' : ((isset($bo_moderador) && $bo_moderador) ? 'checked' : '') }}>
 	    					    <label class="form-check-label" for="exampleCheck1">@lang('Es Moderador')</label>
 	    					    {!! $errors->first('bo_moderador', '<small class="help-block">:message</small>') !!}
 	    					</div>
@@ -130,7 +138,7 @@
 	                </div>
 	            </div>
 
-	            <div id="datos_usuario" style="display: none">
+	            <div id="datos_usuario"><!-- style="display: none">-->
 
 					<div class="col-sm-12">
 						<div class="row">
@@ -182,63 +190,14 @@
 							</div>
 
 							<div class="col-sm-3">
-	                            <label for="edad" class="control-label">Edad</label>
-			                    <input type="text" name="edad" id="edad" maxlength="3" onKeyPress="return soloNumeros(event)" placeholder="Edad" class="form-control" />
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-sm-12">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group {{ $errors->has('telefono') ? 'has-error' : '' }}">
-		                            <label for="name">@lang('Telefono')</label>
-		                            <input type="text" class="form-control" id="telefono" name="telefono" value="{{ old('telefono') }}">
-		                            {!! $errors->first('telefono', '<small class="help-block">:message</small>') !!}
-		                        </div>
-							</div>
-
-							<div class="col-sm-6">
-								<div class="form-group">
-		                            <label for="role">@lang('ministerio') *</label>
-		                            <select class="form-control" name="ministerio" id="ministerio">
-		                                <option value="discipulado">discipulado</option>
-		                            </select>  
-		                        </div>
+								<div for="edad" class="form-group">
+		                            <label for="edad" class="control-label">Edad</label>
+				                    <input type="text" name="edad" id="edad" maxlength="3" onKeyPress="return soloNumeros(event)" placeholder="Edad" value="{{ old('edad') }}" class="form-control" />
+				                </div>
 							</div>
 						</div>
 
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group {{ $errors->has('gl_sexo') ? 'has-error' : '' }}">
-		                            <label for="name">@lang('Sexo') *</label>
-		                            <select id="gl_sexo" name="gl_sexo" class="form-control" required>
-		                            	<option value="" {{ old('gl_sexo') ? '' : 'selected' }}>Seleccione</option>
-		    	                        <option value="Masculino" {{ old('gl_sexo') ? ('Masculino' == old('gl_sexo') ? 'selected' : '') : '' }}>Masculino</option>
-		    	                        <option value="Femenino" {{ old('gl_sexo') ? ('Femenino' == old('gl_sexo') ? 'selected' : '') : '' }}>Femenino</option>
-		    	                    </select>
-		                            {!! $errors->first('gl_sexo', '<small class="help-block">:message</small>') !!}
-		                        </div>
-							</div>
 
-							<div class="col-sm-6">
-								<div class="form-group {{ $errors->has('fc_llegada_iglesia') ? 'has-error' : '' }}">
-		                            <label for="name">@lang('Fecha de llegada a la iglesia')</label>
-		                            <div class="input-group date">
-					                  <input type="text" class="form-control datepicker pull-right" id="fc_llegada_iglesia" name="fc_llegada_iglesia" 
-					                  value="{{ old('fc_llegada_iglesia') }}" placeholder="dd/mm/aaaa">
-					                  <span class="input-group-addon"><i class="fa fa-calendar" onClick="$('#fc_llegada_iglesia').focus();"></i></span>
-					                </div>
-					                <!-- /.input group -->
-		                            {!! $errors->first('fc_llegada_iglesia', '<small class="help-block">:message</small>') !!}
-		                        </div>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group {{ $errors->has('region') ? 'has-error' : '' }}">
@@ -316,6 +275,119 @@
 		    	                        @endforeach
 		    	                    </select>
 		                            {!! $errors->first('nacionalidad', '<small class="help-block">:message</small>') !!}
+		                        </div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group {{ $errors->has('telefono') ? 'has-error' : '' }}">
+		                            <label for="name">@lang('Telefono')</label>
+		                            <input type="text" class="form-control" id="telefono" name="telefono" value="{{ old('telefono') }}">
+		                            {!! $errors->first('telefono', '<small class="help-block">:message</small>') !!}
+		                        </div>
+							</div>
+
+							<div class="col-sm-6">
+								<div class="form-group">
+		                            <label for="role">@lang('ministerio') *</label>
+		                            <select class="form-control" name="ministerio" id="ministerio">
+		                                <option value="discipulado">discipulado</option>
+		                            </select>  
+		                        </div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group {{ $errors->has('gl_sexo') ? 'has-error' : '' }}">
+		                            <label for="name">@lang('Sexo') *</label>
+		                            <select id="gl_sexo" name="gl_sexo" class="form-control" required>
+		                            	<option value="" {{ old('gl_sexo') ? '' : 'selected' }}>Seleccione</option>
+		    	                        <option value="Masculino" {{ old('gl_sexo') ? ('Masculino' == old('gl_sexo') ? 'selected' : '') : '' }}>Masculino</option>
+		    	                        <option value="Femenino" {{ old('gl_sexo') ? ('Femenino' == old('gl_sexo') ? 'selected' : '') : '' }}>Femenino</option>
+		    	                    </select>
+		                            {!! $errors->first('gl_sexo', '<small class="help-block">:message</small>') !!}
+		                        </div>
+							</div>
+
+							<!--div class="col-sm-6">
+								<div class="form-group {{ $errors->has('fc_llegada_iglesia') ? 'has-error' : '' }}">
+		                            <label for="name">@lang('Fecha de llegada a la iglesia')</label>
+		                            <div class="input-group date">
+					                  <input type="text" class="form-control datepicker pull-right" id="fc_llegada_iglesia" name="fc_llegada_iglesia" 
+					                  value="{{ old('fc_llegada_iglesia') }}" placeholder="dd/mm/aaaa">
+					                  <span class="input-group-addon"><i class="fa fa-calendar" onClick="$('#fc_llegada_iglesia').focus();"></i></span>
+					                </div>
+					                <!-- /.input group - ->
+		                            {!! $errors->first('fc_llegada_iglesia', '<small class="help-block">:message</small>') !!}
+		                        </div>
+							</div-->
+
+							<div class="col-sm-6">
+								<div class="form-group {{ $errors->has('fc_llegada_iglesia') ? 'has-error' : '' }}">
+		                            <label for="name">@lang('Fecha de llegada a la iglesia')</label>
+				                  	<select class="form-control" name="fc_llegada_iglesia" id="fc_llegada_iglesia">
+				                  		<option value="">Seleccione</option>
+	                                	<option value="1" {{ 1 == old('fc_llegada_iglesia') ? 'selected' : '' }}>menos de 1 año</option>
+	                                	<option value="2" {{ 2 == old('fc_llegada_iglesia') ? 'selected' : '' }}>1 año</option>
+	                                	<option value="3" {{ 3 == old('fc_llegada_iglesia') ? 'selected' : '' }}>2 a 3 años</option>
+	                                	<option value="4" {{ 4 == old('fc_llegada_iglesia') ? 'selected' : '' }}>más de 4 años</option>
+	                            	</select>
+					                <!-- /.input group -->
+		                            {!! $errors->first('fc_llegada_iglesia', '<small class="help-block">:message</small>') !!}
+		                        </div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="col-sm-12" style="padding-left: 0px;">
+			                       <div class="form-check {{ $errors->has('bo_discipulado_previo') ? 'has-error' : '' }}">
+			    					    <input type="checkbox" value="1" class="form-check-input" id="bo_discipulado_previo" name="bo_discipulado_previo" {{ (old('bo_discipulado_previo')) ? 'checked' : ((isset($bo_discipulado_previo) && $bo_discipulado_previo) ? 'checked' : '') }}>
+			    					    <label class="form-check-label" for="bo_discipulado_previo">@lang('¿Se discipuló antes?')</label>
+			    					    {!! $errors->first('bo_discipulado_previo', '<small class="help-block">:message</small>') !!}
+			    					</div>
+			                    </div>
+								<div class="col-sm-12"  id="contenedor_discipulador_anterior" style="display: none;">
+									<div class="form-group {{ $errors->has('gl_discipulador_anterior') ? 'has-error' : '' }}">
+			                            <label for="name">@lang('Nombre discipulador anterior')</label>
+			                            <input type="text" class="form-control" id="gl_discipulador_anterior" name="gl_discipulador_anterior" value="{{ old('gl_discipulador_anterior') }}">
+			                            {!! $errors->first('gl_discipulador_anterior', '<small class="help-block">:message</small>') !!}
+			                        </div>
+			                    </div>
+							</div>
+
+							<div class="col-sm-6">
+								<div class="col-sm-12" style="padding-left: 0px;">
+			                       <div class="form-check {{ $errors->has('bo_iglesia_anterior') ? 'has-error' : '' }}">
+			    					    <input type="checkbox" value="1" class="form-check-input" id="bo_iglesia_anterior" name="bo_iglesia_anterior" {{ (old('bo_iglesia_anterior')) ? 'checked' : ((isset($bo_iglesia_anterior) && $bo_iglesia_anterior) ? 'checked' : '') }}>
+			    					    <label class="form-check-label" for="bo_iglesia_anterior">@lang('¿Asistió a otra iglesia antes?')</label>
+			    					    {!! $errors->first('bo_iglesia_anterior', '<small class="help-block">:message</small>') !!}
+			    					</div>
+			                    </div>
+								<div class="col-sm-12" id="contenedor_nombre_otra_iglesia" style="display: none;">
+									<div class="form-group {{ $errors->has('gl_otra_iglesia') ? 'has-error' : '' }}">
+			                            <label for="name">@lang('Nombre otra iglesia')</label>
+			                            <input type="text" class="form-control" id="gl_otra_iglesia" name="gl_otra_iglesia" value="{{ old('gl_otra_iglesia') }}">
+			                            {!! $errors->first('gl_otra_iglesia', '<small class="help-block">:message</small>') !!}
+			                        </div>
+			                    </div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group {{ $errors->has('gl_observaciones') ? 'has-error' : '' }}">
+		                            <label for="name">@lang('Observaciones')</label>
+		                             <textarea rows="5" class="form-control col-sm-8" id="gl_observaciones" name="gl_observaciones" placeholder="Observaciones" >{{ old('gl_observaciones') }}</textarea> 
+		                            {!! $errors->first('gl_observaciones', '<small class="help-block">:message</small>') !!}
 		                        </div>
 							</div>
 						</div>
