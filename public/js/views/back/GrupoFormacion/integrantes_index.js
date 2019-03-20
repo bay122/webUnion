@@ -212,7 +212,8 @@ function buscarUsuario(){
 
 function cargarDatosUsuario(datos_usuario){
     $("#id_usuario").val(datos_usuario.id_usuario);
-    //$("#email").val(datos_usuario.email);
+    
+    $("#email").val(datos_usuario.email);
     if(datos_usuario.rut)
     	$("#rut").val(datos_usuario.rut);
     if(datos_usuario.nombres)
@@ -226,6 +227,8 @@ function cargarDatosUsuario(datos_usuario){
     if(datos_usuario.fc_nacimiento)
     	var fc_nacimiento = moment(datos_usuario.fc_nacimiento.date).format('DD/MM/YYYY');
     	$("#fc_nacimiento").datepicker('update',fc_nacimiento);
+    if(datos_usuario.nr_edad)
+        $("#edad").val(datos_usuario.nr_edad);
     if(datos_usuario.fc_llegada_iglesia)
     	var fc_llegada_iglesia = moment(datos_usuario.fc_llegada_iglesia.date).format('DD/MM/YYYY');
     	$("#fc_llegada_iglesia").datepicker('update',fc_llegada_iglesia);
@@ -237,14 +240,16 @@ function cargarDatosUsuario(datos_usuario){
     	$("#pais_origen").val(datos_usuario.pais_origen);
     if(datos_usuario.nacionalidad)
     	$("#nacionalidad").val(datos_usuario.nacionalidad);
-    
+    if(datos_usuario.gl_observaciones)
+        $("#gl_observaciones").val(datos_usuario.gl_observaciones);
+
     if(datos_usuario.telefono != null){
         var telefono = JSON.parse(datos_usuario.telefono);
-        $("telefono").val(telefono[0]["gl_telefono"]);
+        $("#telefono").val(telefono[0]["gl_telefono"]);
     }
     if(datos_usuario.direccion != null){
         var direccion = JSON.parse(datos_usuario.direccion);
-        $("direccion").val(direccion[0]["gl_direccion"]);
+        $("#direccion").val(direccion[0]["gl_direccion"]);
     }
 }
 
@@ -322,4 +327,53 @@ function submit(btn){
         //buttonEndProcess(button_process);
         $("#form").submit();
     }
+}
+
+
+
+function verDatosUsuario(obj){
+    clearModal()
+    $.ajax({
+        url : baseURL + "/admin/discipulado/asistentes/buscar",
+        data : {id_usuario: $(obj).data("usuario")},
+        type : 'POST',
+        dataType : 'JSON',
+        success : function(response){
+            console.log(response);
+            if(response.result == true){
+                if(response.usuario != null){
+                    cargarDatosUsuario(response.usuario);
+                    $("#myModal").modal({show: 'true'});
+                }
+            }else{
+                xModal.danger("ERROR: "+response.mensaje);
+            }
+        },
+        error : function(){
+            xModal.danger('Error: ocurrió un error inesperado, si el error persiste, contactese con soporte.');
+        }
+    });
+}
+
+function clearModal(){
+    $("#email").val("");
+    $("#rut").val("");
+    $("#nombres").val("");
+    $("#apellido_paterno").val("");
+    $("#apellido_materno").val("");
+    $("#direccion").val("");
+    $("#fc_nacimiento").val("");
+    $("#edad").val("");
+    $("#region").val("");
+    $("#comuna").val("");
+    $("#pais_origen").val("");
+    $("#nacionalidad").val("");
+    $("#telefono").val("");
+    $("#gl_sexo").val("");
+    $("#fc_llegada_iglesia").val("");
+    $("#bo_discipulado_previo").val("");
+    $("#gl_discipulador_anterior").val("");
+    $("#bo_iglesia_anterior").val("");
+    $("#gl_otra_iglesia").val("");
+    $("#gl_observaciones").val("");
 }

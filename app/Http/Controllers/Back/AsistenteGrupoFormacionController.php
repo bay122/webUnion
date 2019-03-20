@@ -106,9 +106,13 @@ class AsistenteGrupoFormacionController extends Controller
     {
         $result = ["result" => true, "usuario" => null];
         try{
-            $gl_mail = Security::validar($request->input("email"), 'string');
-            
-            $usuario = User::where('email', $gl_mail)->first();
+            if($request->input("id_usuario")){
+                $id_usuario = Security::validar($request->input("id_usuario"), 'numero');
+                $usuario = User::find($id_usuario);
+            }else{
+                $gl_mail = Security::validar($request->input("email"), 'string');
+                $usuario = User::where('email', $gl_mail)->first();
+            }
             
             if(!empty($usuario)){
                 file_put_contents('php://stderr', PHP_EOL.print_r($usuario,true).PHP_EOL, FILE_APPEND);
@@ -117,6 +121,7 @@ class AsistenteGrupoFormacionController extends Controller
                     "id_usuario"        => $usuario->id_usuario,
                 ];
                 if(!empty($datos_generales)){
+                    $datos_usuario["email"]              = $usuario->email;
                     $datos_usuario["nombres"]            = $datos_generales->gl_nombres;
                     $datos_usuario["apellido_paterno"]   = $datos_generales->gl_apellido_paterno;
                     $datos_usuario["apellido_materno"]   = $datos_generales->gl_apellido_materno;
@@ -137,6 +142,11 @@ class AsistenteGrupoFormacionController extends Controller
                     if(!empty($datos_generales->comuna)){
                         $datos_usuario["comuna"] = $datos_generales->comuna->id_comuna;   
                     }
+
+                    $json_otros_datos = json_decode($datos_generales->json_otros_datos, true);
+
+                    $datos_usuario["gl_observaciones"]   = isset($json_otros_datos["gl_observaciones"])?$json_otros_datos["gl_observaciones"]:'';
+                    $datos_usuario["nr_edad"]   = isset($json_otros_datos["nr_edad"])?$json_otros_datos["nr_edad"]:'';
                 }
                 
 
