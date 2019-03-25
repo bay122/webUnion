@@ -194,6 +194,10 @@
 
                     <div class="box">
                         <div class="box-header with-border">
+                            <button id="exportar" class="btn btn-xs btn-primary pull-right" value="{{$grupo_formacion->id_grupo_formacion}}">
+                                <i class="fa fa-download"></i>
+                                @lang('Exportar a EXCEL')
+                            </button>    
                             <strong>filtros :</strong> &nbsp;
                             <div id="spinner" class="text-center"></div>
                         </div>

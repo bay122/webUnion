@@ -135,22 +135,22 @@ Route::prefix('admin')->namespace('Back')->group(function () {
         /*Route::resource('moderador', 'ModeradorController', ['only' => [
             'index', 'show', 'create', 'store', 'update', 'destroy'
         ]]);*/
-
-        
-		
 		
 
+
+		/**
+		 * Route::resource
+		 * Docs: https://laravel.com/docs/5.8/controllers#resource-controllers
+		 * 		 https://youtu.be/t8Qn0QwO6-g
+		 * 		 https://laracasts.com/discuss/channels/laravel/routeresource-parameters
+		 */
         // Contacts
         Route::name('contacts.seen')->put('contacts/seen/{contact}', 'ContactController@updateSeen');
-        Route::resource('contacts', 'ContactController', ['only' => [
-            'index', 'destroy'
-        ]]);
-
+        Route::resource('contacts', 'ContactController', ['only' => ['index', 'destroy'], 'parameters' => ['index' => 'filter']]);
+        
         // Comments
         Route::name('comments.seen')->put('comments/seen/{comment}', 'CommentController@updateSeen');
-        Route::resource('comments', 'CommentController', ['only' => [
-            'index', 'destroy'
-        ]]);
+        Route::resource('comments', 'CommentController', ['only' => ['index', 'destroy']]);
 
         // Settings
         Route::name('settings.edit')->get('settings', 'AdminController@settingsEdit');
@@ -182,6 +182,8 @@ Route::prefix('admin')->namespace('Back')->group(function () {
             Route::group(['prefix' => 'asistentes'], function(){
                 Route::get('index/{id}', ['uses' => 'AsistenteGrupoFormacionController@index', 'as' => 'discipulado.asistentes.index']);
                 Route::post('buscar/', ['uses' => 'AsistenteGrupoFormacionController@buscar', 'as' => 'discipulado.asistentes.buscar']);//->where('id', '[0-9]+');                                Route::get('show/{id}', ['uses' => 'AsistenteGrupoFormacionController@show', 'as' => 'discipulado.asistentes.show']);//->where('id', '[0-9]+');
+
+                Route::post('exportarExcel/', ['uses' => 'AsistenteGrupoFormacionController@exportarExcel', 'as' => 'discipulado.asistentes.exportarExcel']);
 
                 //Route::get('edit/{id}', ['uses' => 'AsistenteGrupoFormacionController@edit', 'as' => 'discipulado.asistentes.edit']);//->where('id', '[0-9]+');
                 Route::get('create/{id}', ['uses' => 'AsistenteGrupoFormacionController@create', 'as' => 'discipulado.asistentes.create']);
