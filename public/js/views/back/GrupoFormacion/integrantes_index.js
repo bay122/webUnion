@@ -60,6 +60,31 @@ $(document).ready(function (){
             locale: "es"
         });
     });*/
+
+    $( "#exportar" ).on( "click", function() {
+        $.ajax({
+            url : baseURL + "/admin/discipulado/asistentes/exportarExcel",
+            data : {id_grupo: $(this).val()},
+            type : 'POST',
+            dataType : 'JSON',
+            success : function(response){
+                if(response.correcto){
+                    var blob = new Blob(["\ufeff",response.excel], { encoding:'UTF-8',type: 'application/vnd.ms-excel;chartset=utf-8' });
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = response.nombre;
+                    link.click();
+                }else{
+                    xModal.danger('Error: No se ha podido generar el Excel.');
+                }
+            }, 
+            error : function(err){
+                    xModal.danger('Error: Intente nuevamente',function(err){
+                        console.log(err)
+                    });
+            }
+        });
+    });
 });
 
 function check_discipulado_previo(){

@@ -610,4 +610,45 @@ class AsistenteGrupoFormacionController extends Controller
 
         return response ("Registro eliminado exitosamente", 200);
     }
+
+
+
+    public function exportarExcel(Request $request){
+        //ini_set('display_errors', 0);
+        $correcto       = false;
+        $json           = Array("correcto"=>$correcto,"nombre"=>"","excel"=>"");
+        $params         = Array("grupo_formacion"=>$request->input("id_grupo"));
+        $nombreArchivo  = "Asistentes_Grupo_Formacion_" . date('d_m_Y') . ".xls";
+        $excel          = $this->_crearExcel($params); //EN ESTA FUNCIÓN CREO EL HTML
+        if(!empty($excel)){
+            $correcto = true;
+        }
+        $json   = Array("correcto"=>$correcto,"nombre"=>$nombreArchivo,"excel"=> $excel);
+        
+        return response()->json($json);
+    }
+
+    /**
+     * [_crearExcel description]
+     * Docs: https://ourcodeworld.com/articles/read/232/how-to-render-a-view-and-save-its-html-content-in-a-variable-in-laravel
+     * @param  [type] $parametros [description]
+     * @return [type]             [description]
+     */
+    public function _crearExcel($parametros){
+        //ini_set('memory_limit', '2048M');
+        ini_set('max_execution_time', 600);
+        set_time_limit(600); //SI ES MUY GRANDE EL EXCEL
+        /*********************************************************/
+        $grupo_formacion = GrupoFormacion::findOrFail($parametros["grupo_formacion"]);
+        $integrantes = $grupo_formacion->integrantes;
+        
+        /********************************************************/
+        
+        //$this->smarty->assign("arrResultado", $arr);
+        //return $this->smarty->fetch('reportes/grilla_exportar.tpl');
+        //return view('back.discipulado.asistentes.export', compact('integrantes'));     
+        $view = \View::make('back.discipulado.asistentes.export', compact('integrantes'));
+
+        return $view->render();
+    }
 }
