@@ -23,6 +23,10 @@
 		<link rel="stylesheet" href="{{ asset($base_css.$path).'?'.$local_uuid }}">
 		@endforeach
 
+		@foreach($include_css_full_path as $path)
+		<link rel="stylesheet" href="{{ asset($path).'?'.$local_uuid }}">
+		@endforeach
+
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -320,6 +324,10 @@
 		<script src="{{ asset('adminlte/js/back.js').'?'.$local_uuid }}"></script>
 
 		@yield('js')
+
+		@foreach($include_javascript_full_path as $path)
+			<script src="{{ asset($path).'?'.$local_uuid}}" type="text/javascript"></script>
+		@endforeach
 
 		@foreach($include_javascript as $path)
 			<script src="{{ asset($base_javascript.$path).'?'.$local_uuid}}" type="text/javascript"></script>
