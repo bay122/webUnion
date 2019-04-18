@@ -107,6 +107,16 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+    public function mensajes()
+    {
+        return $this->hasMany(Contact::class, 'id_usuario', 'id_usuario_actualiza');
+    }
+
+    /**
+     * One to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function discipulados()
     {
         return $this->hasMany(GrupoFormacionUsuario::class, 'id_usuario', 'id_usuario')
