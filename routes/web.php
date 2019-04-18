@@ -146,6 +146,7 @@ Route::prefix('admin')->namespace('Back')->group(function () {
 		 */
         // Contacts
         Route::name('contacts.seen')->put('contacts/seen/{contact}', 'ContactController@updateSeen');
+        Route::name('contacts.responder')->post('contacts/responder', 'ContactController@responder');
         Route::resource('contacts', 'ContactController', ['only' => ['index', 'destroy'], 'parameters' => ['index' => 'filter']]);
         
         // Comments
