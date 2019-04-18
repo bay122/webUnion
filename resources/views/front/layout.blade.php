@@ -78,7 +78,7 @@
     <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/jquery-1.12.4.js') }}"></script>
 		
-
+	<script src="https://www.google.com/recaptcha/api.js?render={{env('GOOGLE_RECAPTCHA_KEY')}}"></script>
 	<!-- favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
