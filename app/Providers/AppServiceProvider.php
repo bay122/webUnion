@@ -24,9 +24,11 @@ class AppServiceProvider extends ServiceProvider
 
         View::share('base_css', "css/views/");
         View::share('include_css', array());
+        View::share('include_css_full_path', array());
         
         View::share('base_javascript', "js/views/");
         View::share('include_javascript', array());
+        View::share('include_javascript_full_path', array());
 
         view()->composer('front/layout',MenuComposer::class);
 
