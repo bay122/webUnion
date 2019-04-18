@@ -39,6 +39,38 @@
     </div>
     <!-- /.row -->
 
+
+
+
+    <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 80%;">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Responder Mensaje</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+        			<input type="hidden" id="id_contact" name="id_contact" value="">
+	                <div class="col-md-12">
+	                	<textarea id="responde_pannel" placeholder="Ingrese su respuesta ..."
+	                	style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+	                </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 @endsection
 
 @section('js')
@@ -57,15 +89,19 @@
             $('#pagination').on('click', 'ul.pagination a', function (event) {
                 back.pagination(event, $(this), errorAjax)
             })
-            $('#pannel').on('change', ':checkbox[name="seen"]', function () {
-                    back.seen(url, $(this), errorAjax)
-                })
-                .on('click', 'td a.btn-danger', function (event) {
-                    back.destroy(event, $(this), url, swalTitle, confirmButtonText, cancelButtonText, errorAjax)
-                })
-            $('.box-header :radio, .box-header :checkbox').click(function () {
-                back.filters(url, errorAjax)
-            })
+            //$('#pannel').on('change', ':checkbox[name="seen"]', function () {
+            //    back.seen(url, $(this), errorAjax)
+            //})
+            $("#pannel").on('click','td button.btn-warning',function(e){
+					e.preventDefault();
+	            	back.seen(url, $(this), errorAjax)
+				})
+	            .on('click', 'td a.btn-danger', function (event) {
+	                back.destroy(event, $(this), url, swalTitle, confirmButtonText, cancelButtonText, errorAjax)
+	            })
+	            $('.box-header :radio, .box-header :checkbox').click(function () {
+	                back.filters(url, errorAjax)
+	            })
         }
 
         return {
