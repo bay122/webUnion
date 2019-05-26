@@ -346,5 +346,7 @@
 				})
 			})
 		</script>
+		<!-- sweetalert Global -->
+		@include('sweetalert::alert')
 	</body>
 </html>

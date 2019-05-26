@@ -13,6 +13,9 @@ use App\ {
     Repositories\ContactRepository,
     Http\Controllers\Controller
 };
+use RealRashid\SweetAlert\Facades\Alert;
+//Referencia : https://realrashid.github.io/sweet-alert/install
+
 //use Illuminate\Mail\Mailer;
 use Illuminate\Notifications\Messages\MailMessage;
 //use Illuminate\Notifications\Channels\MailChannel;
@@ -66,76 +69,147 @@ class ContactController extends Controller
      */
     public function updateSeen(Contact $contact)
     {
-    	//TODO: agregar usuario que le cambia el estado
-        //$contact->ingoing->delete ();
+
+       
         if($contact->bo_leido){
-        	$contact->bo_leido = false;
+            $contact->bo_leido = false;
+            toast('Mensaje no Leído','success','top-right'); 
         }else{
+            toast('Mensaje Leído','success','top-right'); 
         	$contact->bo_leido = true;
-        }
-        $contact->save();
-        //file_put_contents('php://stderr', PHP_EOL . print_r($contact, TRUE). PHP_EOL, FILE_APPEND);
-
-        return response ()->json ();
+        }           
+   
+            $contact->save();
+                    
+            return redirect(route('contacts.index'));
+    	
     }
-    /*public function updateSeen(Contact $contact)
-    {
-        $contact->ingoing->delete ();
-
-        return response ()->json ();
-    }*/
-
+   
     public function responder(Request $request)
     {
-    	$response = Array("result" =>  false, "mensaje" => '');
-    	$id_contact = Security::validar($request->input("id_contact"), 'numero');
-    	$contacto = Contact::find($id_contact);
-    	if (!$contacto) { 
-    		$response["mensaje"] = "Ocurrió un error al envíar el mensaje.";
-    	}else{
-    		$to = $contacto->email;//"somebody@example.com, somebodyelse@example.com";
-			$subject = "HTML email";
-    		$message = Security::validar($request->input("mensaje"), 'html');
-    		$headers = "MIME-Version: 1.0" . "\r\n";
-			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-			// More headers
-			$headers .= 'From: <no-reply@unioncristiana.cl>' . "\r\n";
-			//$headers .= 'Cc: '$contacto->email . "\r\n";
-			
-			
-	        //$class = ConfirmEmail::class;
+        
+       
+        //Valido todos los datos para evitar inyecciones SQL
+        $id_contact = Security::validar($request->input("id_contact"), 'numero');
+        $respuesta = Security::validar($request->input("respuesta"), 'string');
+        
+       if($respuesta==''){
 
-			//$contacto->notify(new $class);
-			//$mailMessage = (new MailMessage)->from('no-reply@unioncristiana.cl', 'Iglesia Unión Cristiana')->to($contacto->email)->send();
-			//$mailer = new Mailer();
-			
-			//Docs: https://divinglaravel.com/how-notification-channels-work-in-laravel
-			//$message = $notification->toMail($notifiable);
+        toast('El campo Respuesta se encuentra vacío','warning','top-right');
+        return redirect(route('contacts.index'));
 
-			//if ($message instanceof Mailable) {
-			//    return $message->send($this->mailer);
-			//}
-			
-			//mail($to,$subject,$message,$headers);
-    		$response["result"] = true;
-    	}
-    	
-        return response ()->json ($response);
+       }else{
+
+       
+        //Buscar la información registrada del receptor con el id_contact
+        $contacto = Contact::find($id_contact); 
+
+        //Valida si existe el registro 
+       if(!empty($contacto)){
+
+            $name=$contacto->name;
+            $email=$contacto->email;
+
+            $mensaje="<h2>Mensaje de www.unioncristiana.cl </h2><br>";
+            $mensaje.=$respuesta.'<br>';
+
+
+            $emisor="noresponder@unioncristiana.cl";
+            $receptor= $email;
+
+            $asunto = "Mensaje enviado por: ".$emisor;
+
+            $headers=array(
+                'Authorization:Bearer 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',
+                    'Content-Type: application/json'
+            );
+
+            $data=array(
+                "personalizations" => array(
+                    array(
+                        "to"=>array(
+                            array(
+                                "email"=>$receptor,
+                                "name"=>$name
+                            )
+                        )
+                    )
+                            ),
+                            "from"=>array(
+                                "email"=>$emisor								
+                            ),
+                            "subject"=>$asunto,
+                            "content"=>array(
+                                array(
+                                    "type"=>"text/html",
+                                    "value"=>$mensaje,
+                                )
+                            )
+            );
+
+            $ch=curl_init();
+            curl_setopt($ch,CURLOPT_URL,"https://api.sendgrid.com/v3/mail/send");
+            curl_setopt($ch,CURLOPT_POST,1);
+            curl_setopt($ch,CURLOPT_POSTFIELDS,json_encode($data));
+            curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
+            curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);
+            curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+            $response=curl_exec($ch);
+            curl_close($ch);
+
+         //Cambiar estado de bo_leido = 1, bo_respondido = 1, json_respuesta= mensaje enviado    
+        
+         $contacto->bo_leido=1;
+         $contacto->bo_respondido=1;
+         $contacto->json_respuestas=$respuesta; 
+
+         $contacto->save();
+
+            toast('Mensaje Enviado!','success','top-right');        
+            return redirect(route('contacts.index'));
+          
+       }else{
+
+            toast('Mensaje no enviado, no se encontro un correo asociado.','error','top-right');
+            return redirect(route('contacts.index'));
+       }
+       
+    }
+        
     }
 
     /**
-     * Remove contact from storage.
+     * Update date bo_valido and bo_spam 1
+     *
+     * @param  \App\Models\Contact $contact
+     * @return \Illuminate\Http\Response
+     */
+    public function updateSpam(Contact $contact)
+    {
+    	
+        
+         
+         $contact->bo_spam=1;
+         $contact->bo_validar=1;
+         $contact->save();
+
+         toast('Mensaje Agregado a Spam','success','top-right'); 
+         return redirect(route('contacts.index'));
+    }
+
+    /**
+     * Update contact bo_estado = 0.
      *
      * @param  \App\Models\Contact $contact
      * @return \Illuminate\Http\Response
      */
     public function destroy(Contact $contact)
     {
-    	file_put_contents('php://stderr', PHP_EOL . print_r($contact, TRUE). PHP_EOL, FILE_APPEND);
-        //$contact->delete ();
-        //
-        //'id_usuario_crea' => auth()->id(),//$id_usuario_crea,
+    
+       $contact->bo_estado=0;
+       $contact->save();
 
-        return response ()->json ();
+       toast('Mensaje Eliminado Correctamente!','success','top-right');    
+      return redirect(route('contacts.index'));
     }
 }

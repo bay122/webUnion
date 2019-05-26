@@ -1,5 +1,8 @@
+
 @foreach($contacts as $contact)
 <div class="box">
+
+                            
     <div class="box-body table-responsive">
         <table id="contacts" class="table table-striped table-bordered">
             <thead>
@@ -23,26 +26,41 @@
                     <td>{{ $contact->created_at->formatLocalized('%a %e %b %Y %R hs.') }}</td>
                     <td>{{ ($contact->bo_respondido)?'Si':'No' }}</td>
                     <td>
-                    	<button class="btn btn-warning btn-sm btn-leido" name="seen" value="{{ $contact->id }}" role="button" title="@lang('Marcar como leído')">
-                    		<span class="fa fa-{{ ($contact->bo_leido) ?  'envelope-o' : 'envelope-open-o'}}"></span>
-                    	</button>
+
+                        <form action="{{ route('contacts.seen', $contact->id) }}" method="POST">
+                            {{ csrf_field() }}
+                            {{method_field('PUT')}}
+                            
+                            <button  type="submit" class="btn btn-warning btn-sm btn-leido" role="button" title="@lang('Marcar como leído')">
+                                <span class="fa fa-{{ ($contact->bo_leido) ?  'envelope-o' : 'envelope-open-o'}}"></span>
+                            </button>
+                        </form>
                     </td>
                     <td>
-                    	<button class="btn btn-success btn-sm btn_response" name="response" value="{{ $contact->id }}" role="button" title="@lang('Responder')">
+                    	<button  class="btn btn-success btn-sm btn_response" name="response" value="{{ $contact->id }}" role="button" title="@lang('Responder')">
                     		<span class="fa fa-reply"></span>
                     	</button>
                     </td>
                     <td>
-                    	<a class="btn btn-danger btn-sm" href="" role="button" title="@lang('Marcar como Spam')">
-                    	<span class="fa fa-ban"></span>
-                    	</a>
+                        <form action="{{ route('contacts.spam', $contact->id) }}" method="POST">
+                            {{ csrf_field() }}
+                            {{method_field('PUT')}}
+                            <button type="submit" class="btn  btn-sm"  role="button" title="@lang('Marcar como Spam')">
+                                <span class="fa fa-ban"></span>
+                            </button>
+                        </form>
                     </td>
                     <td>
-                    	<a class="btn btn-danger btn-sm" href="{{ route('contacts.destroy', [$contact->id]) }}" role="button" title="@lang('Destroy')">
-                    	<span class="fa fa-trash"></span>
-                    	</a>
+                         <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                {{method_field('DELETE')}}
+                            <button type="submit" class="btn btn-danger btn-sm" role="button" title="@lang('Destroy')">
+                            <span class="fa fa-trash"></span>
+                            </button>
+                        </form>    
                     </td>
                 </tr>
+
             </tbody>
         </table>
     </div>

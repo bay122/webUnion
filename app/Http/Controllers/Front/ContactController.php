@@ -47,6 +47,7 @@ class ContactController extends Controller
      */
     public function store(ContactRequest $request)
     {
+       
     	//Valido todos los datos para evitar inyecciones SQL
     	$name = Security::validar($request->input("name"), 'string');
 		$email = Security::validar($request->input("email"), 'string');
