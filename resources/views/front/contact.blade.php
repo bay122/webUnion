@@ -74,10 +74,18 @@
                                                             @endslot
                                                             {!! session('ok') !!}
                                                         @endcomponent
+                                                    @elseif(session('error'))
+                                                        @component('front.components.alert')
+                                                            @slot('type')
+                                                                error
+                                                            @endslot
+                                                            {!! session('error') !!}
+                                                        @endcomponent
                                                     @endif
                                                     <form action="{{ route('contacts.store') }}" method="post">
                                                         <div style="display: none;">
                                                             <input type="hidden" name="locale" value="es_ES"/>
+                                                            <input type="hidden" name="recap" id="recap" value=""/>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
@@ -152,32 +160,42 @@
             </div>
         </section>
     </div>
-<script type="text/javascript">
 
-    $(document).ready(function(){
-        
-        accionCheckbox();      
+    <script type="text/javascript">
 
-    });
-
-    function accionCheckbox(){ 
-
-
-        $('#checkbox1').click(function(){
-          if (this.checked){
+        $(document).ready(function(){
             
-            $('#selectMinisterios').show();
-
-          }else{
-
-                $('#selectMinisterios').hide();
-                $("#ministerios").val('null');
-          }
+            accionCheckbox();      
 
         });
-    }
 
-</script>
+        function accionCheckbox(){ 
+
+
+            $('#checkbox1').click(function(){
+              if (this.checked){
+                
+                $('#selectMinisterios').show();
+
+              }else{
+
+                    $('#selectMinisterios').hide();
+                    $("#ministerios").val('null');
+              }
+
+            });
+        }
+
+    </script>
+
+    <script type="text/javascript">
+      grecaptcha.ready(function() {
+          grecaptcha.execute('{{env("GOOGLE_RECAPTCHA_KEY")}}', {action: 'contact'}).then(function(token) {
+             $("#recap").val(token);
+          });
+      });
+    </script>
+
     @include('front.partials.suscribe_socials')
 @endsection
 

@@ -92,6 +92,16 @@ class Ministerio extends Model
 
     /**
      * One to Many relation
+     * 	Mensajes de contacto realziados a través de la página
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function mensajes()
+    {
+        return $this->hasMany(Contact::class);
+    }
+
+    /**
+     * One to Many relation
      * [Relationship with conditions and ordering]
      * 		Docs: https://laravel-news.com/eloquent-tips-tricks
      * @return [type] [description]

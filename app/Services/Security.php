@@ -60,6 +60,13 @@ class Security
                 $retorno = Security::revisarString($retorno);
             }
         }
+
+        if($tipo == "html"){
+            if(isset($valor)){
+            	$html = true;
+                $retorno = Security::revisarString($retorno, $html);
+            }
+        }
         
         if($tipo == "date"){
             $retorno = NULL;
@@ -122,7 +129,7 @@ class Security
      * @param  string  $string    [string a evaluar]
      * @return string             [string formateado]
      */
-    static public function revisarString(string $string)
+    static public function revisarString(string $string, $html = false)
     {
         $reemplazar[] = '`';
         $reemplazar[] = 'select ';
@@ -158,8 +165,11 @@ class Security
         $reemplazar[] = ' IF ';
         $reemplazar[] = ' else ';
         $reemplazar[] = ' ELSE ';
-        $reemplazar[] = ' union ';
-        $reemplazar[] = ' UNION ';
+        
+        if(!$html){
+	        $reemplazar[] = ' union ';
+	        $reemplazar[] = ' UNION ';
+        }
 
         $reemplazar[] = ' like';
         $reemplazar[] = ' LIKE';
@@ -173,9 +183,11 @@ class Security
         $reemplazar[] = ' FLOOR';
         //$reemplazar[] = "'";
         //$reemplazar[] = '"';
-        $reemplazar[] = '(';
-        $reemplazar[] = ')';
-        $reemplazar[] = ' * ';
+        if(!$html){
+	        $reemplazar[] = '(';
+	        $reemplazar[] = ')';
+	        $reemplazar[] = ' * ';
+        }
         //$reemplazar[] = ';';
         //$reemplazar[] = ',';
         
@@ -381,6 +393,47 @@ class Security
             return date($formato, strtotime("0000-00-00"));
         }
         return $valor;
+    }
+
+    /**
+     * [validarReCaptcha validación de reCaptcha v3]
+     * Previene el uso indebido del sistema a través de bots.
+     * El valor minimo para pasar la prueba es 0.5
+     * El calculo lo realiza el sistema de google con IA.
+     * Docs: https://developers.google.com/recaptcha/docs/v3
+     *       https://www.youtube.com/watch?v=zTNOYw1JJeQ
+     *       https://developers.google.com/recaptcha/docs/verify
+     *       https://www.google.com/recaptcha/admin/site/345731958/setup
+     * @param  [type] $token  [Token que debe cargarse en el javascript del formulario]
+     * @param  [type] $action [accion correspondiente al formulario]
+     * @return [type] array   [respuesta de validación]
+     */
+    static public function validarReCaptcha($token, $action){
+        $result = array(
+                    "status" => "ERROR",
+                    "msg" => "Error Desconocido. Por favor, intentelo más tarde."
+                );
+        
+        if(isset($token) && !empty($token)){
+            $secret = env("GOOGLE_RECAPTCHA_SECRET");
+            $ip = $_SERVER["REMOTE_ADDR"];
+            $url_base = "https://www.google.com/recaptcha/api/siteverify";
+            
+            $validation_server = file_get_contents("$url_base?secret=$secret&response=$token&remoteip=$ip");
+            
+            $result_recaptcha = json_decode($validation_server);
+            
+            if($result_recaptcha->success && $result_recaptcha->action == $action){
+                if($result_recaptcha->score >= 0.7){
+                    $result["status"] = "SUCCESS";
+                    $result["msg"] = "validación exitosa";
+                }else{
+                    $result["status"] = "WARNING";
+                    $result["msg"] = "requiere revisión.";
+                }
+            }
+        }
+        return $result;
     }
 
 }

@@ -55,11 +55,11 @@
                             </ul>
                         </li>
                         @endif  
-                        @guest
+                        {{--@guest--}}
                         <li {{ currentRoute('contacts.create') }} id="menu-item-232" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-232">
                             <a href="{{ route('contacts.create') }}" itemprop="url">@lang('Contact')</a>
                         </li>
-                        @endguest
+                        {{--@endguest--}}
 
                         @auth
                             @admin
