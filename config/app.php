@@ -169,7 +169,7 @@ return [
          */
         Creativeorange\Gravatar\GravatarServiceProvider::class,
         Baum\Providers\BaumServiceProvider::class,
-        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        //RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Application Service Providers...

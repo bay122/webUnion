@@ -13,7 +13,8 @@ use App\ {
     Repositories\ContactRepository,
     Http\Controllers\Controller
 };
-use RealRashid\SweetAlert\Facades\Alert;
+//se quitan por conflicto en instalacion
+//use RealRashid\SweetAlert\Facades\Alert;
 //Referencia : https://realrashid.github.io/sweet-alert/install
 
 //use Illuminate\Mail\Mailer;
@@ -70,18 +71,20 @@ class ContactController extends Controller
     public function updateSeen(Contact $contact)
     {
 
-       
+        $mensaje = '';
         if($contact->bo_leido){
             $contact->bo_leido = false;
-            toast('Mensaje no Leído','success','top-right'); 
+            //toast('Mensaje no Leído','success','top-right');
+            $mensaje = 'Mensaje no Leído'; 
         }else{
-            toast('Mensaje Leído','success','top-right'); 
+            //toast('Mensaje Leído','success','top-right');
+            $mensaje = 'Mensaje Leído'; 
         	$contact->bo_leido = true;
         }           
    
             $contact->save();
                     
-            return redirect(route('contacts.index'));
+            return redirect(route('contacts.index'))->with('ok', $mensaje);
     	
     }
    
@@ -95,8 +98,8 @@ class ContactController extends Controller
         
        if($respuesta==''){
 
-        toast('El campo Respuesta se encuentra vacío','warning','top-right');
-        return redirect(route('contacts.index'));
+        //toast('El campo Respuesta se encuentra vacío','warning','top-right');
+        return redirect(route('contacts.index'))->with('warn', 'El campo Respuesta se encuentra vacío');
 
        }else{
 
@@ -165,13 +168,13 @@ class ContactController extends Controller
 
          $contacto->save();
 
-            toast('Mensaje Enviado!','success','top-right');        
-            return redirect(route('contacts.index'));
+            //toast('Mensaje Enviado!','success','top-right');        
+            return redirect(route('contacts.index'))->with('ok', 'Mensaje Enviado!');
           
        }else{
 
-            toast('Mensaje no enviado, no se encontro un correo asociado.','error','top-right');
-            return redirect(route('contacts.index'));
+            //toast('Mensaje no enviado, no se encontro un correo asociado.','error','top-right');
+            return redirect(route('contacts.index'))-with('error', 'Mensaje no enviado, no se encontro un correo asociado.')>;
        }
        
     }
@@ -193,8 +196,8 @@ class ContactController extends Controller
          $contact->bo_validar=1;
          $contact->save();
 
-         toast('Mensaje Agregado a Spam','success','top-right'); 
-         return redirect(route('contacts.index'));
+         //toast('Mensaje Agregado a Spam','success','top-right'); 
+         return redirect(route('contacts.index'))->with('ok', 'Mensaje Agregado a Spam');
     }
 
     /**
@@ -206,10 +209,10 @@ class ContactController extends Controller
     public function destroy(Contact $contact)
     {
     
-       $contact->bo_estado=0;
-       $contact->save();
+        $contact->bo_estado=0;
+        $contact->save();
 
-       toast('Mensaje Eliminado Correctamente!','success','top-right');    
-      return redirect(route('contacts.index'));
+        //toast('Mensaje Eliminado Correctamente!','success','top-right');    
+        return redirect(route('contacts.index'))->with('ok', 'Mensaje Eliminado Correctamente!');
     }
 }

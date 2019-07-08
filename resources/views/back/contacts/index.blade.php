@@ -6,6 +6,30 @@
 
     <div class="row">
         <div class="col-md-12">
+            @if ($errors->count())
+                @component('back.components.alert')
+                    @slot('type')
+                        danger
+                    @endslot
+                        {!! implode('<br/>- ', $errors->all(':message')) !!}
+                @endcomponent
+            @endif
+            @if (session('ok'))
+                @component('back.components.alert')
+                    @slot('type')
+                        success
+                    @endslot
+                    {!! session('ok') !!}
+                @endcomponent
+            @endif
+            @if (session('warn'))
+                @component('back.components.alert')
+                    @slot('type')
+                        warning
+                    @endslot
+                    {!! session('warn') !!}
+                @endcomponent
+            @endif
             <div class="box">
                 <div class="box-header">
                     <strong>@lang('Status') :</strong> &nbsp;
