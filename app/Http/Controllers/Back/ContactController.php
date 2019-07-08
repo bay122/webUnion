@@ -174,7 +174,7 @@ class ContactController extends Controller
        }else{
 
             //toast('Mensaje no enviado, no se encontro un correo asociado.','error','top-right');
-            return redirect(route('contacts.index'))-with('error', 'Mensaje no enviado, no se encontro un correo asociado.')>;
+            return redirect(route('contacts.index'))->with('error', 'Mensaje no enviado, no se encontro un correo asociado.');
        }
        
     }
