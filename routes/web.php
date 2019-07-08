@@ -20,6 +20,8 @@
 // Home
 Route::name('home')->get('/', 'Front\UCController@index');
 Route::name('home')->get('/home', 'Front\UCController@index');
+Route::name('sitio')->get('/sitio', 'Front\UCController@index');
+//Route::name('test')->get('/loadtestertool.xml', function(){return \File::get('/loadtestertool.xml');})
 //Route::name('home')->get('/home', 'Front\PostController@index');
 
 // Contact
