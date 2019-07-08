@@ -346,7 +346,11 @@
 				})
 			})
 		</script>
+
 		<!-- sweetalert Global -->
-		@include('sweetalert::alert')
+		{{--
+			se quita por conflicto en instalacion 
+			@include('sweetalert::alert')
+		--}}
 	</body>
 </html>

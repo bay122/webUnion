@@ -42,8 +42,18 @@ Auth::routes();
 |--------------------------------------------------------------------------|
 */
 
+/**
+ * Aquí dentro van todas las rutas definidas para el backend, el cual aparecerá
+ * en la url con el prefijo 'admin'.
+ * @todo  Idealmente debería cambiarse ese prefijo
+ */
 Route::prefix('admin')->namespace('Back')->group(function () {
 
+    /**
+     * Aquí dentro defino las rutas que solo serán visibles para los perfiles
+     * de redactor ('redac'), estas rutas también serán visibles 
+     * para el perfil de administrador
+     */
     Route::middleware('redac')->group(function () {
 
         Route::name('admin')->get('/', 'AdminController@index');
@@ -63,79 +73,44 @@ Route::prefix('admin')->namespace('Back')->group(function () {
         */
        
         // Video Home       
-         Route::resource('videos', 'ConfiguracionController', ['only' => [
+        Route::resource('videos', 'ConfiguracionController', ['only' => [
             'index','update'
-        ]]);
+        ]]);       
 
-        // Video Home       
-         Route::resource('videos', 'ConfiguracionController', ['only' => [
-            'index','update'
-        ]]);
 
     });
 
+    /**
+     * Aqui dentro defino las rutas que solo serán visibles para el administrador
+     * como los middleware de 'redac' y 'tripulante' también validan y dan permisos
+     * al perfil de administrador, no es necesario definir esas rutas aqui dentro tambien.
+     */
     Route::middleware('admin')->group(function () {
 
-        // Users
+        /**
+         * INICIO rutas para funciones relacionadas con los Users
+         */
         Route::name('users.seen')->put('users/seen/{user}', 'UserController@updateSeen');
         Route::name('users.valid')->put('users/valid/{user}', 'UserController@updateValid');
         Route::resource('users', 'UserController', ['only' => [
             'index', 'edit', 'update', 'destroy'
         ]]);
+        /**
+         * FIN rutas para funciones relacionadas con los Users
+         */
 
-        // Categories
+        /**
+         * INICIO rutas para funciones relacionadas con las Categories
+         */ 
         Route::resource('categories', 'CategoryController', ['except' => 'show']);
+        /**
+         * FIN rutas para funciones relacionadas con las Categories
+         */ 
 
         // Video Home       
-        Route::resource('videos', 'ConfiguracionController', ['only' => [
+        /*Route::resource('videos', 'ConfiguracionController', ['only' => [
             'index','update'
-        ]]);
-        
-        /*Route::resource('discipulado', 'GrupoFormacionController', ['only' => [
-            'index', 'show', 'create', 'store', 'update', 'destroy'
         ]]);*/
-
-        /*Route::group(['prefix' => 'discipulado'], function(){
-			Route::get('index/', ['uses' => 'GrupoFormacionController@index', 'as' => 'discipulado.index']);
-			Route::get('show/{id}', ['uses' => 'GrupoFormacionController@show', 'as' => 'discipulado.show']);//->where('id', '[0-9]+');
-			Route::get('edit/{id}', ['uses' => 'GrupoFormacionController@edit', 'as' => 'discipulado.edit']);//->where('id', '[0-9]+');
-			Route::get('create', ['uses' => 'GrupoFormacionController@create', 'as' => 'discipulado.create']);
-			Route::post('store', ['uses' => 'GrupoFormacionController@store', 'as' => 'discipulado.store']);
-			Route::post('update/{id}', ['uses' => 'GrupoFormacionController@update', 'as' => 'discipulado.update']);
-			Route::delete('destroy/{id}', ['uses' => 'GrupoFormacionController@destroy', 'as' => 'discipulado.destroy']);
-			//Route::get('view/{id?}', ['uses' => 'ArticlesController@view', 'as' => 'articlesView']);//->where('id', '[0-9]+');
-			//
-			//Route::group(['prefix' => 'integrantes'], function(){
-            Route::group(['prefix' => 'asistentes'], function(){
-                Route::get('index/{id}', ['uses' => 'AsistenteGrupoFormacionController@index', 'as' => 'discipulado.asistentes.index']);
-                Route::post('buscar/', ['uses' => 'AsistenteGrupoFormacionController@buscar', 'as' => 'discipulado.asistentes.buscar']);//->where('id', '[0-9]+');                                Route::get('show/{id}', ['uses' => 'AsistenteGrupoFormacionController@show', 'as' => 'discipulado.asistentes.show']);//->where('id', '[0-9]+');
-
-                //Route::get('edit/{id}', ['uses' => 'AsistenteGrupoFormacionController@edit', 'as' => 'discipulado.asistentes.edit']);//->where('id', '[0-9]+');
-                Route::get('create/{id}', ['uses' => 'AsistenteGrupoFormacionController@create', 'as' => 'discipulado.asistentes.create']);
-                Route::post('store', ['uses' => 'AsistenteGrupoFormacionController@store', 'as' => 'discipulado.asistentes.store']);
-                //Route::post('update/{id}', ['uses' => 'AsistenteGrupoFormacionController@update', 'as' => 'discipulado.asistentes.update']);
-                Route::delete('destroy/{id}', ['uses' => 'AsistenteGrupoFormacionController@destroy', 'as' => 'discipulado.asistentes.destroy']);
-                //Route::get('view/{id?}', ['uses' => 'ArticlesController@view', 'as' => 'articlesView']);//->where('id', '[0-9]+');
-            });
-
-            Route::group(['prefix' => 'moderador'], function(){
-                //echo 'hola';
-                //Route::get('/', ['uses' => 'ModeradorController@index']);
-                Route::get('index/', ['uses' => 'ModeradorGrupoFormacionController@index', 'as' => 'discipulado.moderador.index']);
-                Route::get('show/{id}', ['uses' => 'ModeradorGrupoFormacionController@show', 'as' => 'discipulado.moderador.show']);//->where('id', '[0-9]+');
-                Route::get('edit/{id}', ['uses' => 'ModeradorGrupoFormacionController@edit', 'as' => 'discipulado.moderador.edit']);//->where('id', '[0-9]+');
-                Route::get('create', ['uses' => 'ModeradorGrupoFormacionController@create', 'as' => 'discipulado.moderador.create']);
-                Route::post('store', ['uses' => 'ModeradorGrupoFormacionController@store', 'as' => 'discipulado.moderador.store']);
-                Route::post('update/{id}', ['uses' => 'ModeradorGrupoFormacionController@update', 'as' => 'discipulado.moderador.update']);
-                Route::post('destroy/{id}', ['uses' => 'ModeradorGrupoFormacionController@destroy', 'as' => 'discipulado.moderador.destroy']);
-                //Route::get('view/{id?}', ['uses' => 'ArticlesController@view', 'as' => 'articlesView']);//->where('id', '[0-9]+');
-            });
-		});*/
-
-        /*Route::resource('moderador', 'ModeradorController', ['only' => [
-            'index', 'show', 'create', 'store', 'update', 'destroy'
-        ]]);*/
-		
 
 
 		/**
@@ -144,34 +119,59 @@ Route::prefix('admin')->namespace('Back')->group(function () {
 		 * 		 https://youtu.be/t8Qn0QwO6-g
 		 * 		 https://laracasts.com/discuss/channels/laravel/routeresource-parameters
 		 */
-        // Contacts
+        /**
+         * INICIO rutas para funciones relacionadas con los mensajes de contacto (Contacts)
+         */ 
         Route::name('contacts.seen')->put('contacts/seen/{contact?}', 'ContactController@updateSeen')->where('contact', '[0-9]+');
         Route::name('contacts.spam')->put('contacts/spam/{contact}', 'ContactController@updateSpam')->where('contact', '[0-9]+');
         Route::name('contacts.responder')->post('contacts/responder', 'ContactController@responder');
         
         Route::resource('contacts', 'ContactController', ['only' => ['index', 'destroy'], 'parameters' => ['index' => 'filter']]);
+        /**
+         * FIN rutas para funciones relacionadas con los mensajes de contacto (Contacts)
+         */ 
         
-        // Comments
+        /**
+         * INICIO rutas para funciones relacionadas con los comentarios (Comments)
+         */
         Route::name('comments.seen')->put('comments/seen/{comment}', 'CommentController@updateSeen');
         Route::resource('comments', 'CommentController', ['only' => ['index', 'destroy']]);
+        /**
+         * FIN rutas para funciones relacionadas con los comentarios
+         */
 
-        // Settings
+        
+        /**
+         * INICIO rutas para funciones relacionadas con las configuraciones (Settings)
+         */
         Route::name('settings.edit')->get('settings', 'AdminController@settingsEdit');
         Route::name('settings.update')->put('settings', 'AdminController@settingsUpdate');
-
+        /**
+         * FIN rutas para funciones relacionadas con las configuraciones (Settings)
+         */
     });
 
+    /**
+     * Aquí dentro defino las rutas que solo serán visibles para los perfiles
+     * de los tripulantes ('tripulantes'), estas rutas también serán visibles 
+     * para el perfil de administrador
+     */
     Route::middleware('tripulante')->group(function () {
 
         Route::name('admin')->get('/', 'AdminController@index');
 
         // Video Home       
-         Route::resource('videos', 'ConfiguracionController', ['only' => [
+        Route::resource('videos', 'ConfiguracionController', ['only' => [
             'index','update'
         ]]);
 
 
-         Route::group(['prefix' => 'discipulado'], function(){
+        /**
+         * INICIO rutas ministeria discipulado
+         * @todo  generalizar para ministerios de formación
+         * @todo  agregar validadores where para agregar seguridad a las url de GET
+         */
+        Route::group(['prefix' => 'discipulado'], function(){
 			Route::get('index/', ['uses' => 'GrupoFormacionController@index', 'as' => 'discipulado.index']);
 			Route::get('show/{id}', ['uses' => 'GrupoFormacionController@show', 'as' => 'discipulado.show']);//->where('id', '[0-9]+');
 			Route::get('edit/{id}', ['uses' => 'GrupoFormacionController@edit', 'as' => 'discipulado.edit']);//->where('id', '[0-9]+');
@@ -180,8 +180,10 @@ Route::prefix('admin')->namespace('Back')->group(function () {
 			Route::post('update/{id}', ['uses' => 'GrupoFormacionController@update', 'as' => 'discipulado.update']);
 			Route::delete('destroy/{id}', ['uses' => 'GrupoFormacionController@destroy', 'as' => 'discipulado.destroy']);
 			//Route::get('view/{id?}', ['uses' => 'ArticlesController@view', 'as' => 'articlesView']);//->where('id', '[0-9]+');
-			//
-			//Route::group(['prefix' => 'integrantes'], function(){
+			
+            /**
+             * INICIO rutas para funciones relacionadas con los asistentes
+             */
             Route::group(['prefix' => 'asistentes'], function(){
                 Route::get('index/{id}', ['uses' => 'AsistenteGrupoFormacionController@index', 'as' => 'discipulado.asistentes.index']);
                 Route::post('buscar/', ['uses' => 'AsistenteGrupoFormacionController@buscar', 'as' => 'discipulado.asistentes.buscar']);//->where('id', '[0-9]+');                                Route::get('show/{id}', ['uses' => 'AsistenteGrupoFormacionController@show', 'as' => 'discipulado.asistentes.show']);//->where('id', '[0-9]+');
@@ -195,7 +197,13 @@ Route::prefix('admin')->namespace('Back')->group(function () {
                 Route::delete('destroy/{id}', ['uses' => 'AsistenteGrupoFormacionController@destroy', 'as' => 'discipulado.asistentes.destroy']);
                 //Route::get('view/{id?}', ['uses' => 'ArticlesController@view', 'as' => 'articlesView']);//->where('id', '[0-9]+');
             });
+            /**
+             * FIN rutas para funciones relacionadas con los asistentes
+             */
 
+            /**
+             * INICIO rutas para funciones relacionadas con los moderadores
+             */
             Route::group(['prefix' => 'moderador'], function(){
                 //echo 'hola';
                 //Route::get('/', ['uses' => 'ModeradorController@index']);
@@ -208,7 +216,13 @@ Route::prefix('admin')->namespace('Back')->group(function () {
                 Route::post('destroy/{id}', ['uses' => 'ModeradorGrupoFormacionController@destroy', 'as' => 'discipulado.moderador.destroy']);
                 //Route::get('view/{id?}', ['uses' => 'ArticlesController@view', 'as' => 'articlesView']);//->where('id', '[0-9]+');
             });
+            /**
+             * FIN rutas para funciones relacionadas con los moderadores
+             */
 		});
+        /**
+         * FIN rutas ministeria discipulado
+         */
 
     });
 
