@@ -24,6 +24,11 @@ Route::name('sitio')->get('/sitio', 'Front\UCController@index');
 //Route::name('test')->get('/loadtestertool.xml', function(){return \File::get('/loadtestertool.xml');})
 //Route::name('home')->get('/home', 'Front\PostController@index');
 
+
+Route::name('recursos')->get('/recursos', 'Front\UCController@recursos');
+//Descargas
+Route::get('/download/{nombre}', 'Front\UCController@getDownload');
+
 // Contact
 Route::resource('contacts', 'Front\ContactController', ['only' => ['create', 'store']]);
 

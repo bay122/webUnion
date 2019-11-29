@@ -35,6 +35,56 @@ class UCController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function recursos()
+    {
+        return view('front.recursos');
+    }
+
+    public function getDownload($nombre)
+    {
+        if($nombre == 'file1'){
+            $nombre = "Comunidad de Vida Año 1 - Ley y Gracia - Alumno.pdf";
+        }
+        if($nombre == 'file2'){
+            $nombre = "A 1 - S 1-8 - Génesis - Alumno.pdf";
+        }
+        if($nombre == 'file3'){
+            $nombre = "A 1 - S 9-13 - Exodo - Alumno.pdf";
+        }
+        if($nombre == 'file4'){
+            $nombre = "A 1 - S 14-17 - Marcos - Alumno.pdf";
+        }
+        if($nombre == 'file5'){
+            $nombre = "A 1 - S 18-21 - Levítico - Alumno.pdf";
+        }
+        if($nombre == 'file6'){
+            $nombre = "A 1 - S 22-24 - Gálatas - Alumno.pdf";
+        }
+        if($nombre == 'file7'){
+            $nombre = "A 1 - S 25-27 - Números - Alumno.pdf";
+        }
+        if($nombre == 'file8'){
+            $nombre = "A 1 - S 28-31 - Hebreos - Alumno.pdf";
+        }
+        if($nombre == 'file9'){
+            $nombre = "A 1 - S 32-36 - Deuteronomio - Alumno.pdf";
+        }
+
+        //PDF file is stored under project/public/download/info.pdf
+        $file= public_path(). "/download/".$nombre;
+
+        $headers = [
+              'Content-Type' => 'application/pdf',
+           ];
+
+        return response()->download($file, $nombre, $headers);
+    }
+
+    /**
+     * Display a listing of the posts.
+     *
+     * @return \Illuminate\Http\Response
+     */
     /*public function ministerios()
     {
         $lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
