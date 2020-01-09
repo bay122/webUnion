@@ -27,6 +27,7 @@ class UCController extends Controller
     public function index()
     {
         $configuracion = Configuracion::find(1);
+        $id = 1;
         return view('front.index',compact('configuracion','id'));
     }
 
@@ -127,15 +128,38 @@ class UCController extends Controller
         );
         return $resp;
     } 
-
+    public function getAllMinisterios()
+    {
+        $ministerios = Ministerio::select('id_ministerio', 'gl_nombre','gl_titulo','gl_descripcion','gl_url_imagen')
+        ->where('bl_registrado','1')
+        ->get();
+        return $ministerios;
+    }
     /**
-     * Display a listing of the posts.
+     * Display a listing of the ministerios.
      *
      * @return \Illuminate\Http\Response
      */
     public function ministerios()
     {   
-        $carpeta = "familiares";
+        $categorias = array();
+        $encabezados = array();
+        $i = 0;
+        $ministerios = $this->getAllMinisterios();
+        foreach ($ministerios as $ministerio) {
+            $resp = array(
+            "image" => $ministerio['gl_url_imagen'],
+            "title" => $ministerio['gl_titulo'],
+            "name" => $ministerio['gl_nombre'],
+            "description" => $ministerio['gl_descripcion']
+            ); 
+            $categorias[$i] = $resp;
+            $encabezados[$i] = $ministerio['gl_titulo'];
+            $i++;
+        }
+        
+
+        /*$carpeta = "familiares";
         $familiar1 = $this->categorias($carpeta,"ninos_adolescentes","MINISTERIO DE NIÑOS Y ADOLESCENTES");
         $familiar2 = $this->categorias($carpeta, "intermedios","JÓVENES INTERMEDIOS");
         $familiar3 = $this->categorias($carpeta, "jovenes_adultos","JÓVENES ADULTOS");
@@ -166,7 +190,7 @@ class UCController extends Controller
         $s_transversales = array($s_transversal1,$s_transversal2,$s_transversal3,$s_transversal4);
         
         $categorias = array($familiares, $ensenanzas, $misiones, $s_transversales);
-        $encabezados = array("FAMILIARES", "ENSEÑANZAS", "MISIONES", "SERVICIOS TRANSVERSALES");     
+        $encabezados = array("FAMILIARES", "ENSEÑANZAS", "MISIONES", "SERVICIOS TRANSVERSALES");  */   
        
         return view('front.informacion.ministerios', compact('encabezados', 'categorias'));
     }
