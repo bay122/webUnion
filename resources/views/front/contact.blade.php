@@ -48,8 +48,7 @@
                                                         
                                                             </div>
                                                             <div class="blog-con">
-                                                                <p class="text-uppercase margin-three-bottom">
-                                                                    Escríbenos</p><a href="mailto:sales@domain.com">info@unioncristiana.cl</a></div>
+                                                               <p class="gray-text">Envíanos un mensaje, te responderemos tan pronto como sea posible.</p></div>
                                                         </div>
                                                         <div class="col-md-12 col-sm-4 col-xs-12 text-extra-small no-padding-lr blog-list margin-bottom-15 sm-margin-three-bottom xs-margin-three-bottom first-post">
                                                             <div class="blog-thumbnail fl-left  text-center">
