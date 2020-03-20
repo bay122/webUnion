@@ -198,7 +198,7 @@ var xModal = {
 							    '<div class="modal-content panel-success">'+
 							      '<div class="modal-header panel-heading" >'+
 
-								     '<h5 class="modal-title"><span class="glyphicon glyphicon-ok-sign"></span> <strong>Exito</strong></h5>'+
+								     '<h5 class="modal-title"><span class="fa fa-check"></span> <strong>Exito</strong></h5>'+
 	      							'</div>'+
 							      	'<div class="modal-body" style="overflow:hidden" id="content-modal">'+_msg+'</div>'+
 							      	'<div class="modal-footer"><button type="button" class="btn btn-success" onclick="xModal.close(\'modal-success\')" id="btn-aceptarAlerta">Aceptar</button></div>'+
@@ -245,7 +245,7 @@ var xModal = {
 							    '<div class="modal-content panel-primary" >'+
 							      '<div class="modal-header panel-heading" >'+
 
-								     '<h5 class="modal-title"><span class="glyphicon glyphicon-question-sign"></span> <strong>Confirmación</strong></h5>'+
+								     '<h5 class="modal-title"><span class="fa fa-question-circle"></span> <strong>Confirmación</strong></h5>'+
 	      							'</div>'+
 							      	'<div class="modal-body" style="overflow:hidden" id="content-modal">'+_msg+'</div>'+
 							      	'<div class="modal-footer">'+
@@ -299,7 +299,7 @@ var xModal = {
 							    '<div class="modal-content panel-info" style="width:586px">'+
 							      '<div class="modal-header panel-heading" >'+
 
-								     '<h5 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span> <strong>Información</strong></h5>'+
+								     '<h5 class="modal-title"><span class="fa fa-info-circle"></span> <strong>Información</strong></h5>'+
 	      							'</div>'+
 							      	'<div class="modal-body" style="overflow:hidden" id="content-modal">'+_msg+'</div>'+
 							      	'<div class="modal-footer"><button type="button" class="btn btn-default" onclick="xModal.close()" id="btn-aceptarAlerta">Aceptar</button></div>'+
@@ -345,7 +345,7 @@ var xModal = {
 							  '<div class="modal-dialog" style="margin-top:16px;">'+
 							    '<div class="modal-content panel-danger">'+
 							      '<div class="modal-header panel-heading" >'+
-								     '<h5 class="modal-title"><span class="glyphicon glyphicon-remove-sign"></span> <strong>Error</strong></h5>'+
+								     '<h5 class="modal-title"><span class="fa fa-times"></span> <strong>Error</strong></h5>'+
 	      							'</div>'+
 							      	'<div class="modal-body" style="overflow:hidden" id="content-modal">'+_msg+'</div>'+
 							      	'<div class="modal-footer"><button type="button" class="btn btn-danger" onclick="xModal.close(\'modal-error\')" id="btn-aceptarAlerta"><strong>Aceptar</strong></button></div>'+
@@ -390,7 +390,7 @@ var xModal = {
 							  '<div class="modal-dialog" style="margin-top:16px;">'+
 							    '<div class="modal-content panel-warning">'+
 							      '<div class="modal-header panel-heading" >'+
-								     '<h5 class="modal-title"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Atención</strong></h5>'+
+								     '<h5 class="modal-title"><span class="fa fa-warning"></span> <strong>Atención</strong></h5>'+
 	      							'</div>'+
 							      	'<div class="modal-body" style="overflow:hidden" id="content-modal">'+_msg+'</div>'+
 							      	'<div class="modal-footer"><button type="button" class="btn btn-warning" onclick="xModal.close(\'modal-warning\')" id="btn-aceptarAlerta">Aceptar</button></div>'+

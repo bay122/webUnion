@@ -24,6 +24,20 @@ Route::name('sitio')->get('/sitio', 'Front\UCController@index');
 //Route::name('test')->get('/loadtestertool.xml', function(){return \File::get('/loadtestertool.xml');})
 //Route::name('home')->get('/home', 'Front\PostController@index');
 
+
+Route::name('recursos')->get('/recursos', 'Front\UCController@recursos');
+//Descargas
+Route::get('/download/{nombre}', 'Front\UCController@getDownload');
+
+//Jovenes
+Route::prefix('jovenes')->namespace('Front')->group(function () {
+    Route::name('registro')->get('/registro', 'jovenesController@registro');
+    //Route::name('filtrarComuna')->post('/filtrarComuna', 'jovenesController@filtrarComuna');
+    Route::post('filtrarComuna', 'jovenesController@filtrarComuna');
+    Route::post('registrarNuevoJoven', 'jovenesController@registrarNuevoJoven');
+});
+
+
 // Contact
 Route::resource('contacts', 'Front\ContactController', ['only' => ['create', 'store']]);
 

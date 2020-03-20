@@ -11710,6 +11710,9 @@ textarea.no-border:focus {
 .padding-sixteen {
     padding: 16%
 }
+.padding-left-15{
+    padding-left: 15px;
+}
 .padding-left-twenty-2 {
     padding-left: 30px !important
 }
@@ -16497,6 +16500,9 @@ a.text-link-white {
     }
     .sm-padding-ten-bottom {
         padding-bottom: 10% !important
+    }
+    .sm-padding-l-40{
+        padding-left: 40px !important;
     }
     .sm-no-padding-lr {
         padding-left: 0 !important;

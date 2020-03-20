@@ -23,6 +23,9 @@
                         <li {{ currentRoute('home') }} id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
                             <a href="{{ url('/informacion/ministerios') }}" itemprop="url">Ministerios</a>
                         </li>
+                        <li {{ currentRoute('home') }} id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
+                            <a href="{{ url('/recursos') }}" itemprop="url">Recursos</a>
+                        </li>
                         @if (false)
                         <li id="menu-item-231" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-72 dropdown">
                             <a class="dropdown-caret-icon" data-toggle="dropdown">

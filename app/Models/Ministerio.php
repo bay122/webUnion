@@ -30,7 +30,7 @@ class Ministerio extends Model
     /**
      * @var array
      */
-    protected $fillable = ['gl_nombre', 'id_ministerio_tipo', 'gl_descripcion'];
+    protected $fillable = ['id_ministerio','gl_nombre','gl_titulo', 'id_ministerio_tipo', 'gl_descripcion','gl_url_imagen','bl_registrado'];
 
 
     static $MINISTERIO_DISCIPULADO_FUNDAMENTAL = 1;
