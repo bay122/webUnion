@@ -177,7 +177,7 @@ class jovenesController extends Controller
                                             $bo_validar = FALSE;
                                             $dominio = substr($gl_email, strpos($gl_email,'@'));
                                             if($result_recaptcha["status"] == "WARNING" || 
-                                                !in_array($gl_email, $dominios_comunes)){
+                                                !in_array($dominio, $dominios_comunes)){
                                                 $bo_validar = TRUE;
                                             }
                                             
