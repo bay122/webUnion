@@ -1,0 +1,1 @@
+ALTER TABLE `datos_jovenes` ADD `bo_validar` TINYINT(1) NULL DEFAULT '0' COMMENT 'Sospechoso de spam. 1: requere Revision, 0:Mensaje seguro' AFTER `gl_sexo`, ADD `bo_spam` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0:No, 1:Si' AFTER `bo_validar`;

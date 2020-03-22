@@ -51,6 +51,8 @@
             <form id="form_registro_jovenes" method="post">
                 {{ csrf_field() }}
                 {{ method_field('POST') }}
+                <input type="hidden" name="recap" id="recap" value=""/>
+                <input type="hidden" name="locale" value="es_ES"/>
                 <div class="row padding-left-15 sm-padding-l-40">
                     <strong>
                         <br/>
@@ -209,7 +211,7 @@
 
                 <div class="row">
                     <label style="display: none !important;">Deja este campo vacío si eres humano: 
-                        <input type="text" name="_uc_honeypot" value="" tabindex="-1" autocomplete="off"/>
+                        <input type="text" name="_uc_hpot" id="_uc_hpot" value="" tabindex="-1" autocomplete="off"/>
                     </label>
 
                     <div class="response"></div>
@@ -225,5 +227,17 @@
         </div>  
     </section>
 </div>
+
+<script type="text/javascript">
+    grecaptcha.ready(function() {
+        getNewCaptcha();
+    });
+
+    function getNewCaptcha(){
+        grecaptcha.execute('{{env("GOOGLE_RECAPTCHA_KEY")}}', {action: 'registro_jovenes'}).then(function(token) {
+            $("#recap").val(token);
+        });
+    }
+</script>
 @endsection
 

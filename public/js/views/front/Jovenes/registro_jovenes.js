@@ -110,17 +110,19 @@ function submit(btn){
         });
     }else{
         var data = {
-            gl_nombres: $("#gl_nombres").val(),
-            gl_apellidos: $("#gl_apellidos").val(),
-            gl_rut: $("#gl_rut").val(),
-            fc_nacimiento: $("#fc_nacimiento").val(),
-            nr_telefono: $("#nr_telefono").val(),
-            gl_email: $("#gl_email").val(),
-            region: $("#region").val(),
-            comuna: $("#comuna").val(),
-            gl_ciudad: $("#gl_ciudad").val(),
-            gl_calle: $("#gl_calle").val(),
-            nr_calle: $("#nr_calle").val(),
+            gl_nombres    : $("#gl_nombres").val(),
+            gl_apellidos  : $("#gl_apellidos").val(),
+            gl_rut        : $("#gl_rut").val(),
+            fc_nacimiento : $("#fc_nacimiento").val(),
+            nr_telefono   : $("#nr_telefono").val(),
+            gl_email      : $("#gl_email").val(),
+            region        : $("#region").val(),
+            comuna        : $("#comuna").val(),
+            gl_ciudad     : $("#gl_ciudad").val(),
+            gl_calle      : $("#gl_calle").val(),
+            nr_calle      : $("#nr_calle").val(),
+            _uc_hpot      : $("#_uc_hpot").val(),
+            recap         : $("#recap").val(),
         }
        $.ajax({
             url : path+"registrarNuevoJoven",
@@ -138,11 +140,13 @@ function submit(btn){
                     xModal.warning(response.msj, function(){
                         //buttonEndProcess(button_process);
                         $(btn).prop('disabled', false).html(btnText);
+                        getNewCaptcha();
                     });
                 }
             }, 
             error : function(err){
                 $(btn).prop('disabled', false).html(btnText);
+                getNewCaptcha();
                 xModal.danger('Error: Intente nuevamente',function(err){
                     console.log(err)
                 });
