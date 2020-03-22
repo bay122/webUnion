@@ -53,6 +53,8 @@ class DatosJovenes extends Model
         'gl_calle',
         'nr_calle',
     	'gl_sexo',
+        'bo_validar',
+        'bo_spam',
         'json_otros_datos'
     ];//, 'size'];
 
