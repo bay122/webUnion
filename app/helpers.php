@@ -16,9 +16,13 @@ if (!function_exists('currentRoute')) {
 
 if (!function_exists('currentRouteBootstrap')) {
     function currentRouteBootstrap($route)
-    {
+    {   
+      if($route == 'home' && Request::is('/')){
+        return ' active';
+      }else{
         //return request()->url() == route($route) ? ' class=active' : '';
         return request()->url() == route($route) ? ' active' : '';
+      }
     }
 }
 
