@@ -7,6 +7,7 @@ use App\ {
 };
 use Illuminate\Http\Request;
 use App\Models\Configuracion;
+use App\Models\ImagenesCarrusel;
 class UCController extends Controller
 {
 
@@ -27,7 +28,9 @@ class UCController extends Controller
     public function index()
     {
         $configuracion = Configuracion::find(1);
-        return view('front.index',compact('configuracion','id'));
+        $imagenes = ImagenesCarrusel::all();
+
+        return view('front.index',compact('configuracion','imagenes','id'));
     }
 
     /**
