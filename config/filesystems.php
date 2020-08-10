@@ -55,6 +55,12 @@ return [
             'visibility' => 'public',
         ],
 
+        'carrusel' => [
+            'driver' => 'local',
+            'root' => public_path() . '/images/carrousel',
+            'visibility' => 'public',
+        ],
+
         'files' => [
             'driver' => 'local',
             'root' => public_path() . ('/files'),

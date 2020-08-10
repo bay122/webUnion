@@ -3,6 +3,15 @@
     <div class="row">
         <div class="owl-slider col-md-12 col-sm-12 col-xs-12">
             <div id="owl-slider-style-2" class="owl-slider-style-2 owl-carousel overflow-hidden paperio-feature-style2 owl-square-pagination pagination-light-style owl-next-prev-arrow-style2 owl-cursor-light slide-item-1">
+            	@foreach($imagenes as $imagen)
+            		@if($imagen->bo_activo)
+		            	<div class="item text-center cover-background bg-image-srcset" style="background: url({{ asset($imagen->gl_path) }}) no-repeat center !important; background-size: cover !important;">
+		                </div>
+                	@endif
+            	@endforeach
+
+
+            	@if(false)
                 <div class="item text-center cover-background bg-image-srcset" style="background: url({{ asset('images/carrousel/bienvenidos.jpg') }}) no-repeat center !important; background-size: cover !important;">
                     <!--div class="opacity-light bg-black overlay-layer"></div>
                     <div class="outer">
@@ -27,7 +36,7 @@
                 </div>
 
                 
-                @if(false)
+                
                 <div class="item text-center cover-background bg-image-srcset" style="background: url({{ asset('images/carrousel/reunion_jovenes.jpeg') }});">
                     <div class="opacity-light bg-black overlay-layer"></div>
                     <div class="outer">
