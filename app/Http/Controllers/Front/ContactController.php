@@ -34,7 +34,8 @@ class ContactController extends Controller
     {   
         $ministerios = ministerio::all(); 
 
-        return view('front.contact',compact('ministerios'));
+        //return view('front.contact',compact('ministerios'));
+        return view('front.uc2.informacion.contacto',compact('ministerios'));
        
     }
 

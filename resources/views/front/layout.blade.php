@@ -28,6 +28,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
+	@php 
+	$local_uuid = uniqid();
+	@endphp
+
 	<!-- favicon 
 	================================================== -->
 	<link rel="shortcut icon" href="{{ asset('favicon.png') }}" type='image/x-icon' />
@@ -38,7 +42,16 @@
 	<link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/main.css') }}"><!-- ARCHIVO PRINCIPAL PAGINA EJEMPLO -->
 	<!--===============================================================================================-->
-		
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	@foreach($include_css as $path)
+	<link rel="stylesheet" href="{{ asset($base_css.$path).'?'.$local_uuid }}">
+	@endforeach
+
+	@foreach($include_css_full_path as $path)
+	<link rel="stylesheet" href="{{ asset($path).'?'.$local_uuid }}">
+	@endforeach
 
 	<!-- ================================================== -->
 	<!-- CUSTOMS UC CSS -->
@@ -137,6 +150,11 @@
    <!-- CUSTOM Java Script
    ================================================== -->
    <!-- Scripts -->
+	<!-- Vakudadir -->
+	<script src="{{ asset('js/views/back/validador.js').'?'.$local_uuid }}" type="text/javascript"></script>
+	<!-- BASE -->
+	<script src="{{ asset('js/views/back/base.js').'?'.$local_uuid }}" type="text/javascript"></script>
+
 	<!--script src="{{ asset('js/app.js') }}"></script-->
 	<script type="text/javascript" src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('plugins/otros/js/utils.js') }}"></script><!--  CARRUSEL Y MENU LATERAL -->
@@ -146,6 +164,21 @@
     <!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+	<!-- MomentJS -->
+	<script src="{{ asset('adminlte/plugins/daterangepicker/moment.min.js') }}" type="text/javascript"></script>
+	<!-- Select2 4.0.6-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+	<!-- xModal -->
+	<script src="{{ asset('js/plugins/xmodal.js') }}" type="text/javascript"></script>
+
+	@foreach($include_javascript_full_path as $path)
+		<script src="{{ asset($path).'?'.$local_uuid}}" type="text/javascript"></script>
+	@endforeach
+
+	@foreach($include_javascript as $path)
+		<script src="{{ asset($base_javascript.$path).'?'.$local_uuid}}" type="text/javascript"></script>
+	@endforeach
+
 
 	<!-- ===========================
     <script type='text/javascript'>

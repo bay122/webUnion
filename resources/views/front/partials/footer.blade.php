@@ -9,7 +9,7 @@
                     <div class="no-padding text-center clear-both">
                         <div class="text-uppercase padding-two-top padding-two-bottom text-extra-small letter-spacing-1">
                             <div class="widget widget_text">
-                                <div class="textwidget">© 2017 Comunion -
+                                <div class="textwidget">© {{date('Y')}} -
                                     <a target="_blank" href="http://www.unioncristiana.cl/" class="text-link-light-gray">
                                     Iglesia Union Cristiana.
                                     <img style="vertical-align: bottom;" src="{{ asset('images/logos/unionCristiana.png') }}" data-at2x="{{ asset('images/logos/unionCristiana@2x-1.jpg') }}" alt="">

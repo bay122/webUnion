@@ -3485,7 +3485,7 @@ $(document).ready(function() {
     })();
     _checkInstance();
 })(window.jQuery || window.Zepto);;
-(function() {
+/*(function() {
     var defaultOptions = {
         frameRate: 180,
         animationTime: 500,
@@ -3843,7 +3843,7 @@ $(document).ready(function() {
         addEvent("mousedown", mousedown);
         addEvent("load", init);
     }
-})();;
+})();;*/
 /*!
  * Smooth Scroll - v1.4.10 - 2013-03-02
  * https://github.com/kswedberg/jquery-smooth-scroll

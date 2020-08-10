@@ -28,9 +28,62 @@ class UCController extends Controller
     public function index()
     {
         $configuracion = Configuracion::find(1);
-        $imagenes = ImagenesCarrusel::all();
+        //$imagenes = ImagenesCarrusel::all();
+        //return view('front.index',compact('configuracion','imagenes','id'));
+        $id = 1;
+        return view('front.uc2.index',compact('configuracion','id'));
+    }
 
-        return view('front.index',compact('configuracion','imagenes','id'));
+    /**
+     * Display a listing of the posts.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function recursos()
+    {
+        //return view('front.recursos');
+        return view('front.uc2.informacion.recursos');
+    }
+
+    public function getDownload($nombre)
+    {
+        if($nombre == 'file1'){
+            $nombre = "Comunidad de Vida Año 1 - Ley y Gracia - Alumno.pdf";
+        }
+        if($nombre == 'file2'){
+            $nombre = "A 1 - S 1-8 - Génesis - Alumno.pdf";
+        }
+        if($nombre == 'file3'){
+            $nombre = "A 1 - S 9-13 - Exodo - Alumno.pdf";
+        }
+        if($nombre == 'file4'){
+            $nombre = "A 1 - S 14-17 - Marcos - Alumno.pdf";
+        }
+        if($nombre == 'file5'){
+            $nombre = "A 1 - S 18-21 - Levítico - Alumno.pdf";
+        }
+        if($nombre == 'file6'){
+            $nombre = "A 1 - S 22-24 - Gálatas - Alumno.pdf";
+        }
+        if($nombre == 'file7'){
+            $nombre = "A 1 - S 25-27 - Números - Alumno.pdf";
+        }
+        if($nombre == 'file8'){
+            $nombre = "A 1 - S 28-31 - Hebreos - Alumno.pdf";
+        }
+        if($nombre == 'file9'){
+            $nombre = "A 1 - S 32-36 - Deuteronomio - Alumno.pdf";
+        }
+
+        //PDF file is stored under project/public/download/info.pdf
+        $file= public_path(). "/download/".$nombre;
+
+        $headers = [
+              'Content-Type' => 'application/pdf',
+           ];
+
+        return response()->download($file, $nombre, $headers);
+>>>>>>> 9830f3b93e082212ecf9880989d22a86e6655533
     }
 
     /**
@@ -80,15 +133,40 @@ class UCController extends Controller
         );
         return $resp;
     } 
-
+    public function getAllMinisterios()
+    {
+        $ministerios = Ministerio::select('id_ministerio', 'gl_nombre','gl_titulo','gl_descripcion','gl_url_imagen')
+        ->where('bl_registrado','1')
+        ->get();
+        return $ministerios;
+    }
     /**
-     * Display a listing of the posts.
+     * Display a listing of the ministerios.
      *
      * @return \Illuminate\Http\Response
      */
     public function ministerios()
     {   
-        $carpeta = "familiares";
+        return view('front.uc2.informacion.ministerios');
+
+        /*$categorias = array();
+        $encabezados = array();
+        $i = 0;
+        $ministerios = $this->getAllMinisterios();
+        foreach ($ministerios as $ministerio) {
+            $resp = array(
+            "image" => $ministerio['gl_url_imagen'],
+            "title" => $ministerio['gl_titulo'],
+            "name" => $ministerio['gl_nombre'],
+            "description" => $ministerio['gl_descripcion']
+            ); 
+            $categorias[$i] = $resp;
+            $encabezados[$i] = $ministerio['gl_titulo'];
+            $i++;
+        }*/
+        
+
+        /*$carpeta = "familiares";
         $familiar1 = $this->categorias($carpeta,"ninos_adolescentes","MINISTERIO DE NIÑOS Y ADOLESCENTES");
         $familiar2 = $this->categorias($carpeta, "intermedios","JÓVENES INTERMEDIOS");
         $familiar3 = $this->categorias($carpeta, "jovenes_adultos","JÓVENES ADULTOS");
@@ -119,9 +197,9 @@ class UCController extends Controller
         $s_transversales = array($s_transversal1,$s_transversal2,$s_transversal3,$s_transversal4);
         
         $categorias = array($familiares, $ensenanzas, $misiones, $s_transversales);
-        $encabezados = array("FAMILIARES", "ENSEÑANZAS", "MISIONES", "SERVICIOS TRANSVERSALES");     
+        $encabezados = array("FAMILIARES", "ENSEÑANZAS", "MISIONES", "SERVICIOS TRANSVERSALES");  */   
        
-        return view('front.informacion.ministerios', compact('encabezados', 'categorias'));
+        //return view('front.informacion.ministerios', compact('encabezados', 'categorias'));
     }
 
 
@@ -313,7 +391,8 @@ class UCController extends Controller
      */
     public function nosotros()
     {
-        return view('front.informacion.nosotros');
+        //return view('front.informacion.nosotros');
+        return view('front.uc2.informacion.nosotros');
     }
 
     /**
@@ -323,6 +402,7 @@ class UCController extends Controller
      */
     public function declaracionDeFe()
     {
-        return view('front.informacion.declaracion_de_fe');
+        //return view('front.informacion.declaracion_de_fe');
+        return view('front.uc2.informacion.declaracion_de_fe');
     }
 }
