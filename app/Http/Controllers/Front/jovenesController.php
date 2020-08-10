@@ -46,7 +46,8 @@ class jovenesController extends Controller
         Helper::loadJavascript("front/Jovenes/registro_jovenes.js");
         //Helper::loadCss("back/IntegrantesGrupoFormacion/integrantes.css");
 
-        return view('front.registro_jovenes', 
+        //return view('front.registro_jovenes', 
+        return view('front.uc2.formularios.jovenes.registro', 
                     compact(
                         // 'paises',
                         // 'paisDefault',
