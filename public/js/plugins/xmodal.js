@@ -136,7 +136,7 @@ var xModal = {
 	 * @return {[type]} [description]
 	 */
 	close : function(modalIndex){
-		$(".modal").last().fadeOut('fast',function(){
+		$(".modal.fade.show").last().fadeOut('fast',function(){
 			$(this).remove();
 			$('.modal-backdrop').last().fadeOut('fast',function(){
 				$(this).remove();
