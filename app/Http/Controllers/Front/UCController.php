@@ -83,7 +83,6 @@ class UCController extends Controller
            ];
 
         return response()->download($file, $nombre, $headers);
->>>>>>> 9830f3b93e082212ecf9880989d22a86e6655533
     }
 
     /**
