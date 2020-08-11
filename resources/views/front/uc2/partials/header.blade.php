@@ -73,20 +73,20 @@
                         @auth
                             @admin
                             <li class="nav-item g-ml-20--lg g-mr-0--lg">
-                                <a href="{{ url('admin') }}" class="nav-link px-0 text-primary" >
+                                <a href="{{ url('admin') }}" class="nav-link px-0" style="color: #18ba9b;">
                                     @lang('Administration')
                                 </a>
                             </li>
                             @endadmin
                             @tripulante
                             <li class="nav-item g-ml-20--lg g-mr-0--lg">
-                                <a href="{{ url('admin') }}" class="nav-link px-0 text-primary" >
+                                <a href="{{ url('admin') }}" class="nav-link px-0" style="color: #18ba9b;">
                                     @lang('Administration')
                                 </a>
                             </li>
                             @endtripulante
                             <li class="nav-item g-ml-20--lg g-mr-0--lg">
-                                <a id="logout" href="{{ route('logout') }}" class="nav-link px-0 text-danger" itemprop="url">
+                                <a id="logout" href="{{ route('logout') }}" class="nav-link px-0" style="color: #e81c62;" itemprop="url">
                                     @lang('Logout')
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">
