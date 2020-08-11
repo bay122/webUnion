@@ -36,7 +36,7 @@
 
       <!-- Copyright -->
       <div class="container">
-          <small style="font-family: 'Montserrat';" class="g-font-size-default g-color-white">© {{date('Y')}} - Iglesia Unión Cristiana. Todos los derechos reservados.<br><br></a>
+          <small style="font-family: 'Montserrat';" class="g-font-size-default g-color-white">© 1989-{{date('Y')}} - Iglesia Unión Cristiana. Todos los derechos reservados.<br><br></a>
           </small>
 
       </div>
