@@ -37,13 +37,13 @@ class Helper
     }
 
     static public function loadCss($include_css_full_path){
-    	$shared = View::getShared()["include_css_full_path"];
+    	$shared = View::getShared()["include_css"];
     	if(is_array($shared)){
     		$shared[] = $include_css_full_path;
     	}else{
     		$shared = array($include_css_full_path);
     	}
-    	View::share('include_css_full_path',$shared);
+    	View::share('include_css',$shared);
     }
 
 }
