@@ -162,7 +162,7 @@
             <div class="d-sm-flex text-center">
                 @include('front.uc2.partials.avisos')
                 <!-- End Testimonials -->
-                <section class="container g-py-100 g-pb-70">
+                <section class="container g-py-50 g-pb-70">
 
                     <!-- Banners -->
                     <div class="row">
