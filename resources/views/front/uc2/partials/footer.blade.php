@@ -2,7 +2,7 @@
   <footer class="g-bg-black  text-center g-pt-60 g-pb-0">
       <!-- Footer Content F2C39D 94DEA6 -->
       <div class="container">
-          <a class="d-block mx-auto g-mb-30" href="index.html">
+          <a class="d-block mx-auto g-mb-30" href="#">
               <img src="{{ asset('uc2/img/logo/logotipoNegro.svg') }}" width="400" height="60" alt="Logo">
           </a>
 
