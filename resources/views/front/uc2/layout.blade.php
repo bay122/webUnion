@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="{{ asset('uc2/vendor/dzsparallaxer/dzsscroller/scroller.css') }}">
     <link rel="stylesheet" href="{{ asset('uc2/vendor/dzsparallaxer/advancedscroller/plugin.css') }}">
     <link rel="stylesheet" href="{{ asset('uc2/vendor/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('uc2/vendor/custombox/custombox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('uc2/vendor/hamburgers/hamburgers.min.css') }}">
     <link rel="stylesheet" href="{{ asset('uc2/vendor/slick-carousel/slick/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('uc2/vendor/fancybox/jquery.fancybox.css') }}">
@@ -171,6 +172,8 @@
     <script src="{{ asset('uc2/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
     <script src="{{ asset('uc2/vendor/slick-carousel/slick/slick.js')}}"></script>
     <script src="{{ asset('uc2/vendor/fancybox/jquery.fancybox.min.js')}}"></script>
+    <script src="{{ asset('uc2/vendor/appear.js')}}"></script>
+    <script src="{{ asset('uc2/vendor/custombox/custombox.min.js')}}"></script>
 
     <!-- JS Unify -->
     <script src="{{ asset('uc2/js/hs.core.js')}}"></script>
@@ -180,6 +183,7 @@
 
     <script src="{{ asset('uc2/js/components/hs.popup.js')}}"></script>
     <script src="{{ asset('uc2/js/components/hs.carousel.js')}}"></script>
+    <script src="{{ asset('uc2/js/components/hs.modal-window.js')}}"></script>
 
     <script src="{{ asset('uc2/js/components/hs.go-to.js')}}"></script>
 
@@ -199,6 +203,11 @@
     <script>
       $(document).ready(function() {
           $.HSCore.components.HSCarousel.init('.js-carousel');
+           // initialization of autonomous popups
+                        $.HSCore.components.HSModalWindow.init('.js-autonomous-popup', {
+                          autonomous: true
+                        });
+
 
           $('#carousel1').slick('setOption', 'customPaging', function(slider, i) {
               var title = $(slider.$slides[i]).data('title');

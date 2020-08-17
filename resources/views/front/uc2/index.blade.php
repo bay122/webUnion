@@ -160,9 +160,33 @@
           <h2 class="h1 g-font-weight-300 text-uppercase">AVISOS  </h2>
         </header>
             <div class="d-sm-flex text-center">
-              
+                @include('front.uc2.partials.avisos')
                 <!-- End Testimonials -->
-                <section class="container g-py-100 g-pb-70">
+                <section class="container g-py-50 g-pb-70">
+
+                    <!-- Banners -->
+                    <div class="row">
+                      <div class="col-lg-6 g-mb-30" style="margin:auto;">
+                        <!-- Article -->
+                        <article class="row align-items-stretch text-center mx-0">
+                          <!--Article Content-->
+                          <div class="col-sm-6 g-bg-black g-px-30 g-py-45">
+                            <h3 class="h4 g-color-white g-font-weight-600 text-uppercase g-mb-25">Encuesta
+                              <span class="d-block g-color-primary g-font-weight-700">Anual</span>
+                            </h3>
+                            <p class="g-color-gray-dark-v5 g-mb-25">Participa de nuestra encuesta anual y ayudanos a conocerte.</p>
+                            <a class="btn btn-md u-btn-outline-white g-font-weight-600 g-font-size-11 text-uppercase" href="{{ url('/encuesta/registro') }}">Comenzar Ahora</a>
+                          </div>
+                          <!-- End Article Content -->
+
+                          <!-- Article Image -->
+                          <div class="col-sm-6 px-0 g-bg-size-cover" data-bg-img-src="{{ asset('/uc2/img/img3.jpg') }}"></div>
+                          <!-- End Article Image -->
+                        </article>
+                        <!-- End Article -->
+                      </div>
+                    </div>
+                    <!-- End Banners -->
                     <div class="row">
                         <div class="col-md-4 g-mb-30">
                             <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/1.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">

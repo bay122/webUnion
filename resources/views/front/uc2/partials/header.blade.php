@@ -28,7 +28,7 @@
                 </button>
                 <!-- End Responsive Toggle Button -->
                 <!-- Logo -->
-                <a href="index.html" class="navbar-brand u-header__logo">
+                <a href="#" class="navbar-brand u-header__logo">
                     <img class="u-header__logo-img u-header__logo-img--main" src="{{ asset('uc2/img/logo/logotipoNegro.svg') }}" width="50%" height="60" alt="Unión Cristiana">
 
                     <img class="u-header__logo-img" src="{{ asset('uc2/img/logo/logotipoNegro.svg') }}" width="50%" height="60" alt="Image Description">

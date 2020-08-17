@@ -37,6 +37,12 @@ Route::prefix('jovenes')->namespace('Front')->group(function () {
     Route::post('registrarNuevoJoven', 'jovenesController@registrarNuevoJoven');
 });
 
+//Encuesta
+Route::prefix('encuesta')->namespace('Front')->group(function () {
+    Route::name('registro')->get('/registro', 'encuestaController@registro');
+    Route::post('filtrarComuna', 'jovenesController@filtrarComuna');
+    Route::post('registrarNuevaRespuesta', 'encuestaController@registrarNuevaRespuesta');
+});
 
 // Contact
 Route::resource('contacts', 'Front\ContactController', ['only' => ['create', 'store']]);
