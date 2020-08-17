@@ -7,7 +7,7 @@
 
   <!-- Hero Info #16 -->
 	<div class="g-bg-img-hero g-bg-pos-top-center g-bg-size-cover g-bg-cover g-bg-black-opacity-0_4--after"
-		 style="background-image: url({{ asset('/images/carrousel/banner.jpg') }});">
+		 style="background-image: url({{ asset('/uc2/img/banner.png') }});">
 	  <div class="container g-pos-rel g-z-index-1">
 	    <div class="row justify-content-between">
 	      <div class="col-md-5 g-py-50 pb-10">
