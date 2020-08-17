@@ -603,7 +603,7 @@
 	var ssToggleContent = function() {
 
 		$('.toggle-button').on('click', function (e) {
-			var target = $(this).parent().find('.toggle-section');
+			var target = $(this).parent().find('.toggle-section').first();
 			$(target).fadeToggle(1100);
 			//$(target).slideToggle(1000);
 	  	});
