@@ -85,7 +85,7 @@
             <span class="u-icon-v1 u-icon-size--lg g-color-cyan g-bg-cyan-opacity-0_1 g-font-size-18 rounded-circle mb-4">
               <i class="far fa-bookmark"></i>
             </span>
-            <h3 class="h5 g-color-black g-font-weight-600 mb-2">Bliblia</h3>
+            <h3 class="h5 g-color-black g-font-weight-600 mb-2">Biblia</h3>
             <p class="mb-0">Una enseñanza basada en la biblia como autoridad suprema, que guía todo nuestro caminar.</p>
             <!-- End Icon Blocks -->
           </div>
