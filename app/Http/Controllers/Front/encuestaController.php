@@ -11,6 +11,7 @@ use App\ {
     Services\Security,
     Services\Helper,
     Models\DatosMiembros,
+    Models\DatosJovenes,
     Models\RangoLlegadaIglesia,
     Models\Region,
     Models\Comuna,
@@ -33,9 +34,16 @@ class encuestaController extends Controller
      * Display a listing of the posts.
      *
      * @return \Illuminate\Http\Response
+     *
+     * @docs Recargar Cache: 
+     *   https://stackoverflow.com/questions/32423034/reloading-env-variables-without-restarting-server-laravel-5-shared-hosting
+     *
+     * @docs Buscar en campo JSON
+     *   https://www.startutorial.com/articles/view/how-to-search-json-data-in-mysql
      */
     public function registro()
     {
+        $google_maps = FALSE;
         //$paises = Pais::all();
         //$paisDefault = Pais::$PAIS_CHILE;
         $regiones = Region::all();
@@ -47,12 +55,22 @@ class encuestaController extends Controller
         $rangoLlegadaIglesia = RangoLlegadaIglesia::all();
         
         Helper::loadJavascript("front/encuestas/registro_encuesta.js");
-        //Helper::loadCss("back/IntegrantesGrupoFormacion/integrantes.css");
+        //Helper::loadJavascript("front/encuestas/registro_wizzard2.js");
+        Helper::loadJavascript("front/encuestas/registro_wizard.js");
+        
+        Helper::loadJavascriptFullPath("plugins/mapa/joii.min.js");
+        Helper::loadJavascriptFullPath("plugins/mapa/jquery.typing-0.2.0.min.js");
+        Helper::loadJavascriptFullPath("plugins/mapa/mapa.js");
+        Helper::loadJavascriptFullPath("plugins/mapa/marcador.js");
+        //Helper::loadJavascriptFullPath("plugins/mapa/places.js");
+
+        Helper::loadCss("front/encuestas/registro_encuesta.css");
 
         return view('front.uc2.formularios.encuestas.registro', 
                     compact(
                         // 'paises',
                         // 'paisDefault',
+                         'google_maps',
                          'regiones',
                          'regionDefault',
                          'comunas',
@@ -62,22 +80,48 @@ class encuestaController extends Controller
     }
 
     public function registrarNuevaRespuesta(Request $request){
+        //file_put_contents('php://stderr', PHP_EOL . print_r("PROCESANDO ENCUESTA...", TRUE). PHP_EOL, FILE_APPEND);
         //ini_set('display_errors', 0);
         //$input = $request->all();
         $correcto       = false;
         $json           = array("correcto"=>$correcto,"msj"=>"<b>Ocurrió un error inesperado.<br/>Por favor, intentelo nuevamente más tarde.<br/>Si el error persiste, contáctese con el administrador.</b>");
 
-        $gl_rut         = NULL;
-        $gl_nombres     = NULL;
-        $gl_apellidos   = NULL;
-        $fc_nacimiento  = NULL;
-        $nr_telefono    = NULL;
-        $gl_email       = NULL;
-        $id_region      = NULL;
-        $id_comuna      = NULL;
-        $gl_ciudad      = NULL;
-        $gl_calle       = NULL;
-        $nr_calle       = NULL;
+        $gl_sexo                     = NULL;
+        $gl_nombres                  = NULL;
+        $gl_apellidos                = NULL;
+        $gl_rut                      = NULL;
+        $fc_nacimiento               = NULL;
+        $nr_telefono                 = NULL;
+        $gl_email                    = NULL;
+        $id_region                   = NULL;
+        $gl_nombre_region            = NULL;
+        $id_comuna                   = NULL;
+        $gl_nombre_comuna            = NULL;
+        $gl_ciudad                   = NULL;
+        $gl_direccion                = NULL;
+        $street_number               = NULL;
+        $route                       = NULL;
+        $locality                    = NULL;
+        $administrative_area_level_1 = NULL;
+        $postal_code                 = NULL;
+        $country                     = NULL;
+        $gl_calle                    = NULL;
+        $nr_calle                    = NULL;
+        $gl_latitud                  = NULL;
+        $gl_longitud                 = NULL;
+        $id_llegada_iglesia          = NULL;
+        $gl_llegada_iglesia          = NULL;
+        $id_tipo_participacion       = NULL;
+        $gl_tipo_participacion       = NULL;
+        $bo_participa_ministerio     = NULL;
+        $gl_ministerio               = NULL;
+        $bo_vive_con_ninos           = NULL;
+        $nr_vive_con_ninos           = NULL;
+        $bo_vive_con_adolescentes    = NULL;
+        $nr_vive_con_adolescentes    = NULL;
+        $_uc_hpot                    = NULL;
+        $recap                       = NULL;
+        $id_datos_jovenes            = NULL;
 
         $json["request"]=$request->all();
 
@@ -86,14 +130,13 @@ class encuestaController extends Controller
         //Cargo el resultado del captcha
         $result_recaptcha = Security::validarReCaptcha($recap, 'registro_encuesta');
 
+        //file_put_contents('php://stderr', PHP_EOL . print_r("VALIDANDO ENCUESTA...", TRUE). PHP_EOL, FILE_APPEND);
+
         //Valido si pasó el captcha
         if($result_recaptcha["status"] != "ERROR"){
             //Valido el input honeypot para verificar que no sea un bot
             if(empty($request->input("_uc_hpot"))){
-                if(empty($request->input("gl_email"))){
-                    $json["msj"] = "El campo email es un campo obligatorio.";
-                }
-                else{
+                if(!empty($request->input("gl_email"))){
                     $gl_email = Security::validar($request->input("gl_email"), 'string');
 
                     if (!filter_var($gl_email, FILTER_VALIDATE_EMAIL)) {
@@ -123,13 +166,13 @@ class encuestaController extends Controller
                                 else if(empty($request->input("gl_apellidos"))){
                                     $json["msj"] = "El campo apellido es un campo obligatorio.";
                                 }
-                                else if(empty($request->input("fc_nacimiento"))){
+                                /*else if(empty($request->input("fc_nacimiento"))){
                                     $json["msj"] = "El campo nacimiento es un campo obligatorio.";
                                 }
                                 else if(empty($request->input("nr_telefono"))){
                                     $json["msj"] = "El campo telefono es un campo obligatorio.";
                                 }
-                                /*else if(empty($request->input("gl_rut"))){
+                                else if(empty($request->input("gl_rut"))){
                                     $json["msj"] = "El campo rut es un campo obligatorio.";   
                                 }*/
                                 else{
@@ -145,67 +188,7 @@ class encuestaController extends Controller
                                             $json["msj"] = "<b>¡El rut ingresado ya existe!</b><br/> Es posible que hayas ingresado tus datos previamente.";
                                         }
                                         else{
-                                            $gl_nombres = Security::validar($request->input("gl_nombres"), 'string');
-                                            $gl_apellidos = Security::validar($request->input("gl_apellidos"), 'string');
-                                            $fc_nacimiento = Security::validar($request->input("fc_nacimiento"), 'date');
-                                            $nr_telefono = Security::validar($request->input("nr_telefono"), 'string');
-                                            
-                                            if($request->input("region")){
-                                                $id_region = Security::validar($request->input("region"), 'numero');
-                                            }
-                                            if($request->input("comuna")){
-                                                $id_comuna = Security::validar($request->input("comuna"), 'numero');
-                                            }
-                                            if($request->input("gl_ciudad")){
-                                                $gl_ciudad = Security::validar($request->input("gl_ciudad"), 'string');
-                                            }
-                                            if($request->input("gl_calle")){
-                                                $gl_calle = Security::validar($request->input("gl_calle"), 'string');
-                                            }
-                                            if($request->input("nr_calle")){
-                                                $nr_calle = Security::validar($request->input("nr_calle"), 'string');
-                                            }
-
-                                            //Verifico si, a pesar de haber pasado el captcha
-                                            //obtuvo una puntuación baja o si su mail no tiene un dominio habitual.
-                                            //Si su puntuación es baja (WARNING) o utiliza un correo con un dominio
-                                            //poco habitual, se marca mensaje para revisión.
-                                            $dominios_comunes = array(
-                                                "@gmail.com", 
-                                                "@outlook.com", 
-                                                "@hotmail.com", 
-                                                "@yahoo.com", 
-                                                "@alumnos.uv.cl"
-                                            );
-
-                                            $bo_validar = FALSE;
-                                            $dominio = substr($gl_email, strpos($gl_email,'@'));
-                                            if($result_recaptcha["status"] == "WARNING" || 
-                                                !in_array($dominio, $dominios_comunes)){
-                                                $bo_validar = TRUE;
-                                            }
-                                            
-                                            $datos_miembro = array(
-                                                "gl_rut"          =>   $gl_rut,
-                                                "gl_nombres"      =>   $gl_nombres,
-                                                "gl_apellidos"    =>   $gl_apellidos,
-                                                "fc_nacimiento"   =>   $fc_nacimiento,
-                                                "nr_telefono"     =>   $nr_telefono,
-                                                "gl_email"        =>   $gl_email,
-                                                "id_region"       =>   $id_region,
-                                                "id_comuna"       =>   $id_comuna,
-                                                "gl_ciudad"       =>   $gl_ciudad,
-                                                "gl_calle"        =>   $gl_calle,
-                                                "nr_calle"        =>   $nr_calle,
-                                                'bo_validar'      =>   $bo_validar,
-                                            );
-
-                                            if(!DatosMiembros::create($datos_miembro)){
-                                                App::abort(500, 'Error Inesperado, por favor, contáctese con soporte.');
-                                            }else{
-                                                $json["correcto"] = true;
-                                                $json["msj"] = "¡Los datos fueron guardados correctamente!";
-                                            }                                   
+                                             $json["correcto"] = TRUE;                           
                                         }
                                     }
                                 }
@@ -224,21 +207,183 @@ class encuestaController extends Controller
             $json["msj"] = __($result_recaptcha["msg"]);
         }
 
-        /*$data = array(
-            "gl_nombres" => $gl_nombres,
-            "gl_apellido" => $gl_apellidos,
-            "gl_rut" => $gl_rut,
-            "fc_nacimiento" => $fc_nacimiento,
-            "nr_telefono" => $nr_telefono,
-            "gl_email" => $gl_email,
-            "region" => $id_region,
-            "comuna" => $id_comuna,
-            "gl_ciudad" => $gl_ciudad,
-            "gl_calle" => $gl_calle,
-            "nr_calle" => $nr_calle,
-        );
+        //file_put_contents('php://stderr', PHP_EOL . print_r("VALIDACIÓN FINALIZADA...", TRUE). PHP_EOL, FILE_APPEND);
 
-        $json["data"] = $data;*/
+
+        if($json["correcto"]){   
+            //file_put_contents('php://stderr', PHP_EOL . print_r("PROCESANDO DATOS...", TRUE). PHP_EOL, FILE_APPEND);
+
+            //Lo cambio a false para detectar errores en inserción
+            $json["correcto"] = False;        
+
+            $gl_nombres     = Security::validar($request->input("gl_nombres"),   'string');
+            $gl_apellidos   = Security::validar($request->input("gl_apellidos"), 'string');
+
+            if(!empty($request->input("gl_sexo"))){
+                $gl_sexo = Security::validar($request->input("gl_sexo"), 'string');
+            }
+            if(!empty($request->input("gl_rut"))){
+                $gl_rut = Security::validar($request->input("gl_rut"), 'string');
+                //verifico si el rut ya fue ingresado
+                if(DatosJovenes::where('gl_rut', '=', $gl_rut)->exists()) {
+                    $id_datos_jovenes = @DatosJovenes::where('gl_rut', '=', $gl_rut)->first()->id_datos_jovenes;
+                }
+            }
+            if(!empty($request->input("fc_nacimiento"))){
+                $fc_nacimiento = Security::validar($request->input("fc_nacimiento"), 'date');
+            }
+            if(!empty($request->input("nr_telefono"))){
+                $nr_telefono = Security::validar($request->input("nr_telefono"), 'string');
+            }
+            if(!empty($request->input("gl_email"))){
+                $gl_email = Security::validar($request->input("gl_email"), 'string');
+            }
+            if(!empty($request->input("region"))){
+                $id_region = Security::validar($request->input("region"), 'numero');
+                $gl_nombre_region = @Region::where('id_region', '=', $id_region)->first()->gl_nombre_corto;
+            }
+            if(!empty($request->input("comuna"))){
+                $id_comuna = Security::validar($request->input("comuna"), 'numero');
+                $gl_nombre_comuna = @Comuna::where('id_comuna', '=', $id_comuna)->first()->gl_nombre_comuna;
+            }
+            if(!empty($request->input("gl_ciudad"))){
+                $gl_ciudad = Security::validar($request->input("gl_ciudad"), 'string');
+            }
+            if(!empty($request->input("gl_direccion"))){
+                $gl_direccion = Security::validar($request->input("gl_direccion"), 'string');
+            }
+            if(!empty($request->input("street_number"))){
+                $street_number = Security::validar($request->input("street_number"), 'string');
+            }
+            if(!empty($request->input("route"))){
+                $route = Security::validar($request->input("route"), 'string');
+            }
+            if(!empty($request->input("locality"))){
+                $locality = Security::validar($request->input("locality"), 'string');
+            }
+            if(!empty($request->input("administrative_area_level_1"))){
+                $administrative_area_level_1 = Security::validar($request->input("administrative_area_level_1"),'string');
+            }
+            if(!empty($request->input("postal_code"))){
+                $postal_code = Security::validar($request->input("postal_code"), 'string');
+            }
+            if(!empty($request->input("country"))){
+                $country = Security::validar($request->input("country"), 'string');
+            }
+            if(!empty($request->input("gl_calle"))){
+                $gl_calle = Security::validar($request->input("gl_calle"), 'string');
+            }
+            if(!empty($request->input("nr_calle"))){
+                $nr_calle = Security::validar($request->input("nr_calle"), 'string');
+            }
+            if(!empty($request->input("gl_latitud"))){
+                $gl_latitud = Security::validar($request->input("gl_latitud"), 'string');
+            }
+            if(!empty($request->input("gl_longitud"))){
+                $gl_longitud = Security::validar($request->input("gl_longitud"), 'string');
+            }
+            if(!empty($request->input("id_llegada_iglesia"))){
+                $id_llegada_iglesia = Security::validar($request->input("id_llegada_iglesia"), 'numero');
+                $gl_llegada_iglesia = @RangoLlegadaIglesia::where('id_llegada_iglesia', '=', $id_llegada_iglesia)->first()->gl_nombre;
+
+            }
+
+            $id_tipo_participacion = Security::validar($request->input("id_tipo_participacion"), 'numero');
+            if(intval($id_tipo_participacion) == 1){
+                $gl_tipo_participacion = 'Online y Presencial';
+            }else{
+                $gl_tipo_participacion = 'Solo Online';
+            }            
+
+            if(!empty($request->input("bo_participa_ministerio"))){
+                $bo_participa_ministerio = Security::validar($request->input("bo_participa_ministerio"), 'numero');
+            }
+            if(!empty($request->input("gl_ministerio"))){
+                $gl_ministerio = Security::validar($request->input("gl_ministerio"), 'string');
+            }
+            if(!empty($request->input("bo_vive_con_ninos"))){
+                $bo_vive_con_ninos = Security::validar($request->input("bo_vive_con_ninos"), 'numero');
+            }
+            if(!empty($request->input("nr_vive_con_ninos"))){
+                $nr_vive_con_ninos = Security::validar($request->input("nr_vive_con_ninos"), 'numero');
+            }
+            if(!empty($request->input("bo_vive_con_adolescentes"))){
+                $bo_vive_con_adolescentes = Security::validar($request->input("bo_vive_con_adolescentes"), 'numero');
+            }
+            if(!empty($request->input("nr_vive_con_adolescentes"))){
+                $nr_vive_con_adolescentes = Security::validar($request->input("nr_vive_con_adolescentes"), 'numero');
+            }            
+
+            //Verifico si, a pesar de haber pasado el captcha
+            //obtuvo una puntuación baja o si su mail no tiene un dominio habitual.
+            //Si su puntuación es baja (WARNING) o utiliza un correo con un dominio
+            //poco habitual, se marca mensaje para revisión.
+            $dominios_comunes = array(
+                "@gmail.com", 
+                "@outlook.com", 
+                "@hotmail.com", 
+                "@yahoo.com", 
+                "@alumnos.uv.cl"
+            );
+
+            $bo_validar = FALSE;
+            $dominio = substr($gl_email, strpos($gl_email,'@'));
+            if($result_recaptcha["status"] == "WARNING" || 
+                !in_array($dominio, $dominios_comunes)){
+                $bo_validar = TRUE;
+            }            
+
+            $json_direccion_gm = array("direccion_gm" => array(
+                "street_number" => $street_number,
+                "route" => $route,
+                "locality"  => $locality,
+                "administrative_area_level_1"   => $administrative_area_level_1,
+                "postal_code"   => $postal_code,
+                "country"   => $country,
+            ));
+   
+            $datos_miembro = array(
+                "gl_sexo"                  => $gl_sexo,
+                "gl_nombres"               => $gl_nombres,
+                "gl_apellidos"             => $gl_apellidos,
+                "gl_rut"                   => $gl_rut,
+                "fc_nacimiento"            => $fc_nacimiento,
+                "nr_telefono"              => $nr_telefono,
+                "gl_email"                 => $gl_email,
+                "id_region"                => $id_region,
+                "gl_nombre_region"         => $gl_nombre_region,
+                "id_comuna"                => $id_comuna,
+                "gl_nombre_comuna"         => $gl_nombre_comuna,
+                "gl_ciudad"                => $gl_ciudad,
+                "gl_direccion"             => $gl_direccion,
+                "json_otros_datos"         => $json_direccion_gm,
+                "gl_calle"                 => $gl_calle,
+                "nr_calle"                 => $nr_calle,
+                "gl_latitud"               => $gl_latitud,
+                "gl_longitud"              => $gl_longitud,
+                "id_llegada_iglesia"       => $id_llegada_iglesia,
+                "gl_llegada_iglesia"       => $gl_llegada_iglesia,
+                "id_tipo_participacion"    => $id_tipo_participacion,
+                "gl_tipo_participacion"    => $gl_tipo_participacion,
+                "bo_participa_ministerio"  => $bo_participa_ministerio,
+                "gl_ministerio"            => $gl_ministerio,
+                "bo_vive_con_ninos"        => $bo_vive_con_ninos,
+                "nr_vive_con_ninos"        => $nr_vive_con_ninos,
+                "bo_vive_con_adolescentes" => $bo_vive_con_adolescentes,
+                "nr_vive_con_adolescentes" => $nr_vive_con_adolescentes,
+                "id_datos_jovenes"         => $id_datos_jovenes,
+                "bo_validar"               => $bo_validar,
+            );
+            //file_put_contents('php://stderr', PHP_EOL . print_r("GUARDANDO DATOS...", TRUE). PHP_EOL, FILE_APPEND);
+
+            if(!DatosMiembros::create($datos_miembro)){
+                App::abort(500, 'Error Inesperado, por favor, contáctese con soporte.');
+            }else{
+                $json["correcto"] = true;
+                $json["msj"] = "¡Los datos fueron guardados correctamente!";
+            }   
+
+        }
         
         
         return response()->json($json);

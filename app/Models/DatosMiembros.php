@@ -40,26 +40,41 @@ class DatosMiembros extends Model
      * @var array
      */
     protected $fillable = [
-        'id_datos_miembro', 
-    	'id_datos_jovenes', 
+        'id_datos_miembro',
         'gl_rut',
+        'id_datos_jovenes',
         'gl_nombres',
         'gl_apellidos',
-        'fc_nacimiento',
         'nr_telefono',
         'gl_email',
-        'id_region',
-        'id_comuna',
         'gl_ciudad',
+        'gl_direccion',
+        'gl_latitud',
+        'gl_longitud',
         'gl_calle',
         'nr_calle',
-    	'gl_sexo',
-        'bo_validar',
-        'bo_spam',
         'json_otros_datos',
         'id_llegada_iglesia',
-        'gl_llegada_iglesia'
-    ];//, 'size'];
+        'gl_llegada_iglesia',
+        'id_region',
+        'gl_nombre_region',
+        'id_comuna',
+        'gl_nombre_comuna',
+        'fc_nacimiento',
+        'gl_sexo',
+        'id_tipo_participacion',
+        'gl_tipo_participacion',
+        'bo_participa_ministerio',
+        'gl_ministerio',
+        'bo_vive_con_ninos',
+        'nr_vive_con_ninos',
+        'bo_vive_con_adolescentes',
+        'nr_vive_con_adolescentes',
+        'bo_validar',
+        'bo_spam',
+        'created_at',
+        'updated_at',
+    ];
 
     /**
      * The attributes that should be mutated to dates.
