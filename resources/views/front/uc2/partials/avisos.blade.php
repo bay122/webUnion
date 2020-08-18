@@ -15,9 +15,9 @@
 						<p class="g-color-white-opacity-0_9 g-font-size-16 g-line-height-2">¡Participa de nuestra encuesta anual! Ayudanos a conocerte, para poder acompañarte en nuestro continuo crecimiento según la estatura de Cristo. No te pierdas esta oportunidad.</p>
 					</div>
 
-					<a href="{{ url('/encuesta/registro') }}" class="btn  btn-lg btn-block u-btn-outline-white  g-font-weight-500 g-letter-spacing-0_5 text-uppercase g-brd-2  g-mr-15 g-mb-15">
+					<button style="white-space: normal;" href="{{ url('/encuesta/registro') }}" class="btn  btn-lg btn-block u-btn-outline-white  g-font-weight-500 g-letter-spacing-0_5 text-uppercase g-brd-2  g-mr-15 g-mb-15">
 						Comenzar Encuesta Ahora &nbsp;&nbsp;<i class="icon-hotel-restaurant-002 u-line-icon-pro"></i>
-					</a>
+					</button>
 
 				</div>
 			</div>
