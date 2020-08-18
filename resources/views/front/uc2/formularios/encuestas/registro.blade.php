@@ -183,6 +183,7 @@
                                     </div>
                                 </div>
 
+                                @if(false)
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group {{ $errors->has('fc_nacimiento') ? 'has-error' : '' }}">
                                         <label for="fc_nacimiento" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15"> Fecha de nacimiento</label>
@@ -191,6 +192,16 @@
                                              value="" placeholder="dd/mm/aaaa">
                                         </div>
                                         {!! $errors->first('fc_nacimiento', '<small class="help-block">:message</small>') !!}
+                                    </div>
+                                </div>
+                                @endif
+
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="dateField1" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15"> Fecha de nacimiento</label>
+                                        <div class="col-xs-12 form-inline dateDropdown">
+                                            <input type="text" class="form-control"id="dateField1" name="dateField1" placeholder="dd.mm.yyyy">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
