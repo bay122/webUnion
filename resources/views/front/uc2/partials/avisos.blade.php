@@ -1,12 +1,12 @@
 <!-- Demo modal window -->
 <div id="modal-type-aftersometime" class="js-autonomous-popup text-left  g-overflow-y-auto g-pa-20" style="display: none;max-width: 80%; max-height: 100%" data-modal-type="aftersometime" data-effect="fadein">
-	<div class="text-right">
+	<div class="text-right" style="position: absolute;z-index: 2;padding-left: 70%;padding-top: 1%;cursor:pointer">
 		<a class="u-icon-v2 g-rounded-50x g-color-black  g-mr-15 g-mb-20" style="background-color:white;border-color: white;" onclick="Custombox.modal.close();">
 			<i class="hs-icon hs-icon-close"></i>
 		</a>
 	</div>
 	<!-- Hero Info #16 -->
-	<div class="g-bg-img-hero g-bg-pos-top-center g-bg-size-cover g-bg-cover g-bg-black-opacity-0_6--after" style="background-image: url({{ asset('/uc2/img/banner.png') }});">
+	<div class="g-bg-img-hero g-bg-pos-top-center g-bg-size-cover g-bg-cover g-bg-black-opacity-0_6--after" style="position:relative;background-image: url({{ asset('/uc2/img/banner.png') }});">
 		<div class="container g-pos-rel g-z-index-1">
 			<div class="row justify-content-between">
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 g-py-50 pb-10">
