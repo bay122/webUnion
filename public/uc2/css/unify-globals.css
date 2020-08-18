@@ -2992,7 +2992,7 @@
 
 /* Vine */
 .g-brd-vine {
-  border-color: #00bf8f; }
+  /*border-color: #00bf8f; */}
 
 .g-brd-vine--hover:hover {
   border-color: #00bf8f !important; }
@@ -5271,10 +5271,10 @@ svg.g-transition--linear polygon {
 
 /* Vine */
 .g-color-vine {
-  color: #00bf8f; }
+  color:  black; }
 
 .g-color-vine:hover {
-  color: #00a67c; }
+  color:  black; }
 
 .g-color-vine--hover:hover {
   color: #00bf8f !important; }

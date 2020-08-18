@@ -23,6 +23,14 @@
                   </a>
               </li>
 
+              <li class="list-inline-item g-mx-5">
+                  <a class="u-icon-v2 u-icon-size--sm g-font-size-16 g-color-white-opacity-0_8 g-color-white--hover g-brd-vine--hover g-brd-white-opacity-0_2 g-brd-lightred--hover rounded-circle" href="https://open.spotify.com/show/4BDQCBhLvjFstFxJpbv5BS?si=M5LtVHNASO-8ev-WLrrPmQ" target="_blank">
+                  <i class="icon-social-spotify"></i>
+                  </a>
+              </li>
+
+            
+
 
           </ul>
 

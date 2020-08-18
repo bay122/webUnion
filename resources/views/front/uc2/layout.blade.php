@@ -149,9 +149,10 @@
                 <i class="fab fa-instagram icon"></i>
               </a></li>
             <li>
-              <a class="u-shadow-v1-1" href="https://instagram.com/iglesia.unioncristiana" target="_blank">
-                <i class="fab fa-twitter icon"></i>
-              </a></li>
+              <a class="u-shadow-v1-1  g-bg-vine" href="https://open.spotify.com/show/4BDQCBhLvjFstFxJpbv5BS?si=M5LtVHNASO-8ev-WLrrPmQ" target="_blank">
+                <i class="icon-social-spotify icon"></i>
+              </a>
+            </li>
           </ul>
         </div>
     </main>
@@ -189,8 +190,8 @@
 
     <!-- JS Custom -->
     <script src="{{ asset('uc2/js/custom.js').'?'.$local_uuid }}"></script>
-
-    <script><!-- JS Logout -->
+<!-- JS Logout -->
+    <script>
      $(function() {
          $('#logout').click(function(e) {
              e.preventDefault();
@@ -239,11 +240,11 @@
             <i class="fab fa-instagram"></i>
             </a>
 
-            <a class="js-go-to  u-icon-v1 g-bg-twitter g-color-white g-color-white--hover  g-rounded-50x g-mr-20 g-mb-10" href="#!" data-type="fixed" data-position='{
+            <a class="js-go-to  u-icon-v1 g-bg-vine g-color-white g-color-white--hover  g-rounded-50x g-mr-20 g-mb-10" href="#!" data-type="fixed" data-position='{
                 "bottom": 332,
                 "right": -10
             }'>
-            <i class="fab fa-twitter"></i>
+            <i class="fab icon-social-spotify"></i>
             </a>
             </div> `;
             @endif
