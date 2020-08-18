@@ -262,13 +262,20 @@ function validarDatosVidaDeIglesia(btn){
 }
 function submitValidation(btn){ 
 	Base.buttonProccessStart(btn, 'Guardando');
-   
+    var fc_nacimiento = null;
+    var day = $("#day").val();
+    var month = $("#month").val();
+    var year = $("#year").val();
+    if(day && month && year){
+        fc_nacimiento = year+'-'+month+'-'+day;
+    }
     var data = {
         gl_sexo                     : $("#gl_sexo").val(),
         gl_nombres                  : $("#gl_nombres").val(),
         gl_apellidos                : $("#gl_apellidos").val(),
         gl_rut                      : $("#gl_rut").val(),
-        fc_nacimiento               : $("#fc_nacimiento").val(),
+        //fc_nacimiento             : $("#fc_nacimiento").val(),
+        fc_nacimiento               : fc_nacimiento,
         nr_telefono                 : $("#nr_telefono").val(),
         gl_email                    : $("#gl_email").val(),
         region                      : $("#region").val(),

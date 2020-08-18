@@ -57,6 +57,7 @@ class encuestaController extends Controller
         Helper::loadJavascript("front/encuestas/registro_encuesta.js");
         //Helper::loadJavascript("front/encuestas/registro_wizzard2.js");
         Helper::loadJavascript("front/encuestas/registro_wizard.js");
+        Helper::loadJavascript("front/encuestas/date_selector.js");
         
         Helper::loadJavascriptFullPath("plugins/mapa/joii.min.js");
         Helper::loadJavascriptFullPath("plugins/mapa/jquery.typing-0.2.0.min.js");
@@ -184,7 +185,7 @@ class encuestaController extends Controller
                                     }
                                     else{
                                         //verifico si el rut ya fue ingresado
-                                        if(DatosMiembros::where('gl_rut', '=', $gl_rut)->exists()) {
+                                        if(!empty($gl_rut) && DatosMiembros::where('gl_rut', '=', $gl_rut)->exists()) {
                                             $json["msj"] = "<b>¡El rut ingresado ya existe!</b><br/> Es posible que hayas ingresado tus datos previamente.";
                                         }
                                         else{
