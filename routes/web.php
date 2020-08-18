@@ -97,7 +97,29 @@ Route::prefix('admin')->namespace('Back')->group(function () {
         // Video Home       
         Route::resource('videos', 'ConfiguracionController', ['only' => [
             'index','update'
-        ]]);       
+        ]]);
+       
+       /**
+         * INICIO rutas para funciones relacionadas con los moderadores
+         */
+        //videos
+        Route::group(['prefix' => 'home_config'], function(){
+            Route::get('index/', ['uses' => 'ConfiguracionController@index', 'as' => 'home_config.video.index']);
+            Route::post('update/', ['uses' => 'ConfiguracionController@update', 'as' => 'home_config.video.update']);
+            Route::get('carrusel/', ['uses' => 'ConfiguracionController@carrusel', 'as' => 'home_config.carrusel.index']);
+            Route::post('actualizar_imagenes/', ['uses' => 'ConfiguracionController@actualizar_imagenes', 'as' => 'home_config.carrusel.actualizar_imagenes']);
+            //Route::get('show/{id}', ['uses' => 'ConfiguracionController@show', 'as' => 'home_config.moderador.show']);//->where('id', '[0-9]+');
+            //Route::get('edit/{id}', ['uses' => 'ConfiguracionController@edit', 'as' => 'home_config.moderador.edit']);//->where('id', '[0-9]+');
+            //Route::get('create', ['uses' => 'ConfiguracionController@create', 'as' => 'home_config.moderador.create']);
+            //Route::post('store', ['uses' => 'ConfiguracionController@store', 'as' => 'home_config.moderador.store']);
+            //Route::post('update/{id}', ['uses' => 'ConfiguracionController@update', 'as' => 'home_config.moderador.update']);
+            //Route::post('destroy/{id}', ['uses' => 'ConfiguracionController@destroy', 'as' => 'home_config.moderador.destroy']);
+            
+            //Route::get('view/{id?}', ['uses' => 'ArticlesController@view', 'as' => 'articlesView']);//->where('id', '[0-9]+');
+        });
+        /**
+         * FIN rutas para funciones relacionadas con los moderadores
+         */       
 
 
     });
@@ -135,12 +157,12 @@ Route::prefix('admin')->namespace('Back')->group(function () {
         ]]);*/
 
 
-		/**
-		 * Route::resource
-		 * Docs: https://laravel.com/docs/5.8/controllers#resource-controllers
-		 * 		 https://youtu.be/t8Qn0QwO6-g
-		 * 		 https://laracasts.com/discuss/channels/laravel/routeresource-parameters
-		 */
+        /**
+         * Route::resource
+         * Docs: https://laravel.com/docs/5.8/controllers#resource-controllers
+         *       https://youtu.be/t8Qn0QwO6-g
+         *       https://laracasts.com/discuss/channels/laravel/routeresource-parameters
+         */
         /**
          * INICIO rutas para funciones relacionadas con los mensajes de contacto (Contacts)
          */ 
@@ -187,6 +209,28 @@ Route::prefix('admin')->namespace('Back')->group(function () {
             'index','update'
         ]]);
 
+        /**
+         * INICIO rutas para funciones relacionadas con los moderadores
+         */
+        //videos
+        Route::group(['prefix' => 'home_config'], function(){
+            Route::get('index/', ['uses' => 'ConfiguracionController@index', 'as' => 'home_config.video.index']);
+            Route::post('update/', ['uses' => 'ConfiguracionController@update', 'as' => 'home_config.video.update']);
+            Route::get('carrusel/', ['uses' => 'ConfiguracionController@carrusel', 'as' => 'home_config.carrusel.index']);
+            Route::post('actualizar_imagenes/', ['uses' => 'ConfiguracionController@actualizar_imagenes', 'as' => 'home_config.carrusel.actualizar_imagenes']);
+            //Route::get('show/{id}', ['uses' => 'ConfiguracionController@show', 'as' => 'home_config.moderador.show']);//->where('id', '[0-9]+');
+            //Route::get('edit/{id}', ['uses' => 'ConfiguracionController@edit', 'as' => 'home_config.moderador.edit']);//->where('id', '[0-9]+');
+            //Route::get('create', ['uses' => 'ConfiguracionController@create', 'as' => 'home_config.moderador.create']);
+            //Route::post('store', ['uses' => 'ConfiguracionController@store', 'as' => 'home_config.moderador.store']);
+            //Route::post('update/{id}', ['uses' => 'ConfiguracionController@update', 'as' => 'home_config.moderador.update']);
+            //Route::post('destroy/{id}', ['uses' => 'ConfiguracionController@destroy', 'as' => 'home_config.moderador.destroy']);
+            
+            //Route::get('view/{id?}', ['uses' => 'ArticlesController@view', 'as' => 'articlesView']);//->where('id', '[0-9]+');
+        });
+        /**
+         * FIN rutas para funciones relacionadas con los moderadores
+         */
+        
 
         /**
          * INICIO rutas ministeria discipulado
@@ -194,15 +238,15 @@ Route::prefix('admin')->namespace('Back')->group(function () {
          * @todo  agregar validadores where para agregar seguridad a las url de GET
          */
         Route::group(['prefix' => 'discipulado'], function(){
-			Route::get('index/', ['uses' => 'GrupoFormacionController@index', 'as' => 'discipulado.index']);
-			Route::get('show/{id}', ['uses' => 'GrupoFormacionController@show', 'as' => 'discipulado.show']);//->where('id', '[0-9]+');
-			Route::get('edit/{id}', ['uses' => 'GrupoFormacionController@edit', 'as' => 'discipulado.edit']);//->where('id', '[0-9]+');
-			Route::get('create', ['uses' => 'GrupoFormacionController@create', 'as' => 'discipulado.create']);
-			Route::post('store', ['uses' => 'GrupoFormacionController@store', 'as' => 'discipulado.store']);
-			Route::post('update/{id}', ['uses' => 'GrupoFormacionController@update', 'as' => 'discipulado.update']);
-			Route::delete('destroy/{id}', ['uses' => 'GrupoFormacionController@destroy', 'as' => 'discipulado.destroy']);
-			//Route::get('view/{id?}', ['uses' => 'ArticlesController@view', 'as' => 'articlesView']);//->where('id', '[0-9]+');
-			
+            Route::get('index/', ['uses' => 'GrupoFormacionController@index', 'as' => 'discipulado.index']);
+            Route::get('show/{id}', ['uses' => 'GrupoFormacionController@show', 'as' => 'discipulado.show']);//->where('id', '[0-9]+');
+            Route::get('edit/{id}', ['uses' => 'GrupoFormacionController@edit', 'as' => 'discipulado.edit']);//->where('id', '[0-9]+');
+            Route::get('create', ['uses' => 'GrupoFormacionController@create', 'as' => 'discipulado.create']);
+            Route::post('store', ['uses' => 'GrupoFormacionController@store', 'as' => 'discipulado.store']);
+            Route::post('update/{id}', ['uses' => 'GrupoFormacionController@update', 'as' => 'discipulado.update']);
+            Route::delete('destroy/{id}', ['uses' => 'GrupoFormacionController@destroy', 'as' => 'discipulado.destroy']);
+            //Route::get('view/{id?}', ['uses' => 'ArticlesController@view', 'as' => 'articlesView']);//->where('id', '[0-9]+');
+            
             /**
              * INICIO rutas para funciones relacionadas con los asistentes
              */
@@ -241,7 +285,7 @@ Route::prefix('admin')->namespace('Back')->group(function () {
             /**
              * FIN rutas para funciones relacionadas con los moderadores
              */
-		});
+        });
         /**
          * FIN rutas ministeria discipulado
          */
