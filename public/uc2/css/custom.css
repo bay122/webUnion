@@ -119,3 +119,14 @@ ul.cm li:nth-child(4) a:before{
     display: none;
   }
 }
+@media(min-width : 991px){
+    .modal-hidden-overflow{
+      overflow: hidden;
+    }
+}
+
+@media( max-width : 475px ) {
+  #flecha-home{
+    display: none;
+  }
+}

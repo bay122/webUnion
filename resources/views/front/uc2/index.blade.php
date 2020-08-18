@@ -50,7 +50,7 @@
                     <span class="g-color-primary">Mira</span> nuesto<br>último <span class="g-color-primary">Video:</span></h2>
             </div>
 
-            <div class="col-sm-7" style="position: absolute;">
+            <div class="col-sm-7" id="flecha-home" style="position: absolute;">
                 <style>
                     /* Pretty Stuff? */
                     .arrcontent{
@@ -128,7 +128,7 @@
         </div>
         <div class="row justify-content-between">
             @if ($configuracion->estado =='1')  
-            <div class="col-xs-12 col-sm-5 g-mb-30">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 g-mb-30">
                 <div class="g-font-size-17">
                     {!! $configuracion->html !!}
                 </div>
@@ -141,7 +141,7 @@
                     display: block;
                 }
             </style>
-            <div class="col-xs-12 col-sm-{{  $configuracion->col }}">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-{{  $configuracion->col }}">
                 <!-- Article -->
                 <div class="video-home">
                     <!-- 16:9 aspect ratio -->
