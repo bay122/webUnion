@@ -137,13 +137,13 @@
               <figure class="text-center">
                 <!-- Figure Image -->
                 <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
-                  <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/equipo pastoral/IMG_0219.jpg') }}" alt="Equipo Pastoral">
+                  <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/equipo pastoral/IMG_0220.jpg') }}" alt="Equipo Pastoral">
                 </div>
                 <!-- End Figure Image -->
 
                 <!-- Figure Info -->
                 <div class="g-mb-15">
-                  <h4 class="h4 g-color-black g-mb-5">Luís Guzman</h4>
+                  <h4 class="h4 g-color-black g-mb-5">Claudio Fuentes</h4>
                 </div>
                 <p></p>
                 <!-- End Info -->
@@ -156,13 +156,13 @@
               <figure class="text-center">
                 <!-- Figure Image -->
                 <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
-                  <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/equipo pastoral/IMG_0220.jpg') }}" alt="Equipo Pastoral">
+                  <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/equipo pastoral/IMG_0219.jpg') }}" alt="Equipo Pastoral">
                 </div>
                 <!-- End Figure Image -->
 
                 <!-- Figure Info -->
                 <div class="g-mb-15">
-                  <h4 class="h4 g-color-black g-mb-5">Claudio Fuentes</h4>
+                  <h4 class="h4 g-color-black g-mb-5">Luís Guzman</h4>
                 </div>
                 <p></p>
                 <!-- End Info -->
