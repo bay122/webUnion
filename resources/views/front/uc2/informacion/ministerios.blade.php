@@ -25,7 +25,7 @@
                 <!-- Figure Info -->
                 <div class="g-mb-25">
                     <div class="g-mb-20">
-                        <h4 class="h5 g-color-black g-mb-5">ADOLESCENTES</h4>
+                        <h4 class="h5 g-color-black g-mb-5">NIÑOS Y ADOLESCENTES</h4>
                         <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio</em>
                     </div>
                     <p>Tiene como misión colaborar con los padres en la evangelización de sus hijos. Para cumplir este objetivo contamos con un equipo de maestros y ayudantes capacitados que trabajan con los distintos grupos de acuerdo a sus edades y necesidades. ¡Cada edad tiene su espacio! Además, durante la predicación el día domingo los niños entre los 2 y14 años se distribuyen en clases para compartir y aprender de la Palabra de Dios. Durante el año tenemos distintas actividades recreativas, entre las cuales destacan Fiesta de la Vida y campamentos para hombres y mujeres.</p>
