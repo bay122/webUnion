@@ -191,7 +191,9 @@
             @include('front.uc2.partials.avisos')
             <!-- End Testimonials -->
             <section class="container g-py-50 g-pb-70">
-
+                @php 
+                    $local_uuid = uniqid();
+                @endphp
                 <!-- Banners -->
                 <div class="row">
                     <div class="col-lg-6 g-mb-30" style="margin:auto;">
@@ -217,97 +219,97 @@
                 <!-- End Banners -->
                 <div class="row">
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/1.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/1.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/1.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/1.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
 
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/2.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/2.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/2.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/2.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
 
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/3.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/3.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/3.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/3.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/4.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/4.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/4.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/4.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
 
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/5.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/5.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/5.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/5.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
 
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/6.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/6.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/6.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/6.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/7.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/7.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/7.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/7.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
 
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/8.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/8.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/8.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/8.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
 
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/9.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/9.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/9.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/9.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/7.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/10.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/10.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/10.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
 
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/8.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/11.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/11.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/11.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
 
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/9.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/12.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/12.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/12.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/7.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/13.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/13.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/13.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
 
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/8.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/14.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/14.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/14.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
 
                     <div class="col-md-4 g-mb-30">
-                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/9.jpg') }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
-                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/15.jpg') }}" alt="Image Description">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/15.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/15.jpg').'?'.$local_uuid }}" alt="Image Description">
                         </a>
                     </div>
                 </div>
