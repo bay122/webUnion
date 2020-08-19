@@ -230,4 +230,356 @@
 </br>
 </section>
 <!-- End Team Blocks v1 -->
+
+
+<section class="g-pos-rel g-overflow-hidden">
+  <div class="container g-pt-100 g-pb-50">
+    <div class="row justify-content-between">
+      <div class="col-lg-12 g-mb-50">
+        <!-- Heading -->
+        <div class="text-center text-uppercase u-heading-v6-2 g-mb-40">
+          <h2 class="h3 u-heading-v6__title">Nuestro Equipo</h2>
+        </div>  
+        <!-- End Heading -->
+        <div class="col-lg-12  text-center text-lg-left g-mb-50 ">
+            <!-- Team Block -->
+            <div class="row">
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0222.jpg') }}" alt="Ministerio de Niños y Adolescentes">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Nicol Jaramillo</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Niños y Adolescentes</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0235.jpg') }}" alt=" Matrimonios">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Teresa Aspee y Daniel Jiménez</h4>
+                            <em class="g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Matrimonios</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0230.jpg') }}" alt="Ministerio de Hombres">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Rubén Valenzuela</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Hombres</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0232.jpg') }}" alt="Ministerio de Mujeres">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Magaly Larraín</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Mujeres</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0234.jpg') }}" alt=" Misiones">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Camila Ramirez</h4>
+                            <em class="g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Misiones</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0229.jpg') }}" alt="Ministerio de Adolescentes">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Cristian Álvarez</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Adolescentes</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0226.jpg') }}" alt="Ministerio de Jóvenes Intermedios">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Nayareth Palta y Pablo Jiménez</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Jóvenes Intermedios</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0221.jpg') }}" alt=" Adúltos Jóvenes">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Pablo Contreras</h4>
+                            <em class="g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Adúltos Jóvenes</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0231.jpg') }}" alt="Ministerio de Años Dorados">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Betty Sangüesa</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Años Dorados</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0219.jpg') }}" alt="Ministerio de Oración">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Luis Guzmán</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Oración</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0233.jpg') }}" alt=" Discipulado">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Pamela Riquelme</h4>
+                            <em class="g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Discipulado</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0228.jpg') }}" alt="Ministerio de Comunidad de Vida">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Carlos Echaniz</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Comunidad de Vida</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0236.jpg') }}" alt="Ministerio de Consejeria">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Daniela Perffeti y Carmen Alvarez</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Consejeria</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0219.jpg') }}" alt=" Medios">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Luis Guzmán</h4>
+                            <em class="g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Medios</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0238.jpg') }}" alt="Ministerio de Alabanza">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Alan Morales</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Alabanza</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 g-mb-60">
+                    <!-- Figure -->
+                    <figure class="text-center">
+                        <!-- Figure Image -->
+                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0227.jpg') }}" alt="Ministerio de Misericordia">
+                        </div>
+                        <!-- End Figure Image -->
+
+                        <!-- Figure Info -->
+                        <div class="g-mb-15">
+                            <h4 class="h4 g-color-black g-mb-5">Benjamín Caceres</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Misericordia</em>
+                        </div>
+                        <p></p>
+                        <!-- End Info -->
+                    </figure>
+                    <!-- End Figure -->
+                </div>
+
+                
+            </div>
+            <!-- End Team Block -->
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
 @endsection
