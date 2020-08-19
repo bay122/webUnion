@@ -53,6 +53,7 @@ ul.cm li a {
 }
 
 ul.cm li a .icon {
+  margin-top: 5px;
   position: relative;
   color: #262626;
   transition: .5s;
@@ -93,7 +94,7 @@ ul.cm li:nth-child(3) a:before {
 }
 
 ul.cm li:nth-child(4) a:before{
-  background: #55acee;
+  background: #49BA55;
 }
 /*FIN ICONS HOME*/
 
@@ -129,4 +130,8 @@ ul.cm li:nth-child(4) a:before{
   #flecha-home{
     display: none;
   }
+}
+
+td span{
+  white-space: initial;
 }

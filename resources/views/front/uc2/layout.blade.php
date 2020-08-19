@@ -136,7 +136,7 @@
           <ul class="cm">
             <li>
               <a class="u-shadow-v1-1 g-bg-youtube" href="https://www.youtube.com/user/IgUnionCristiana" target="_blank">
-                <i class="fab fa-youtube icon"></i>
+                <i class="fab fa-youtube icon" style="margin-top: 6px;margin-left: 1px;"></i>
               </a>
             </li>
             <li>
@@ -149,8 +149,8 @@
                 <i class="fab fa-instagram icon"></i>
               </a></li>
             <li>
-              <a class="u-shadow-v1-1  g-bg-vine" href="https://open.spotify.com/show/4BDQCBhLvjFstFxJpbv5BS?si=M5LtVHNASO-8ev-WLrrPmQ" target="_blank">
-                <i class="icon-social-spotify icon"></i>
+              <a class="u-shadow-v1-1 g-bg-vine" href="https://open.spotify.com/show/4BDQCBhLvjFstFxJpbv5BS?si=M5LtVHNASO-8ev-WLrrPmQ" target="_blank">
+                <i class="fab fa-spotify icon"></i>
               </a>
             </li>
           </ul>
