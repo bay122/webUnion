@@ -79,23 +79,39 @@
                     <p> Nuestro objetivo es promover que los jóvenes conozcan cada día más a Cristo a través de una relación personal con Él, que sus vidas sean transformadas por medio de la Palabra y que puedan conocer a otros creyentes.
                     </br>
                     <strong>¡Te esperamos cada viernes a las 19:45 hrs!</strong> </p>
+                    <!-- Yellow Alert -->
+                    <div class="alert alert-dismissible fade show g-bg-yellow rounded-0" role="alert">
+                      <div class="media">
+                        <span class="d-flex g-mr-10 g-mt-5">
+                          <i class="icon-info g-font-size-25"></i>
+                        </span>
+                        <span class="media-body align-self-center">
+                          <strong>Importante!</strong> Debido a la contigencia sanitaria actual, las actividades de los Jóvenes se realizarán por medio de Zoom. Siguenos en nuestras redes sociales para ver los links y horarios de las reuniones, o inscríbete en nuestra base de datos para recibir toda la información de manera personalizada. 
+                          Puedes inscribirte <a href="{{ url('/jovenes/registro') }}" style="color:black">
+                                              <strong>aquí</strong>
+                                              <i class="icon-hotel-restaurant-002 u-line-icon-pro"></i>
+                                            </a>
+                        </span>
+                      </div>
+                    </div>
+                    <!-- End Yellow Alert -->
                 </div>
                 <!-- End Figure Info -->
 
                 <!-- Figure Social Icons -->
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item g-mx-3">
-                        <a class="u-icon-v2 u-icon-size--xs g-color-main g-bg-gray-light-v5 g-brd-gray-light-v5 g-bg-primary--hover g-color-white--hover rounded-circle" href="#!">
+                        <a class="u-icon-v2 u-icon-size--xs g-color-main g-bg-gray-light-v5 g-brd-gray-light-v5 g-bg-primary--hover g-color-white--hover rounded-circle" target="_blank" href="https://www.facebook.com/jovenesunioncristiana">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                     </li>
                     <li class="list-inline-item g-mx-3">
-                        <a class="u-icon-v2 u-icon-size--xs g-color-main g-bg-gray-light-v5 g-brd-gray-light-v5 g-bg-primary--hover g-color-white--hover rounded-circle" href="#!">
-                            <i class="far fa-envelope"></i>
+                        <a class="u-icon-v2 u-icon-size--xs g-color-main g-bg-gray-light-v5 g-brd-gray-light-v5 g-bg-primary--hover g-color-white--hover rounded-circle" target="_blank" href="https://www.youtube.com/channel/UC2ClSvB_wOWscEOh7YbojSw">
+                            <i class="fab fa-youtube"></i>
                         </a>
                     </li>
                     <li class="list-inline-item g-mx-3">
-                        <a class="u-icon-v2 u-icon-size--xs g-color-main g-bg-gray-light-v5 g-brd-gray-light-v5 g-bg-primary--hover g-color-white--hover rounded-circle" href="#!">
+                        <a class="u-icon-v2 u-icon-size--xs g-color-main g-bg-gray-light-v5 g-brd-gray-light-v5 g-bg-primary--hover g-color-white--hover rounded-circle" target="_blank" href="https://www.instagram.com/jovenes.intermedios/">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </li>
