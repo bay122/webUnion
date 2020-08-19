@@ -313,6 +313,19 @@
                         </a>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-4 g-mb-30">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/16.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/16.jpg').'?'.$local_uuid }}" alt="Image Description">
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 g-mb-30">
+                        <a class="js-fancybox-thumbs" href="javascript:;" data-fancybox="lightbox-gallery-2" data-src="{{ asset('uc2/img/avisos/17.jpg').'?'.$local_uuid }}" data-caption="Lightbox Gallery" data-speed="500" data-slideshow-speed="1000">
+                            <img class="img-fluid" src="{{ asset('uc2/img/avisos/17.jpg').'?'.$local_uuid }}" alt="Image Description">
+                        </a>
+                    </div>
+                </div>
             </section>
         </div>
     </div>
