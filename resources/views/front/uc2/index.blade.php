@@ -428,7 +428,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="align-middle">Jueves</td>
+                                <td class="align-middle">Viernes</td>
                                 <td class="align-middle text-nowrap">
                                     <span class="d-block g-mb-5">
                                         <i class="icon-hotel-restaurant-003 u-line-icon-pro g-font-size-16 g-color-gray-dark-v5 g-pos-rel g-top-2 g-mr-5"></i>
