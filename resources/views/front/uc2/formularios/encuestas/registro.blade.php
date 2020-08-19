@@ -300,6 +300,15 @@
                                             {!! $errors->first('gl_ciudad', '<small class="help-block">:message</small>') !!}
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="form-group {{ $errors->has('gl_barrio') ? 'has-error' : '' }}" style="width: 100%;">
+                                            <label for="gl_barrio" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">Nombre Barrio</label>
+                                            <div class="col-xs-12">
+                                                <input type="text" name="gl_barrio" id="gl_barrio" class="form-control" value="" placeholder="Nombre Barrio">
+                                            </div>
+                                            {!! $errors->first('gl_barrio', '<small class="help-block">:message</small>') !!}
+                                        </div>
+                                    </div>
                                     @if($google_maps)
                                     <div class="row">
                                         <div class="form-group {{ $errors->has('gl_direccion') ? 'has-error' : '' }}" style="width: 100%;"  id="locationField">
@@ -484,7 +493,7 @@
                                 <div class="row g-mb-20">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="form-group {{ $errors->has('bo_vive_con_ninos') ? 'has-error' : '' }}">
-                                            <label for="bo_vive_con_ninos" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Vive con niños? (6-12 años)</label>
+                                            <label for="bo_vive_con_ninos" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Vive con niños? (0-5 años)</label>
                                             <div class="col-xs-12">
                                                 <div class="input-group">
                                                     <div id="radioBtn" class="btn-group">
@@ -514,7 +523,7 @@
                                 <div class="row g-mb-20">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="form-group {{ $errors->has('bo_vive_con_adolescentes') ? 'has-error' : '' }}">
-                                            <label for="bo_vive_con_adolescentes" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Vive con Adolescentes? (12-17 años)</label>
+                                            <label for="bo_vive_con_adolescentes" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Vive con jóvenes? (6-14 años)</label>
                                             <div class="col-xs-12">
                                                 <div class="input-group">
                                                     <div id="radioBtn" class="btn-group">
@@ -527,6 +536,7 @@
                                                     </div>
                                                     <input type="hidden" name="bo_vive_con_adolescentes" id="bo_vive_con_adolescentes">
                                                 </div>
+                                                <p style="margin: 0 0 0 8px;color: green;font-weight: 400;font-size: 10px;">Los jóvenes desde 15 años deben llenar la encuesta por separado</p>
                                             </div>
                                             {!! $errors->first('bo_vive_con_adolescentes', '<small class="help-block">:message</small>') !!}
                                         </div>

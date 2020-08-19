@@ -281,6 +281,7 @@ function submitValidation(btn){
         region                      : $("#region").val(),
         comuna                      : $("#comuna").val(),
         gl_ciudad                   : $("#gl_ciudad").val(),
+        gl_barrio                   : $("#gl_barrio").val(),
         gl_direccion                : $("#gl_direccion").val(),
         street_number               : $("#street_number").val(),
         route                       : $("#route").val(),

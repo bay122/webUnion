@@ -99,6 +99,7 @@ class encuestaController extends Controller
         $id_comuna                   = NULL;
         $gl_nombre_comuna            = NULL;
         $gl_ciudad                   = NULL;
+        $gl_barrio                   = NULL;
         $gl_direccion                = NULL;
         $street_number               = NULL;
         $route                       = NULL;
@@ -250,6 +251,9 @@ class encuestaController extends Controller
             if(!empty($request->input("gl_ciudad"))){
                 $gl_ciudad = Security::validar($request->input("gl_ciudad"), 'string');
             }
+            if(!empty($request->input("gl_barrio"))){
+                $gl_barrio = Security::validar($request->input("gl_barrio"), 'string');
+            }
             if(!empty($request->input("gl_direccion"))){
                 $gl_direccion = Security::validar($request->input("gl_direccion"), 'string');
             }
@@ -296,21 +300,24 @@ class encuestaController extends Controller
                 $gl_tipo_participacion = 'Solo Online';
             }            
 
-            if(!empty($request->input("bo_participa_ministerio"))){
-                $bo_participa_ministerio = Security::validar($request->input("bo_participa_ministerio"), 'numero');
-            }
+            //if(!empty($request->input("bo_participa_ministerio"))){
+            //}
+            $bo_participa_ministerio = Security::validar($request->input("bo_participa_ministerio"), 'numero');
+
             if(!empty($request->input("gl_ministerio"))){
                 $gl_ministerio = Security::validar($request->input("gl_ministerio"), 'string');
             }
-            if(!empty($request->input("bo_vive_con_ninos"))){
-                $bo_vive_con_ninos = Security::validar($request->input("bo_vive_con_ninos"), 'numero');
-            }
+
+            //if(!empty($request->input("bo_vive_con_ninos"))){
+            //}
+            $bo_vive_con_ninos = Security::validar($request->input("bo_vive_con_ninos"), 'numero');
             if(!empty($request->input("nr_vive_con_ninos"))){
                 $nr_vive_con_ninos = Security::validar($request->input("nr_vive_con_ninos"), 'numero');
             }
-            if(!empty($request->input("bo_vive_con_adolescentes"))){
-                $bo_vive_con_adolescentes = Security::validar($request->input("bo_vive_con_adolescentes"), 'numero');
-            }
+
+            //if(!empty($request->input("bo_vive_con_adolescentes"))){
+            //}
+            $bo_vive_con_adolescentes = Security::validar($request->input("bo_vive_con_adolescentes"), 'numero');
             if(!empty($request->input("nr_vive_con_adolescentes"))){
                 $nr_vive_con_adolescentes = Security::validar($request->input("nr_vive_con_adolescentes"), 'numero');
             }            
@@ -356,6 +363,7 @@ class encuestaController extends Controller
                 "id_comuna"                => $id_comuna,
                 "gl_nombre_comuna"         => $gl_nombre_comuna,
                 "gl_ciudad"                => $gl_ciudad,
+                "gl_barrio"                => $gl_barrio,
                 "gl_direccion"             => $gl_direccion,
                 "json_otros_datos"         => $json_direccion_gm,
                 "gl_calle"                 => $gl_calle,

@@ -48,6 +48,7 @@ class DatosMiembros extends Model
         'nr_telefono',
         'gl_email',
         'gl_ciudad',
+        'gl_barrio',
         'gl_direccion',
         'gl_latitud',
         'gl_longitud',
