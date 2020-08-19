@@ -46,7 +46,7 @@
 
 <!-- Icon Blocks -->
 <section class="g-pos-rel g-overflow-hidden">
-  <div class="container g-pt-100 g-pb-50">
+  <div class="container g-pt-100 g-pb-30">
     <div class="row justify-content-between">
       <div class="col-lg-5 g-mb-50">
         <!-- Heading -->
@@ -118,4 +118,101 @@
   </div>
 </section>
 <!-- End Icon Blocks -->
+
+
+<section class="g-pos-rel g-overflow-hidden">
+  <div class="container g-pb-50">
+    <div class="row justify-content-between">
+      <div class="col-lg-12 g-mb-50">
+        <!-- Heading -->
+        <div class="text-center text-uppercase u-heading-v6-2 g-mb-40">
+          <h2 class="h3 u-heading-v6__title">Equipo Pastoral</h2>
+        </div>  
+        <!-- End Heading -->
+        <div class="col-lg-12  text-center text-lg-left g-mb-50 ">
+          <!-- Team Block -->
+          <div class="row">
+            <div class="col-sm-4 col-sm-6 col-lg-3 g-mb-60">
+              <!-- Figure -->
+              <figure class="text-center">
+                <!-- Figure Image -->
+                <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                  <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/equipo pastoral/IMG_0219.jpg') }}" alt="Equipo Pastoral">
+                </div>
+                <!-- End Figure Image -->
+
+                <!-- Figure Info -->
+                <div class="g-mb-15">
+                  <h4 class="h4 g-color-black g-mb-5">Luís Guzman</h4>
+                </div>
+                <p></p>
+                <!-- End Info -->
+              </figure>
+              <!-- End Figure -->
+            </div>
+
+            <div class="col-sm-4 col-sm-6 col-lg-3 g-mb-60">
+              <!-- Figure -->
+              <figure class="text-center">
+                <!-- Figure Image -->
+                <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                  <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/equipo pastoral/IMG_0220.jpg') }}" alt="Equipo Pastoral">
+                </div>
+                <!-- End Figure Image -->
+
+                <!-- Figure Info -->
+                <div class="g-mb-15">
+                  <h4 class="h4 g-color-black g-mb-5">Claudio Fuentes</h4>
+                </div>
+                <p></p>
+                <!-- End Info -->
+              </figure>
+              <!-- End Figure -->
+            </div>
+
+            <div class="col-sm-4 col-sm-6 col-lg-3 g-mb-60">
+              <!-- Figure -->
+              <figure class="text-center">
+                <!-- Figure Image -->
+                <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                  <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/equipo pastoral/IMG_0230.jpg') }}" alt="Equipo Pastoral">
+                </div>
+                <!-- End Figure Image -->
+
+                <!-- Figure Info -->
+                <div class="g-mb-15">
+                  <h4 class="h4 g-color-black g-mb-5">Daniel Jiménez</h4>
+                </div>
+                <p></p>
+                <!-- End Info -->
+              </figure>
+              <!-- End Figure -->
+            </div>
+
+            <div class="col-sm-4 col-sm-6 col-lg-3 g-mb-60">
+              <!-- Figure -->
+              <figure class="text-center">
+                <!-- Figure Image -->
+                <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+                  <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/equipo pastoral/IMG_0231.jpg') }}" alt="Equipo Pastoral">
+                </div>
+                <!-- End Figure Image -->
+
+                <!-- Figure Info -->
+                <div class="g-mb-15">
+                  <h4 class="h4 g-color-black g-mb-5">Brian O'Shee</h4>
+                </div>
+                <p></p>
+                <!-- End Info -->
+              </figure>
+              <!-- End Figure -->
+            </div>
+          </div>                
+        </div>
+        <!-- End Team Block -->
+      </div>
+    </div>
+
+  </div>
+</section>
 @endsection
