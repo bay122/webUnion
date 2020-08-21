@@ -209,7 +209,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group {{ $errors->has('nr_telefono') ? 'has-error' : '' }}">
-                                        <label for="nr_telefono" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15"> Celular</label>
+                                        <label for="nr_telefono" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15"><span class="fas fa-exclamation-triangle"></span> Celular/Teléfono</label>
                                         <div class="col-xs-12">
                                             <input type="string" name="nr_telefono" id="nr_telefono" class="form-control" value="" placeholder="991919191">
                                         </div>
@@ -293,7 +293,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group {{ $errors->has('gl_ciudad') ? 'has-error' : '' }}" style="width: 100%;">
-                                            <label for="gl_ciudad" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">Nombre Ciudad</label>
+                                            <label for="gl_ciudad" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15"><span class="fas fa-exclamation-triangle"></span> Nombre Ciudad</label>
                                             <div class="col-xs-12">
                                                 <input type="text" name="gl_ciudad" id="gl_ciudad" class="form-control" value="" placeholder="Nombre Ciudad">
                                             </div>
@@ -302,7 +302,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group {{ $errors->has('gl_barrio') ? 'has-error' : '' }}" style="width: 100%;">
-                                            <label for="gl_barrio" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">Nombre Barrio</label>
+                                            <label for="gl_barrio" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15"><span class="fas fa-exclamation-triangle"></span> Nombre Sector</label>
                                             <div class="col-xs-12">
                                                 <input type="text" name="gl_barrio" id="gl_barrio" class="form-control" value="" placeholder="Nombre Barrio">
                                             </div>
@@ -338,7 +338,7 @@
                                     @endif
                                     <div class="row">
                                         <div class="form-group  {{ $errors->has('nr_calle') ? 'has-error' : ''}}" style="width: 100%;">
-                                            <label for="nr_calle" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">Número de calle</label>
+                                            <label for="nr_calle" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">Número de casa</label>
                                             <div class="col-xs-12">
                                                 <input type="text" name="nr_calle" id="nr_calle" class="form-control validado" value="" placeholder="Número de Calle">
                                             </div>
@@ -441,7 +441,7 @@
                                 <div class="row g-mb-20">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="form-group {{ $errors->has('bo_participa_ministerio') ? 'has-error' : '' }}">
-                                            <label for="bo_participa_ministerio" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Participa de algún minsiterio?</label>
+                                            <label for="bo_participa_ministerio" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Participa de algún minsiterio o comunidad de vida?</label>
                                             <div class="col-xs-12">
                                                 <div class="input-group">
                                                     <div id="radioBtn" class="btn-group">
@@ -466,26 +466,54 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="row g-mb-20">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group {{ $errors->has('id_cursa_discipulado') ? 'has-error' : '' }}">
+                                            <label for="id_cursa_discipulado" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Terminó o está cursando el Discipulado Fundamental?</label>
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <div id="radioBtn" class="btn-group">
+                                                        <a class="btn btn-md u-btn-inset u-btn-outline-primary text-back" style="width: 150px" data-toggle="id_cursa_discipulado" data-title="1">
+                                                        <b>Si, lo finalizé</b>
+                                                        </a>
+                                                        <a class="btn btn-md u-btn-inset u-btn-outline-primary text-back" style="width: 150px" data-toggle="id_cursa_discipulado" data-title="2">
+                                                        <b>Si, lo estoy cursando</b>
+                                                        </a>
+                                                        <a class="btn btn-md u-btn-inset u-btn-outline-primary text-back" style="width: 150px" data-toggle="id_cursa_discipulado" data-title="3">
+                                                        <b>No, aún no lo he cursado</b>
+                                                        </a>
+                                                    </div>
+                                                    <input type="hidden" name="id_cursa_discipulado" id="id_cursa_discipulado">
+                                                </div>
+                                            </div>
+                                            {!! $errors->first('id_cursa_discipulado', '<small class="help-block">:message</small>') !!}
+                                        </div>
+                                    </div>
                                 </div> 
 
                                 <div class="row g-mb-20">
                                     <div class="col-lg-6 col-md-12">
-                                        <div class="form-group {{ $errors->has('id_tipo_participacion') ? 'has-error' : '' }}">
-                                            <label for="id_tipo_participacion" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Cómo ha participado de las reuniones?</label>
+                                        <div class="form-group {{ $errors->has('id_cursa_pcm') ? 'has-error' : '' }}">
+                                            <label for="id_cursa_pcm" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Terminó o está cursando el PCM (programa de capacitación ministerial)?</label>
                                             <div class="col-xs-12">
                                                 <div class="input-group">
                                                     <div id="radioBtn" class="btn-group">
-                                                        <a class="btn btn-md u-btn-inset u-btn-outline-primary text-back" style="width: 150px" data-toggle="id_tipo_participacion" data-title="1">
-                                                        <b>Online y Presencial</b>
+                                                        <a class="btn btn-md u-btn-inset u-btn-outline-primary text-back" style="width: 150px" data-toggle="id_cursa_pcm" data-title="1">
+                                                        <b>Si, lo finalizé</b>
                                                         </a>
-                                                        <a class="btn btn-md u-btn-inset u-btn-outline-primary text-back" style="width: 150px" data-toggle="id_tipo_participacion" data-title="0">
-                                                        <b>Solo Online</b>
+                                                        <a class="btn btn-md u-btn-inset u-btn-outline-primary text-back" style="width: 150px" data-toggle="id_cursa_pcm" data-title="2">
+                                                        <b>Si, lo estoy cursando</b>
+                                                        </a>
+                                                        <a class="btn btn-md u-btn-inset u-btn-outline-primary text-back" style="width: 150px" data-toggle="id_cursa_pcm" data-title="3">
+                                                        <b>No, aún no lo he cursado</b>
                                                         </a>
                                                     </div>
-                                                    <input type="hidden" name="id_tipo_participacion" id="id_tipo_participacion">
+                                                    <input type="hidden" name="id_cursa_pcm" id="id_cursa_pcm">
                                                 </div>
                                             </div>
-                                            {!! $errors->first('id_tipo_participacion', '<small class="help-block">:message</small>') !!}
+                                            {!! $errors->first('id_cursa_pcm', '<small class="help-block">:message</small>') !!}
                                         </div>
                                     </div>
                                 </div> 
@@ -493,7 +521,7 @@
                                 <div class="row g-mb-20">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="form-group {{ $errors->has('bo_vive_con_ninos') ? 'has-error' : '' }}">
-                                            <label for="bo_vive_con_ninos" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Vive con niños? (0-5 años)</label>
+                                            <label for="bo_vive_con_ninos" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Vive con hijos de 0-11 años?</label>
                                             <div class="col-xs-12">
                                                 <div class="input-group">
                                                     <div id="radioBtn" class="btn-group">
@@ -514,7 +542,13 @@
                                         <div class="form-group">
                                             <label for="nr_vive_con_ninos" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15"> ¿Cuántos?</label>
                                             <div class="col-xs-12">
-                                                <input type="number" min="0" name="nr_vive_con_ninos" id="nr_vive_con_ninos" class="form-control" value="" placeholder="¿Cuántos?">
+                                                <select id="nr_vive_con_ninos" name="nr_vive_con_ninos" class="form-control">
+                                                    <option value="1" selected>1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="99">Más</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -523,7 +557,7 @@
                                 <div class="row g-mb-20">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="form-group {{ $errors->has('bo_vive_con_adolescentes') ? 'has-error' : '' }}">
-                                            <label for="bo_vive_con_adolescentes" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Vive con jóvenes? (6-14 años)</label>
+                                            <label for="bo_vive_con_adolescentes" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Vive con hijos de 12-14 años?</label>
                                             <div class="col-xs-12">
                                                 <div class="input-group">
                                                     <div id="radioBtn" class="btn-group">
@@ -545,7 +579,13 @@
                                         <div class="form-group">
                                             <label for="nr_vive_con_adolescentes" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15"> ¿Cuántos?</label>
                                             <div class="col-xs-12">
-                                                <input type="number" min="0" name="nr_vive_con_adolescentes" id="nr_vive_con_adolescentes" class="form-control" value="" placeholder="¿Cuántos?">
+                                                <select id="nr_vive_con_adolescentes" name="nr_vive_con_adolescentes" class="form-control">
+                                                    <option value="1" selected>1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="99">Más</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

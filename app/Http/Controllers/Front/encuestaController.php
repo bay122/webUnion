@@ -117,6 +117,8 @@ class encuestaController extends Controller
         $gl_tipo_participacion       = NULL;
         $bo_participa_ministerio     = NULL;
         $gl_ministerio               = NULL;
+        $id_cursa_discipulado        = NULL;
+        $id_cursa_pcm                = NULL;
         $bo_vive_con_ninos           = NULL;
         $nr_vive_con_ninos           = NULL;
         $bo_vive_con_adolescentes    = NULL;
@@ -231,8 +233,13 @@ class encuestaController extends Controller
                     $id_datos_jovenes = @DatosJovenes::where('gl_rut', '=', $gl_rut)->first()->id_datos_jovenes;
                 }
             }
+            file_put_contents('php://stderr', PHP_EOL . print_r("Validando fecha", TRUE). PHP_EOL, FILE_APPEND);
             if(!empty($request->input("fc_nacimiento"))){
+                file_put_contents('php://stderr', PHP_EOL . print_r("Fecha ingresada", TRUE). PHP_EOL, FILE_APPEND);
+                file_put_contents('php://stderr', PHP_EOL . print_r($request->input("fc_nacimiento"), TRUE). PHP_EOL, FILE_APPEND);
                 $fc_nacimiento = Security::validar($request->input("fc_nacimiento"), 'date');
+                file_put_contents('php://stderr', PHP_EOL . print_r("Fecha Formateada", TRUE). PHP_EOL, FILE_APPEND);
+                file_put_contents('php://stderr', PHP_EOL . print_r($fc_nacimiento, TRUE). PHP_EOL, FILE_APPEND);
             }
             if(!empty($request->input("nr_telefono"))){
                 $nr_telefono = Security::validar($request->input("nr_telefono"), 'string');
@@ -293,12 +300,12 @@ class encuestaController extends Controller
 
             }
 
-            $id_tipo_participacion = Security::validar($request->input("id_tipo_participacion"), 'numero');
+            /*$id_tipo_participacion = Security::validar($request->input("id_tipo_participacion"), 'numero');
             if(intval($id_tipo_participacion) == 1){
                 $gl_tipo_participacion = 'Online y Presencial';
             }else{
                 $gl_tipo_participacion = 'Solo Online';
-            }            
+            } */           
 
             //if(!empty($request->input("bo_participa_ministerio"))){
             //}
@@ -306,6 +313,14 @@ class encuestaController extends Controller
 
             if(!empty($request->input("gl_ministerio"))){
                 $gl_ministerio = Security::validar($request->input("gl_ministerio"), 'string');
+            }
+
+            if(!empty($request->input("id_cursa_discipulado"))){
+                $id_cursa_discipulado = Security::validar($request->input("id_cursa_discipulado"), 'numero');
+            }
+            
+            if(!empty($request->input("id_cursa_pcm"))){
+                $id_cursa_pcm = Security::validar($request->input("id_cursa_pcm"), 'numero');
             }
 
             //if(!empty($request->input("bo_vive_con_ninos"))){
@@ -376,6 +391,8 @@ class encuestaController extends Controller
                 "gl_tipo_participacion"    => $gl_tipo_participacion,
                 "bo_participa_ministerio"  => $bo_participa_ministerio,
                 "gl_ministerio"            => $gl_ministerio,
+                "id_cursa_discipulado"     => $id_cursa_discipulado,
+                "id_cursa_pcm"             => $id_cursa_pcm,
                 "bo_vive_con_ninos"        => $bo_vive_con_ninos,
                 "nr_vive_con_ninos"        => $nr_vive_con_ninos,
                 "bo_vive_con_adolescentes" => $bo_vive_con_adolescentes,
@@ -383,8 +400,9 @@ class encuestaController extends Controller
                 "id_datos_jovenes"         => $id_datos_jovenes,
                 "bo_validar"               => $bo_validar,
             );
-            //file_put_contents('php://stderr', PHP_EOL . print_r("GUARDANDO DATOS...", TRUE). PHP_EOL, FILE_APPEND);
-
+            file_put_contents('php://stderr', PHP_EOL . print_r("GUARDANDO DATOS...", TRUE). PHP_EOL, FILE_APPEND);
+            file_put_contents('php://stderr', PHP_EOL . print_r($datos_miembro, TRUE). PHP_EOL, FILE_APPEND);
+            
             if(!DatosMiembros::create($datos_miembro)){
                 App::abort(500, 'Error Inesperado, por favor, contáctese con soporte.');
             }else{

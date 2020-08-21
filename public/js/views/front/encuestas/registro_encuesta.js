@@ -199,6 +199,10 @@ function validarDatosPersonales(btn){
     if($("#gl_apellidos").val() == ''){
         msg_error += "- Debe ingresar el/los apellidos.<br/>";
     }
+    if($("#nr_telefono").val() == ''){
+        msg_error += "- Debe ingresar el número de teléfono.<br/>";
+    }
+    
     /*if($("#gl_rut").val() == ''){
         msg_error += "- Debe ingresar el rut.<br/>";
     }*/
@@ -222,14 +226,17 @@ function validarDatosUbicacion(btn){
     Base.buttonProccessStart(btn);
     var msg_error = "";
 
+    if($("#gl_ciudad").val() == ''){
+        msg_error += "- Debe ingresar la ciudad.<br/>";
+    }
+    if($("#gl_barrio").val() == ''){
+        msg_error += "- Debe ingresar el sector.<br/>";
+    }
     /*if($("#region").val() == ''){
         msg_error += "- Debe ingresar la región.<br/>";
     }
     if($("#comuna").val() == ''){
         msg_error += "- Debe ingresar la comuna.<br/>";
-    }
-    if($("#gl_ciudad").val() == ''){
-        msg_error += "- Debe ingresar la ciudad.<br/>";
     }
     if($("#gl_calle").val() == ''){
         msg_error += "- Debe ingresar la dirección.<br/>";
@@ -294,9 +301,10 @@ function submitValidation(btn){
         gl_latitud                  : $("#gl_latitud").val(),
         gl_longitud                 : $("#gl_longitud").val(),
         id_llegada_iglesia          : $("#id_llegada_iglesia").val(),
-        id_tipo_participacion       : $("#id_tipo_participacion").val(),
         bo_participa_ministerio     : $("#bo_participa_ministerio").val(),
         gl_ministerio               : $("#gl_ministerio").val(),
+        id_cursa_discipulado        : $("#id_cursa_discipulado").val(),
+        id_cursa_pcm                : $("#id_cursa_pcm").val(),
         bo_vive_con_ninos           : $("#bo_vive_con_ninos").val(),
         nr_vive_con_ninos           : $("#nr_vive_con_ninos").val(),
         bo_vive_con_adolescentes    : $("#bo_vive_con_adolescentes").val(),

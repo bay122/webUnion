@@ -80,9 +80,13 @@ class Security
                     }
                     if(count($parte)>2){
                     	if(strlen ($parte[2]) == 4){
-                        	$retorno = $parte[2]."-".$parte[1]."-".$parte[0];
+                            if(checkdate($parte[0], $parte[1], $parte[2])){
+                        	   $retorno = $parte[2]."-".$parte[1]."-".$parte[0];
+                            }
                     	}else{
-                    		$retorno = $parte[0]."-".$parte[1]."-".$parte[2];
+                            if(checkdate($parte[2], $parte[1], $parte[0])){
+                    		  $retorno = $parte[0]."-".$parte[1]."-".$parte[2];
+                            }
                     	}
                     }
                 }

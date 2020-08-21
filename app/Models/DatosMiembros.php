@@ -67,6 +67,8 @@ class DatosMiembros extends Model
         'gl_tipo_participacion',
         'bo_participa_ministerio',
         'gl_ministerio',
+        'id_cursa_discipulado',
+        'id_cursa_pcm',
         'bo_vive_con_ninos',
         'nr_vive_con_ninos',
         'bo_vive_con_adolescentes',
