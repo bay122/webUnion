@@ -441,7 +441,7 @@
                                 <div class="row g-mb-20">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="form-group {{ $errors->has('bo_participa_ministerio') ? 'has-error' : '' }}">
-                                            <label for="bo_participa_ministerio" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Participa de algún minsiterio o comunidad de vida?</label>
+                                            <label for="bo_participa_ministerio" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Participa de algún/os minsiterio/s o comunidad de vida?</label>
                                             <div class="col-xs-12">
                                                 <div class="input-group">
                                                     <div id="radioBtn" class="btn-group">
@@ -482,7 +482,7 @@
                                                         <b>Si, lo estoy cursando</b>
                                                         </a>
                                                         <a class="btn btn-md u-btn-inset u-btn-outline-primary text-back" style="width: 150px" data-toggle="id_cursa_discipulado" data-title="3">
-                                                        <b>No, aún no lo he cursado</b>
+                                                        <b>No</b>
                                                         </a>
                                                     </div>
                                                     <input type="hidden" name="id_cursa_discipulado" id="id_cursa_discipulado">
@@ -507,7 +507,7 @@
                                                         <b>Si, lo estoy cursando</b>
                                                         </a>
                                                         <a class="btn btn-md u-btn-inset u-btn-outline-primary text-back" style="width: 150px" data-toggle="id_cursa_pcm" data-title="3">
-                                                        <b>No, aún no lo he cursado</b>
+                                                        <b>No</b>
                                                         </a>
                                                     </div>
                                                     <input type="hidden" name="id_cursa_pcm" id="id_cursa_pcm">
