@@ -441,7 +441,7 @@
                                 <div class="row g-mb-20">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="form-group {{ $errors->has('bo_participa_ministerio') ? 'has-error' : '' }}">
-                                            <label for="bo_participa_ministerio" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Participa de algún/os minsiterio/s o comunidad de vida?</label>
+                                            <label for="bo_participa_ministerio" class="col-xs-12 g-color-gray-dark-v2 g-font-size-15">¿Participa de algún ministerio o comunidad de vida?</label>
                                             <div class="col-xs-12">
                                                 <div class="input-group">
                                                     <div id="radioBtn" class="btn-group">
