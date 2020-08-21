@@ -144,6 +144,7 @@
                 <!-- Figure Info -->
                 <div class="g-mb-15">
                   <h4 class="h4 g-color-black g-mb-5">Claudio Fuentes</h4>
+                  <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Pastor Principal</em>
                 </div>
                 <p></p>
                 <!-- End Info -->
@@ -162,7 +163,7 @@
 
                 <!-- Figure Info -->
                 <div class="g-mb-15">
-                  <h4 class="h4 g-color-black g-mb-5">Luís Guzman</h4>
+                  <h4 class="h4 g-color-black g-mb-5">Luís Guzmán</h4>
                 </div>
                 <p></p>
                 <!-- End Info -->
