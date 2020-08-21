@@ -29,7 +29,7 @@
                                 <div class="d-flex justify-content-between g-mb-10">
                                     <p class="m-0 g-color-black g-font-size-20">
                                     Debido a la contigencia sanitaria actual, las actividades presenciales están suspendidas hasta nuevo aviso. 
-                                    Por lo que todas nuestras reuniones Dominicales serán por nuestro canal de Youtube a las <i class="icon-hotel-restaurant-003 u-line-icon-pro"></i>  11:30 hrs.
+                                    Por lo que todas nuestras reuniones dominicales serán por nuestro canal de Youtube a las <i class="icon-hotel-restaurant-003 u-line-icon-pro"></i>  11:30 hrs.
                                     ¡No te lo pierdas! 
                                     </p>
                                 </div>
