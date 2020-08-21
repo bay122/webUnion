@@ -255,8 +255,9 @@
 
                         <!-- Figure Info -->
                         <div class="g-mb-15">
-                            <h4 class="h4 g-color-black g-mb-5">Nicol Jaramillo</h4>
-                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Niños y Adolescentes</em>
+                            <h4 class="h4 g-color-black g-mb-5">Nicole Jaramillo</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Niños</em>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Pre Adolescentes</em>
                         </div>
                         <p></p>
                         <!-- End Info -->
@@ -275,7 +276,7 @@
 
                         <!-- Figure Info -->
                         <div class="g-mb-15">
-                            <h4 class="h4 g-color-black g-mb-5">Teresa Aspee y Daniel Jiménez</h4>
+                            <h4 class="h4 g-color-black g-mb-5">Teresa Aspée y Daniel Jiménez</h4>
                             <em class="g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Matrimonios</em>
                         </div>
                         <p></p>
@@ -337,7 +338,7 @@
 
                         <!-- Figure Info -->
                         <div class="g-mb-15">
-                            <h4 class="h4 g-color-black g-mb-5">Camila Ramirez</h4>
+                            <h4 class="h4 g-color-black g-mb-5">Camila Ramírez</h4>
                             <em class="g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Misiones</em>
                         </div>
                         <p></p>
@@ -419,7 +420,7 @@
 
                         <!-- Figure Info -->
                         <div class="g-mb-15">
-                            <h4 class="h4 g-color-black g-mb-5">Betty Sangüesa</h4>
+                            <h4 class="h4 g-color-black g-mb-5">Beatriz Sangüesa</h4>
                             <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Años Dorados</em>
                         </div>
                         <p></p>
@@ -441,7 +442,8 @@
                         <!-- Figure Info -->
                         <div class="g-mb-15">
                             <h4 class="h4 g-color-black g-mb-5">Luis Guzmán</h4>
-                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Oración</em>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Oración,</em>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Medios y Ministerio de Misericordia</em>
                         </div>
                         <p></p>
                         <!-- End Info -->
@@ -480,7 +482,7 @@
 
                         <!-- Figure Info -->
                         <div class="g-mb-15">
-                            <h4 class="h4 g-color-black g-mb-5">Carlos Echaniz</h4>
+                            <h4 class="h4 g-color-black g-mb-5">Carlos Echániz</h4>
                             <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Comunidad de Vida</em>
                         </div>
                         <p></p>
@@ -501,28 +503,8 @@
 
                         <!-- Figure Info -->
                         <div class="g-mb-15">
-                            <h4 class="h4 g-color-black g-mb-5">Daniela Perffeti y Carmen Alvarez</h4>
+                            <h4 class="h4 g-color-black g-mb-5">Daniela Perfetti y Carmen Álvarez</h4>
                             <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Consejeria</em>
-                        </div>
-                        <p></p>
-                        <!-- End Info -->
-                    </figure>
-                    <!-- End Figure -->
-                </div>
-
-                <div class="col-sm-4 g-mb-60">
-                    <!-- Figure -->
-                    <figure class="text-center">
-                        <!-- Figure Image -->
-                        <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
-                            <img class="rounded-circle g-max-width-190" src="{{ asset('uc2/img/lideres/individuales/IMG_0219.jpg') }}" alt=" Medios">
-                        </div>
-                        <!-- End Figure Image -->
-
-                        <!-- Figure Info -->
-                        <div class="g-mb-15">
-                            <h4 class="h4 g-color-black g-mb-5">Luis Guzmán</h4>
-                            <em class="g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Medios</em>
                         </div>
                         <p></p>
                         <!-- End Info -->
@@ -542,15 +524,14 @@
                         <!-- Figure Info -->
                         <div class="g-mb-15">
                             <h4 class="h4 g-color-black g-mb-5">Alan Morales</h4>
-                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Alabanza</em>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Música</em>
                         </div>
                         <p></p>
                         <!-- End Info -->
                     </figure>
                     <!-- End Figure -->
                 </div>
-            </div>
-            <div class="row">
+
                 <div class="col-sm-4 g-mb-60">
                     <!-- Figure -->
                     <figure class="text-center">
@@ -562,16 +543,14 @@
 
                         <!-- Figure Info -->
                         <div class="g-mb-15">
-                            <h4 class="h4 g-color-black g-mb-5">Benjamín Caceres</h4>
-                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Misericordia</em>
+                            <h4 class="h4 g-color-black g-mb-5">Benjamín Cáceres</h4>
+                            <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Ministerio de Servidores</em>
                         </div>
                         <p></p>
                         <!-- End Info -->
                     </figure>
                     <!-- End Figure -->
                 </div>
-
-                
             </div>
             <!-- End Team Block -->
         </div>
