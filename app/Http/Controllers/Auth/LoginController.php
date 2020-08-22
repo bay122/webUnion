@@ -38,6 +38,15 @@ class LoginController extends Controller
     }
 
     /**
+     * It overrides the function showLoginForm defined in the trait 
+     * Illuminate\Foundation\Auth\AuthenticatesUsers.
+     */
+    public function showLoginForm()
+    {
+        return view('front.uc2.auth.login');
+    }
+    
+    /**
      * Get the login username to be used by the controller.
      *
      * @return string

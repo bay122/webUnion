@@ -1,5 +1,12 @@
 <?php
 
+if (!function_exists('isCurrentRoute')) {
+    function isCurrentRoute($route)
+    {
+        return request()->url() == route($route);
+    }
+}
+
 if (!function_exists('currentRoute')) {
     function currentRoute($route)
     {
@@ -9,8 +16,13 @@ if (!function_exists('currentRoute')) {
 
 if (!function_exists('currentRouteBootstrap')) {
     function currentRouteBootstrap($route)
-    {
-        return request()->url() == route($route) ? ' class=active' : '';
+    {   
+      if($route == 'home' && Request::is('/')){
+        return ' active';
+      }else{
+        //return request()->url() == route($route) ? ' class=active' : '';
+        return request()->url() == route($route) ? ' active' : '';
+      }
     }
 }
 

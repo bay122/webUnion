@@ -45,7 +45,7 @@ function cargarComunasPorRegion(id_region,combo,comuna){
 
 
 
-function submit(btn){ 
+function submitValidation(btn){ 
 	//var button_process	= buttonStartProcess($(this), e);
     var btnText = $(btn).prop('disbaled',true).html();
     $(btn).html('Guardando... <i class="fa fa-spin fa-spinner"></i>');

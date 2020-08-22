@@ -121,7 +121,7 @@
 									<!-- The user image in the menu -->
 									<li class="user-header">
 										<img src="{{ Gravatar::get(auth()->user()->email) }}" class="img-circle" alt="User Image">
-										<p>{{ auth()->user()->name }}</p>
+										<p>{{ auth()->user()->name.' - '.auth()->user()->role }}</p>
 									</li>
 									<!-- Menu Footer-->
 									<li class="user-footer">
@@ -215,6 +215,7 @@
 							<li><a href="{{ route('videos.index') }}"><i class="fa fa-video-camera"></i> <span>@lang('Video')</span></a></li>
 						@endadmin
 
+						{{-- directiva para redactor (AppServiceProvider)--}}
 						@redac
 							@include('back.partials.treeview', [
 								'icon' => 'file-text',
@@ -240,6 +241,7 @@
 							<li><a href="{{ route('medias.index') }}"><i class="fa fa-image"></i> <span>@lang('Medias')</span></a></li>
 						@endredac
 
+						{{-- directiva para tripulante (AppServiceProvider)--}}
 						@tripulante(false)
 							@ministerio(1)
 							<li class="treeview">
@@ -256,11 +258,26 @@
 							</li>
 							@endministerio
 
+							{{-- directiva para ministerios (AppServiceProvider)--}}
 							@ministerio(15)
-							<li><a href="{{ route('videos.index') }}"><i class="fa fa-video-camera"></i> <span>@lang('Video')</span></a></li>
+							{{--<li><a href="{{ route('videos.index') }}"><i class="fa fa-video-camera"></i> <span>@lang('Video')</span></a></li>--}}
+
+							<li class="treeview">
+								<a href="#"><i class="fa fa-fw fa-tablet"></i> <span>@lang('Página Principal')</span>
+									<span class="pull-right-container">
+										<span class="fa fa-angle-left pull-right"></span>
+									</span>
+								</a>
+								<ul class="treeview-menu">
+									<li><a href="{{ route('home_config.video.index') }}"><span class="fa fa-fw fa-circle-o text-blue"></span> <span>@lang('Video')</span></a></li>
+
+									<li><a href="{{ route('home_config.carrusel.index') }}"><span class="fa fa-fw fa-circle-o text-yellow"></span> <span>@lang('Carrusel')</span></a></li>
+								</ul>
+							</li>
 							@endministerio
 						@endtripulante
 
+						{{-- directiva para admin (AppServiceProvider)--}}
 						@admin
 							<li class="treeview">
 								<a href="#"><i class="fa fa-fw fa-cogs"></i> <span>@lang('Mantenedores')</span>

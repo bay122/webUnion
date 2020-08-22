@@ -7,6 +7,7 @@ use App\ {
 };
 use Illuminate\Http\Request;
 use App\Models\Configuracion;
+use App\Models\ImagenesCarrusel;
 class UCController extends Controller
 {
 
@@ -27,8 +28,10 @@ class UCController extends Controller
     public function index()
     {
         $configuracion = Configuracion::find(1);
+        //$imagenes = ImagenesCarrusel::all();
+        //return view('front.index',compact('configuracion','imagenes','id'));
         $id = 1;
-        return view('front.index',compact('configuracion','id'));
+        return view('front.uc2.index',compact('configuracion','id'));
     }
 
     /**
@@ -38,7 +41,8 @@ class UCController extends Controller
      */
     public function recursos()
     {
-        return view('front.recursos');
+        //return view('front.recursos');
+        return view('front.uc2.informacion.recursos');
     }
 
     public function getDownload($nombre)
@@ -142,7 +146,9 @@ class UCController extends Controller
      */
     public function ministerios()
     {   
-        $categorias = array();
+        return view('front.uc2.informacion.ministerios');
+
+        /*$categorias = array();
         $encabezados = array();
         $i = 0;
         $ministerios = $this->getAllMinisterios();
@@ -156,7 +162,7 @@ class UCController extends Controller
             $categorias[$i] = $resp;
             $encabezados[$i] = $ministerio['gl_titulo'];
             $i++;
-        }
+        }*/
         
 
         /*$carpeta = "familiares";
@@ -192,7 +198,7 @@ class UCController extends Controller
         $categorias = array($familiares, $ensenanzas, $misiones, $s_transversales);
         $encabezados = array("FAMILIARES", "ENSEÑANZAS", "MISIONES", "SERVICIOS TRANSVERSALES");  */   
        
-        return view('front.informacion.ministerios', compact('encabezados', 'categorias'));
+        //return view('front.informacion.ministerios', compact('encabezados', 'categorias'));
     }
 
 
@@ -384,7 +390,8 @@ class UCController extends Controller
      */
     public function nosotros()
     {
-        return view('front.informacion.nosotros');
+        //return view('front.informacion.nosotros');
+        return view('front.uc2.informacion.nosotros');
     }
 
     /**
@@ -394,6 +401,7 @@ class UCController extends Controller
      */
     public function declaracionDeFe()
     {
-        return view('front.informacion.declaracion_de_fe');
+        //return view('front.informacion.declaracion_de_fe');
+        return view('front.uc2.informacion.declaracion_de_fe');
     }
 }
