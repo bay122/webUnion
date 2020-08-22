@@ -1,0 +1,2 @@
+ALTER TABLE `datos_miembros` ADD `id_cursa_discipulado` INT(1) NULL DEFAULT NULL COMMENT '1: finalizado, 2: en curso, 3: sin hacer' AFTER `gl_ministerio`, 
+ADD `id_cursa_pcm` INT(1) NULL DEFAULT NULL COMMENT '1: finalizado, 2: en curso, 3: sin hacer' AFTER `id_cursa_discipulado`;
