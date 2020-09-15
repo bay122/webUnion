@@ -1,0 +1,57 @@
+@extends('front.layout')
+  
+@section('title', 'Ministerios')
+
+@section('main')
+<div class="post-165 page type-page status-publish has-post-thumbnail hentry">
+    <section class="page-title-small border-bottom-mid-gray border-top-mid-gray blog-single-page-background bg-gray">
+        <div class="container-fluid">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <span class="text-extra-small text-uppercase alt-font right-separator blog-single-page-meta">Iglesia Unión Cristiana</span>
+                <h2 class="title-small position-reletive font-weight-700 text-uppercase text-mid-gray blog-headline right-separator entry-title blog-single-page-title no-margin-bottom">Ministerios</h2>
+            </div>
+        </div>
+    </section>
+        
+    <section class="margin-five sm-margin-eight-top xs-margin-twelve-top no-margin-lr">
+        <div class="container">
+            @php $j=0; @endphp
+            @foreach($categorias as $categoria)
+                <div class="row">
+                    <div class="paperio-text-block col-md-12 col-sm-12 col-xs-12 no-padding">
+                        <div class="toggle-button">
+                            <h5 class="col-sm-11 text-left title-border-right text-mid-gray font-weight-700 text-uppercase letter-spacing-1 margin-six-bottom sm-margin-four-bottom xs-margin-ten-bottom title-small xs-no-padding">
+                                <span>{{$encabezados[$j]}}</span>
+                            </h5>
+                                <i class="col-sm-1 text-rigth fa fa-plus-circle" style="font-size: 24px;"></i>
+                        </div>
+                        <div class="toggle-section" style="display: none;">
+                            @foreach($categoria as $categoria_detalle)             
+                                <div class="paperio-dropcap col-md-11 col-sm-11 col-xs-11">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6">       
+                                            <figure>
+                                                <img alt="{{$categoria_detalle->name }}" src="{{ asset($categoria_detalle->image->route) }}" class="img-responsive">
+                                                <figcaption class="text-center">{{$categoria_detalle->title}}</figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <p class="dropcap text-medium">
+                                                {!!$categoria_detalle->description!!}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                </div>
+                            @endforeach
+                        </div>
+                        <p></p>
+                        @php $j++; @endphp
+                        <div class="separator-line-thin bg-middle-gray seprator-line-thin bg-middle-gray margin-five-bottom xs-margin-ten-bottom no-margin-lr clear-both" style="background:#e4e4e4; height:1px;"></div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+</div>
+@endsection
