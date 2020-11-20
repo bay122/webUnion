@@ -334,14 +334,14 @@
                 gl_rut              : gl_rut,
                 gl_ciudad_verano    : $("#gl_ciudad_verano").val(),
                 gl_participarias    : $("#gl_participarias").val(),
-                gl_ciudad           : $('#gl_ciudad1').val() + ' ' +$('#gl_ciudad2').val() + ' ' +$('#gl_ciudad3').val(),
-                gl_dia_actividad    : $('#gl_dia_actividad1').val() + ' ' +$('#gl_dia_actividad2').val() + ' ' +$('#gl_dia_actividad3').val(),
+                gl_ciudad           : $('#gl_ciudad1').val() + '; ' +$('#gl_ciudad2').val() + '; ' +$('#gl_ciudad3').val(),
+                gl_dia_actividad    : $('#gl_dia_actividad1').val() + '; ' +$('#gl_dia_actividad2').val() + '; ' +$('#gl_dia_actividad3').val(),
                 gl_fin_semestre     : $("#gl_fin_semestre").val(),
                 gl_tematica_clubs   : $("#gl_tematica_clubs").val(),
                 gl_retiro           : $("#gl_retiro").val(),
-                gl_dia_retiro       : $('#gl_dia_retiro1').val() + ' ' +$('#gl_dia_retiro2').val(),
+                gl_dia_retiro       : $('#gl_dia_retiro1').val() + '; ' +$('#gl_dia_retiro2').val(),
                 gl_seminario        : $("#gl_seminario").val(),
-                gl_dia_seminario    : $('#gl_dia_seminario1').val() + ' ' +$('#gl_dia_seminario2').val(),
+                gl_dia_seminario    : $('#gl_dia_seminario1').val() + '; ' +$('#gl_dia_seminario2').val(),
                 gl_actividades      : $("#gl_actividades").val()
             }
             $.ajax({
