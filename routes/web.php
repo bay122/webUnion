@@ -37,6 +37,13 @@ Route::prefix('jovenes')->namespace('Front')->group(function () {
     Route::post('registrarNuevoJoven', 'jovenesController@registrarNuevoJoven');
 });
 
+//Jovenes
+Route::prefix('jovenes')->namespace('Front')->group(function () {
+    Route::name('encuesta')->get('/encuesta', 'jovenesEncuestaController@registro');
+    Route::post('/checkRut', 'jovenesEncuestaController@checkRut');
+    Route::post('/registrarNuevaEncuesta', 'jovenesEncuestaController@registrarNuevaEncuesta');
+}); 
+
 //Encuesta
 Route::prefix('encuesta')->namespace('Front')->group(function () {
     Route::name('registro')->get('/registro', 'encuestaController@registro');
@@ -130,7 +137,23 @@ Route::prefix('admin')->namespace('Back')->group(function () {
      * al perfil de administrador, no es necesario definir esas rutas aqui dentro tambien.
      */
     Route::middleware('admin')->group(function () {
+        /*
+        Route::resource('mapa', 'MapaController', ['only' => [
+            'index','update'
+        ]]);
 
+        Route::group(['prefix' => 'mapa'], function(){
+            Route::get('index/', ['uses' => 'MapaController@index', 'as' => 'mapa.index']);
+            Route::post('getDatosIglesia/', ['uses' => 'MapaController@getDatosIglesia', 'as' => 'mapa.buscar']);
+
+            //Route::post('exportarExcel/', ['uses' => 'MapaController@exportarExcel', 'as' => 'discipulado.asistentes.exportarExcel']);
+
+            //Route::get('edit/{id}', ['uses' => 'MapaController@edit', 'as' => 'discipulado.asistentes.edit']);//->where('id', '[0-9]+');
+            //Route::get('create/{id}', ['uses' => 'MapaController@create', 'as' => 'discipulado.asistentes.create']);
+            //Route::post('store', ['uses' => 'MapaController@store', 'as' => 'discipulado.asistentes.store']);
+            //Route::delete('destroy/{id}', ['uses' => 'MapaController@destroy', 'as' => 'discipulado.asistentes.destroy']);
+        });
+        */
         /**
          * INICIO rutas para funciones relacionadas con los Users
          */

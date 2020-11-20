@@ -20,4 +20,19 @@
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    #ErrorDocument 401 https://www.unioncristiana.cl
+    ErrorDocument 403 https://www.unioncristiana.cl
+    ErrorDocument 404 https://www.unioncristiana.cl
+    ErrorDocument 405 https://www.unioncristiana.cl
+
+    #Order deny,allow
+    #Deny from all
+    #Allow from 186.67.85.100
+
+    AuthType Basic
+    AuthName "Credenciales Requeridas"
+    AuthUserFile /etc/security/apache2/private/.htpasswd
+    require valid-user
+
 </IfModule>

@@ -28,11 +28,13 @@ class Access
     }
 
     static public function puedeVer($id_ministerio){
+        file_put_contents('php://stderr', PHP_EOL.print_r("puede ver",true).PHP_EOL, FILE_APPEND);
     	if(empty($id_ministerio)){
     		return false;
     	}else{
 	    	$user = auth()->user();
 	    	$perfiles = $user->perfiles($id_ministerio);
+            //file_put_contents('php://stderr', PHP_EOL.print_r($perfiles,true).PHP_EOL, FILE_APPEND);
 	    	if($perfiles->count() > 0){
 	    		/**
 	    		 * @TODO: cargar el perfil actual del usuario en la sesión, para no tener que buscar entre todos sus perfiles.
